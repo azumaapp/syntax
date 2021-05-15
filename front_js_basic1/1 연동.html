@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <!-- css 도입 -->
+    <link rel="stylesheet" href="1.css">
+
+    <!-- js 도입2 -->
+    <script type="text/javascript">
+        function clicked2() {
+            // 아래를 복잡한 로직이라고 가정해보면 <script>로 나누는게 납득가죠?
+            let title = '경고'
+            let msg = '메세지2'
+            alert(title + ' ' + msg);
+        }
+    </script>
+
+    <!-- js 도입3 -->
+    <script src="1.js"></script>
+</head>
+
+<body>
+    <!-- js 도입1 : 원시적 방법 -->
+    <button onclick="alert('경고 메시지1')">버튼1</button>
+
+    <!-- js 도입방법2 : 근대적 방법 -->
+    <button onclick="clicked2()">버튼2</button>
+
+    <!-- js 도입방법3 : 현대적 방법 -->
+    <button onclick="clicked3()" oncontextmenu="rightClicked3()">버튼3</button>
+    <button onclick="clicked4()" oncontextmenu="rightClicked4()">버튼4</button>
+</body>
+</html>

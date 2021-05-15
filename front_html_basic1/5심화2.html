@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+</head>
+<body>
+    <!-- postion -->
+    <style>
+        .c1 {
+            /* position: relative; = 여러 요소들과 관계된 현재 위치를 기준으로 움직임 */
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background: red;
+        }
+        .c2 {
+            /* postion: absolute; = 독립적으로 좌표만을 따르며, html 문서를 기준으로 고정됨 (right로부터 0px, top으로부터 50px) */
+            position: absolute;
+            right: 0px;
+            top: 50px;
+            width: 50%;
+            height: 100px;
+            background: blue;
+        }
+        .c3 {
+            /* postion: fixed; = 독립적으로 좌표만을 따르며, html 문서가 아닌, 브라우저를 기준으로 고정됨.
+                                    최대로 확대한 뒤 휠을 내려보면,
+                                    html기준의 absolute와 달리, 
+                                    브라우저기준의 fixed는 그자리에서 움직이지 않고 휠을 내려도 항상 제자리에 고정되어 있음을 확인할 수 있다. */
+            position: fixed;
+            width: 100%;
+            left: 0px;
+            top: 0px;
+            height: 50px;
+            background: yellow;
+        }
+    </style>
+    <!-- position 별 패널 모양 -->
+    <div class="c1">
+        relative
+    </div>
+    <div class="c1">
+        relative
+    </div>
+    <div class="c1">
+        relative
+    </div>
+    <div class="c2">
+        absolute
+    </div>
+    <div class="c2">
+        absolute
+    </div>
+    <div class="c2">
+        absolute
+    </div>
+    <div class="c3">
+        fixed
+    </div>
+    <div class="c3">
+        fixed
+    </div>
+    <div class="c3">
+        fixed
+    </div>
+</body>
+</html>

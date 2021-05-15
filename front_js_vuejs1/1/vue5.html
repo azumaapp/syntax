@@ -1,0 +1,146 @@
+<!-- [조건문 v-if와 v-show] -->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Basic</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+
+
+    <h2>App1 : v-if</h2>
+    <div id="app1">
+        <div v-if="true">Yes</div>
+        <div v-if="false">No</div>        
+
+        <div v-if="show">Show</div>
+        <div v-else>No</div>
+        <button @click="toggleShow">Toggle</button>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app1',
+            data: {
+                // show:false
+                show:true
+            },
+            methods: {
+                toggleShow() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+
+
+
+    <h2>App2 : v-if와 template (혹은 div)</h2>
+    <div id="app2">
+        <button @click="toggleShow">Toggle</button>
+        <template v-if="show">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+        <div v-if="show">
+            <div>Go!</div>
+        </div>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app2',
+            data: {
+                show: true
+            },
+            methods: {
+                toggleShow() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+
+
+
+    <h2>App3 : v-if, v-else-if, v-else</h2>
+    <div id="app3">
+        <button @click="increaseNumber">Increase</button> 
+        <br>value : {{ number }}
+        <template v-if="number === 1">
+            <div>1</div>
+        </template>
+        <div v-else-if="number === 2">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <div v-else-if="number === 3">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <div v-else>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>...</div>
+        </div>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app3',
+            data: {
+                number: 1
+            },
+            methods: {
+                increaseNumber() {
+                    this.number++
+                }
+            }
+        })
+    </script>
+
+
+
+    <h2>App4 : v-show</h2>
+    <div id="app4">
+        <button @click="toggle">Increase</button>
+        <div v-show="show">Yes</div>
+    </div>
+    <!-- 
+        여기까지 보면, 언뜻 보면 v-show는 v-if와 동일한 것처럼 보입니다.
+        차이점은...        
+        v-show는 렌더링은 하지만 안 보이는 스타일(style="display: none;")을 적용하는 것이고,
+        v-if는 렌더링을 안하므로 "진짜" 조건부 렌더링입니다. 또한 게으릅니다. 조건이 거짓인 경우 첫 참 이전까지 아무것도 하지 않습니다.
+        일반적으로 
+        v-show는 초기 렌더링 비용이 높습니다.(매우 자주 바꾸기를 원하면 v-show를 쓰세요.)
+        v-if는 토글 비용이 높습니다.(조건이 자주 바뀌지 않으면 v-if를 쓰세요.)
+    -->
+    
+    <script>
+        var app = new Vue({
+            el: '#app4',
+            data: {
+                show: false
+            },
+            methods: {
+                toggle() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+
+
+
+</body>
+
+</html>

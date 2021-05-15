@@ -1,0 +1,219 @@
+<!-- [데이터, 데이터바인딩] -->
+
+<!--
+- 설치 : https://kr.vuejs.org/v2/guide/installation.html
+- 참고자료 : https://kr.vuejs.org/v2/guide/index.html
+- extension 설치 목록 :
+    vetur : vue 개발용 vscode 패키지
+    html snippet : html 자동작성
+    html css support : css 자동작성
+    language-stylus : css 메타언어 사용
+    VueHelper : vue 코드 자동작성
+    doiuse : css 기술 적용
+    vue.js Extension Pack : vuejs 개발 실행하기 위한 확장팩
+    ESLint : javascript를 위한 정적 검증 도구(공백 등 자동 삭제)
+    material icon theme : 아이콘 가시성 향상
+-->
+
+<!-- Title : 데이터 바인딩 -->
+
+<!DOCTYPE html> <!-- vscode에서 !를 입력하면 기본틀 자동완성! -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Basic</title>
+    <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+    <h2>App1 : 뷰 인스턴스(instance) 생성</h2>
+    <div id="app1">
+        {{ name }}의 나이는 {{ age }}살입니다.
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app1', // 이렇게 div id 이름을 작성하면 내부 코드를 작성할 수 있게 되어요.
+            // 아래는 객체(오브젝트)변수라고 해요. 배열[]이 아닙니다. push같은 배열에 사용하는 함수를 사용할 수 없어요.
+            data: {
+                name: 'yang',
+                age: 33
+            }
+       })
+    </script>
+
+
+
+
+    <h2>App2 : 배열 데이터(array data)</h2>
+    <div id="app2">
+        배열변수 {{ person }} 안에 값 {{ person.name }}, {{ person.age }} 이 포함되어 있어요.
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app2',
+            data: {
+                person: { // 데이터의 위계를 만들어준다. person이 마치 클래스처럼 되어요.
+                    name: 'yang',
+                    age: 33
+                }
+            }
+        })
+    </script>
+
+
+
+    <h2>App3 : 데이터(data)와 메소드(methods)</h2>
+    <div id="app3">
+        {{ nextYear() }}
+        <br>
+        {{ otherMethod() }} <!-- 같은 내용이 두개가 나오겠죠? :) -->
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app3',
+            data: {
+                person: {
+                    name: 'yang',
+                    age: 33
+                }
+            },
+            methods: { // 메소드 안에는 각종 함수(명령어)들이 담겨져요.
+                nextYear: function () { // 함수는 파라미터가 없어도 호출시 최소 ()는 써야해요.
+                    return this.person.name + '는 내년에 ' + (this.person.age + 1) + '살입니다.';
+                },
+                otherMethod: function () { // 함수 안에서 함수를 꺼낼 수도 있어요.
+                    return this.nextYear();
+                }
+            }
+        })
+    </script>
+
+
+
+    <h2>App4 : 데이터(data)와 파라미터(parameter)가 있는 메소드(methods)</h2>
+    <div id="app4">
+        {{ nextYear('안녕하세요') }} <!-- 여기서 파라미터 부분에 들어가는 실제 값은 인자 혹은 아규먼트(argument)라고 불러요. -->
+        <br>
+        {{ otherMethod('안녕하세요') }} <!-- 같은 내용이 두개가 나오겠죠? :) -->
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app4',
+            data: {
+                person: {
+                    name: 'yang',
+                    age: 33
+                }
+            },
+            methods: { // 메소드 안에는 각종 함수(명령어)들이 담겨져요.
+                nextYear: function (greeting) { // 여기의 파라미터값은 말 그대로 파라미터라고 불러요.
+                    return greeting + '! ' + this.person.name + '는 내년에 ' + (this.person.age + 1) + '살입니다.';
+                },
+                otherMethod: function (greeting) {
+                    return this.nextYear(greeting);
+                }
+            }
+        })
+    </script>
+
+
+
+    <h2>App5 : 데이터 바인딩(data binding)</h2>
+    <div id="app5">
+        {{ nextYear('안녕하세요') }}
+        <br>
+        <!-- v-bind 오리지날 버전 -->
+        <!-- <input v-bind:type="type" v-bind:value="inputData"></input> --> 
+        <!-- v-bind 생략버전 : v-bind 대신 ":"으로 간단히 표현해요! (앞으로도 계속 그렇게 표현할거에요.) -->
+        <input :type="type" :value="inputData"></input>
+        <!-- a 하고 엔터 -->
+        <!-- <a :href="link" :target="target">Azuma 홈페이지 가기</a>  -->
+        <a :href="getLink('blog1.php')">Azuma 홈페이지 가기(blog1.php)</a>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app5',
+            data: {
+                person: {
+                    name: 'yang',
+                    age: 33
+                },
+                inputData: '1234',
+                type: 'number', // text 타입은 못들어가요.
+                link: 'http://azumaj.jbhomelove.com/',
+                target: '_blank'
+            },
+            methods: {
+                nextYear: function (greeting) {
+                    return greeting + '! ' + this.person.name + '는 내년에 ' + (this.person.age + 1) + '살입니다.';
+                },
+                // 링크를 불러오는 메소드를 만들어봅시다.
+                getLink(blog) {
+                    return this.link + blog;
+                }
+            }
+        })
+    </script>
+
+
+
+    <h2>App6 : 양방향 데이터 바인딩1(two way data binding)</h2>
+    <div id="app6">
+        <!-- <input :type="type" :value="text" v-on:keyup="updateText"></input> -->
+        <input :type="type" :value="text" @keyup="updateText"></input>
+        <br>
+        {{ text }}
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app6',
+            data: {
+                text: 'text'
+            },
+            methods: {
+                updateText(event){
+                    console.log(event);
+                    // 콘솔화면 체크! 눌러보면 여러가지 정보가 나오는데, target을 열어서,
+                    // value안에 해당값이 들어오게 된다.
+                    // 그 값을 이용해서 "실시간으로" text를 바꿀 수 있다. ↓
+                    this.text = event.target.value;
+                }
+            }
+        })
+    </script>
+    
+
+
+    <h2>App7 : 양방향 데이터 바인딩2(two way data binding)</h2>
+    <!-- v-model을 써서 더 간단하게 app6을 구현하는 방법이다. 더 일반적 방법. -->
+    <div id="app7">
+        <!-- <input :type="type" :value="text" v-on:keyup="updateText"></input> -->
+        <input :type="type" v-model="text"></input>
+        <br>
+        {{ text }}
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#app7',
+            data: {
+                text: 'text'
+            },
+            methods: {
+            }
+        })
+    </script>
+
+
+
+</body>
+</html>

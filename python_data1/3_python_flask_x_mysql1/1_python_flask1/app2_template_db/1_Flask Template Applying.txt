@@ -1,0 +1,17 @@
+﻿1. Refactoring : 공통된 부분 include하기
+{% include 'lib/top.html'  ignore missing %}
+{% include 'lib/bottom.html'  ignore missing %}
+
+1. Template 적용 방법
+context명/templates : html 넣음
+context명/statics : css, js와 image등의 source등을 넣음
+html 파일을 변경 : /statics에 넣었던 파일을 부르는 곳은 전부 찾아서,
+	CSS의 예
+	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">을
+	<link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">로 변경
+	JS의 예
+	<script src="lib/jquery/jquery.min.js"></script>을
+	<script src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}"></script>로 변경
+	Image file의 예
+	<img src="images/logo.png" alt="logo">을
+	<img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">로 변경

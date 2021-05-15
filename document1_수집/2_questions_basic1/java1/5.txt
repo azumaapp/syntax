@@ -1,0 +1,254 @@
+[문제22]Argument를 통해 배열의 갯수를 입력받은후 
+배열갯수만큼 반복하여 데이타를 입력받아 처리하시오
+$ java Test22  5
+
+score[0] : 34.5
+score[1] : 90.4
+     .
+     .
+score[4] : 100.0
+
+
+평균 : ??.??   <--- 소수이하 2째자리
+
+
+import java.io.*;
+
+public class Ex22 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int index = Integer.parseInt(args[0]);
+		int []score = new int[index];
+		int sum=0;
+		double avg;
+		
+		for(int i=0; i<index; i++)
+		{
+			System.out.print("score[" + i + "] : ");
+			score[i] = Integer.parseInt(br.readLine());
+			sum += score[i];
+		}
+		
+		avg = (double)sum / index;
+		System.out.printf("평균 : %.2f\n", avg);
+	}
+}
+--------------------------------------------------------------------
+[문제23]BufferedReader를 이용하여 입력받기
+이름, 나이....각각 배열을 3개씩 만들어서 입력 받기
+
+--입력--
+이름 : 주몽 
+나이 : 20
+
+이름 : 소서노
+나이 : 21
+
+이름 : 모팔모
+나이 : 52
+
+--출력--
+주몽     20세
+소서노   21세
+모팔모   52세
+
+
+import java.io.*;
+
+public class Ex23 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String []name = new String[3];
+		int []age = new int[3];
+		
+		for(int i=0; i<3; i++) {
+			System.out.print("이름 : ");	name[i] = br.readLine();
+			System.out.print("나이 : ");	age[i] = Integer.parseInt(br.readLine());
+			System.out.println();
+		}
+		
+		for(int i=0; i<3; i++) {
+			System.out.printf("%-5s\t%d세\n", name[i], age[i]);
+		}
+	}
+}
+--------------------------------------------------------------------
+[문제24] 숫자맞추기 게임
+컴퓨가 0~100사이의 임의의수 하나를 발생  
+
+55     <----화면에 보이면 안됨
+숫자입력(0~100) : 50
+크다
+
+숫자입력(0~100) : 60
+작다
+
+숫자입력(0~100) : 55
+맞았다(3번)
+
+
+계속(y/n) : y
+숫자입력(0~100) : 
+
+
+import java.io.*;
+import java.util.Random;
+
+public class Ex24 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int num, cnt = 0;
+		char check;
+		
+		while(true) {
+			int com = new Random().nextInt(101);
+			while(true) {
+				System.out.print("숫자입력(0~100) : ");	num = Integer.parseInt(br.readLine());
+				cnt++;
+				if(num<com)
+					System.out.println("크다");
+				else if(num>com)
+					System.out.println("작다");
+				else {
+					System.out.println("맞았다(" + cnt + ")");
+					break;
+				}
+			}
+			System.out.println();
+			System.out.print("계속(y/n) : ");	check = br.readLine().charAt(0);
+			if(check == 'n')
+				break;
+		}
+	}
+}
+--------------------------------------------------------------------
+[문제25] 배열을이용하여 날짜를 기억시킨후
+int []month={31,28,31,30,31,30,31,31,30,31,30,31};
+
+--입력/출력--
+
+원하는 달 : 3
+3월은 31일입니다...
+
+
+import java.io.*;
+
+public class Ex25 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int []month = {31, 28, 31, 30, 31 ,30, 31, 31, 30, 31, 30, 31};
+		int num;
+		
+		System.out.print("원하는 달 : ");	num = Integer.parseInt(br.readLine());
+		System.out.println(num + "월은 " + month[num-1] + "일 입니다.");
+	}
+}
+--------------------------------------------------------------------
+[문제26] 크기가 5인 정수형배열을 잡아 난수(1~50)를 저장하여 출력하시오
+
+
+--출력--
+
+[정렬전]
+num[0]=23  num[1]=45  num[2]=13  num[3]=50  num[4]=25
+
+[정렬후]
+num[0]=13  num[1]=23  num[2]=25  num[3]=45  num[4]=50
+
+합 = xx
+
+
+import java.util.Arrays;
+
+public class Ex26 {
+	public static void main(String[] args) {
+		int []num = new int[5];
+		int sum = 0;
+		
+		System.out.println("[정렬전]");
+		for(int i=0; i<num.length; i++) {
+			num[i] = (int)(Math.random() * 50 + 1);
+			System.out.print("num[" + i + "]=" + num[i] + "  ");
+		}
+		System.out.println();
+		
+		Arrays.sort(num);
+		System.out.println("\n[정렬후]");
+		for(int i=0; i<num.length; i++) {
+			System.out.print("num[" + i + "]=" + num[i] + "  ");
+			sum += num[i];
+		}
+		System.out.println();
+		
+		System.out.println("\n합 = " + sum);
+	}
+}
+--------------------------------------------------------------------
+[문제27]성적처리프로그램을 작성하시오
+
+==============================================================================
+번호    이름      국어    영어    수학    총점    평균    학점    재수강    순위
+------------------------------------------------------------------------------
+   1      소서노     90       95       100
+   2      주  몽     75       55        65
+   3      모팔모     100     100       100
+-------------------------------------------------------------------------------
+
+처리조건
+조건1) 변수
+     String []name ={"소서노","주몽","모팔모"};
+     int [][]score = {{90,95,100,0},{75,55,65,0},{100,100,100,0}};
+     double []avg = {0.0, 0.0, 0.0};
+     char []grade = new char[3];
+     String []pass = new String[3];
+     int []rank ={1,1,1};
+
+조건2) 총점 = 국어 + 영어 + 수학
+       평균 = 총점/3;
+       학점 = 90이상 'A' / 80이상 'B' / 70이상 'C' / 60이상 'D' / 나머지는 'F'
+               (if ~ else if문 이용)
+       재수강 = 60이상이면 "pass"  60미만이면 "fail"
+               (if~else문)
+       순위구하기    
+
+
+public class Ex27 {
+	public static void main(String[] args) {
+		String []name = {"소서노", "주  몽", "모팔모"};
+		int [][]score = { {90, 95, 100, 0}, {75, 55, 65, 0}, {100, 100, 100, 0} };
+		double []avg = {0.0, 0.0, 0.0};
+		char []grade = new char[3];
+		String []pass = new String[3];
+		int []rank = {1, 1, 1};
+		
+		for(int i=0; i<name.length; i++) {
+			score[i][3] = score[i][0] + score[i][1] + score[i][2];
+			avg[i] = (double)score[i][3] / 3;
+			
+			if(avg[i] >= 90)	{grade[i] = 'A';	pass[i] = "pass";}
+			else if(avg[i] >= 80)	{grade[i] = 'B';	pass[i] = "pass";}
+			else if(avg[i] >= 70)	{grade[i] = 'C';	pass[i] = "pass";}
+			else if(avg[i] >= 60)	{grade[i] = 'D';	pass[i] = "pass";}
+			else			{grade[i] = 'F';	pass[i] = "fail";}
+			
+			for(int j=0; j<i; j++) {
+				if(score[i][3] < score[j][3])
+					rank[i]++;
+				else
+					rank[j]++;
+			}
+		}
+		
+		System.out.println("==============================================");
+		System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균\t학점\t재수강\t순위");
+		for(int i=0; i<name.length; i++) {
+			System.out.println(" " + (i+1) + "   " + name[i] + "\t" + score[i][0] + "\t" +
+					score[i][1] + "\t" + score[i][2] + "\t" + score[i][3] + "\t" +
+					avg[i] + "\t" + grade[i] + "\t" + pass[i] + "\t\t" + rank[i]);
+		}
+	}
+}

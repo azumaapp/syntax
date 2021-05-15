@@ -1,0 +1,276 @@
+[문제34] 다음 프로그램을 완성하시오
+(1)클래스명 : Salary
+  ①필드 :  String name(이름)
+           int salary (연봉)
+  ②생성자 : Salary(String n, int s) 를 넘겨받아 name, salary에 대입
+  ③메서드 : getInfomation1()메서드에서 이름과 연봉을 출력
+
+(2)클래스명 : Test34 ==> Salary를 상속받음
+  ①필드 : String department (부서)
+  ②생성자 : name, salary,department를 넘겨받아 각각 필드에 대입
+             필요하면 부모 생성자 호출할수도 있다
+  ③메서드 : getInfomation2()메서드에서 부서출력
+
+(3)main()함수에서
+   Test34  ob = new Test34("야철대장",85000000,"철기방"); 로 시작할것
+
+
+(4)출력
+이름 : 야철대장
+연봉 : 85000000
+부서 : 철기방
+
+
+class Salary {
+	private String name;
+	private int salary;
+
+	public Salary() {
+		super();
+	}
+
+	public Salary(String name, int salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
+	}
+
+	public void getInformation1() {
+		System.out.println("이름 : " + name);
+		System.out.println("연봉 : " + salary + "원");
+	}
+}
+
+public class Ex34 extends Salary {
+	private String department;
+
+	public Ex34() {
+		super();
+	}
+
+	public Ex34(String name, int salary, String department) {
+		super(name, salary);
+		this.department = department;
+	}
+	
+	public void getinfomation2() {
+		System.out.println("부서 : " + department);
+	}
+
+	public static void main(String[] args) {
+		Ex34 ob = new Ex34("야철대장", 85000000, "철기방");
+		ob.getInformation1();
+		ob.getinfomation2();
+	}
+}
+--------------------------------------------------------------------
+[문제35]다음과 같은 결과가 나오도록 수정하시오
+        (단, main()안의 내용수정과 새로운 Method추가하지마시오)
+
+**** x,y,z에 값채우기***
+10을 넘겨받은 생성자
+10   20   을 넘겨받은 생성자
+10   20   30  을 넘겨받은 생성자
+10   20   30
+합 : 60
+
+
+class SuperClass
+{
+	int x, y,z;
+	
+	public SuperClass()
+	{
+		System.out.println("**** x,y,z에 값채우기***");
+	}
+	public SuperClass(int k)
+	{
+		System.out.println(k + "을 넘겨받은 생성자");
+	}
+	public SuperClass(int a, int b)
+	{
+		System.out.println(a + "   " +b+"   을 넘겨받은 생성자");
+	}
+	public SuperClass(int x,int y,int z)
+	{
+		System.out.println(x+ "   " +y+"   " +z+"   을 넘겨받은 생성자");
+	}
+	public void display()
+	{
+		System.out.println(this.x+"   "+this.y+"   "+this.z);
+	}
+}
+class SubClass extends SuperClass
+{
+	public SubClass(int a,int b,int c)
+	{
+	}	
+	public void sumData()
+	{
+		System.out.println("합 : " + (x+y+z));
+	}
+}
+public class Test35 {
+	public static void main(String[] args) {
+	    new SubClass(10,20,30);
+	}
+}
+--------------------------------------------------------------------
+[문제36] 다음과 같은 결과가 나오도록 수정하시오
+         (단, main()안의 내용수정과 새로운 Method추가하지마시오)
+
+###인적사항###
+이름 : 이순자
+나이 : 23
+신장 : 165.3 
+
+
+class Parent
+{
+	String name;
+	public Parent()
+	{	
+		System.out.println("###인적사항###");
+	}
+	public Parent(String  na)
+	{	
+	}
+	public void printView()
+	{
+		System.out.println("이름 : " + name);
+	}
+}
+class Child extends Parent
+{
+	int age;
+	float tall;
+	
+	public Child(String name, int age, float tall)
+	{
+	}
+	public void printView2()
+	{
+		System.out.println("나이 : " + age);
+		System.out.println("신장 : " + tall);
+	}
+}
+public class Test36{
+	public static void main(String[] args) {
+		new Child("이순자", 23, 165.3f);
+	}
+}
+--------------------------------------------------------------------
+[문제37] 다음 프로그램을 완성하시오
+
+(1)선조클래스 : Entry
+   필드명 : String word;
+   메소드 : Entry();                               //***약어사전***  (출력)
+            Entry(String w);                       //Entry()호출 
+            public void writeView();               //약어출력
+
+(2)후손클래스 : SubEntry   (Entry를 상속받음)
+   필드명 : String definition; 
+            int year;
+   메소드 : SubEntry(String w);                   //Entry(String w)   호출 
+            SubEntry(String w, String d, int y);  //SubEntry(String w)호출
+            public void printView();              //원어, 시기출력
+
+(3)Test37의 main()함수에서
+    new SubEntry("OOP","Object Oriented Programming", 1991);
+
+
+(4)출력
+
+*****약어사전******
+약어 : OOP
+원어 : Object Oriented Programming
+시기 : 1991년
+
+
+class Entry {
+	private String word;
+
+	public Entry() {
+		System.out.println("*** 약어사전 ***");
+	}
+
+	public Entry(String word) {
+		this();
+		this.word = word;
+	}
+
+	public void writeView() {
+		System.out.println("약어 : " + word);
+	}
+}
+
+class SubEntry extends Entry {
+	private String definition;
+	private int year;
+	
+	public SubEntry(String word) {
+		super(word);
+	}
+	
+	public SubEntry(String word, String definition, int year) {
+		this(word);
+		this.definition = definition;
+		this.year = year;
+	}
+	
+	public void printView() {
+		super.writeView();
+		System.out.println("원어 : " + definition);
+		System.out.println("시기 : " + year + "년");
+	}
+}
+
+public class Ex37 {
+	public static void main(String[] args) {
+		new SubEntry("OOP", "Object Oriented Programming", 1991).printView();
+	}
+}
+--------------------------------------------------------------------
+[문제38] 다음 프로그램을 완성하시오
+
+(1)Super클래스명 : Health
+   필드명 : char gender(성별)
+            double tall (신장)
+            double weight(체중)
+   생성자 : Health() - 초기화
+   메서드 : input() - 성별, 신장, 체중입력받기
+            output1() - 출력
+
+(2)Sub클래스(Test38) 에서 Health를 상속받음
+   필드명 : double s_weight (표준체중)
+            double fat      (비만도)
+            String result   (결과값)
+   생성자 : s_weight = 0.0; (초기화작업)
+            fat = 0.0;
+            result = null;
+   메소드 : calculate() - 비만도 계산
+            output2()  - 출력
+
+(3) ★표준체중계산법★
+    남성 : 표준체중 = (신장-100)*0.9
+    여성 : 표준체중 = (신장-100)*0.85
+
+    비만도 = 현재체중(Kg)/표준체중(Kg)*100
+    --------------------------------------------------
+    90%이하  : 저체중               121-130% : 경도비만
+    91 -110% : 정상(표준체중)       131-150% : 중도비만
+    111-120% : 과체중               150%     : 고도비만
+
+(4)출력
+
+   ***** 비만도 Check *****
+   성별(M/F) : M          <---남(M) / 여(F)
+   신장(Cm) : 175.3
+   체중(Kg)  : 95.45
+
+   성별 - M 
+   신장 - 175.3Cm
+   체중 - 95.45Kg
+
+   당신은 비만도 140.84이고,  중도비만 입니다.
+

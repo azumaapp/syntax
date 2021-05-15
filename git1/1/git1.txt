@@ -1,0 +1,55 @@
+﻿[깃 기본]
+git 정의 :
+프로그램을 만들면, 그 프로그램을 완성한다는 개념 x 계속 업그레이드
+실제로는 업그레이드를 안해도,
+업그레이드 할 수 있는 상태로 관리
+이를 위해서는 버전관리 프로그램이 필요
+git이 하는 일은…
+1. 코드의 세이브 및 초고속 로드
+1. 코드의 세이브 시점별 관리
+(예시)
+프로젝트명 : 파이썬 기본
+첫 깃 push(업로드) : 11월 28일
+두번째 버전 업로드 : 11월 30일
+
+설치사이트 :
+gitforwindows.org 다운로드
+github.com 관리사이트 가입 (이메일 인증해야돼요!)
+
+사용순서 :
+github.com에서 새로운 저장소(레포지토리)를 만든다
+create repository 클릭
+깃주소를 복사한다
+탐색기: 자신이 작업한 워크스페이스(폴더)에 들어가서,
+마우스 우클릭하고 git bash here 클릭
+배쉬창에서 다음을 입력한다
+[이메일 설정]
+git config —global user.email 자기이메일
+[깃을 연동]
+git init : 깃을 설치
+git remote add origin “깃주소” : 깃주소와 폴더를 연동
+[첫 깃을 올린다]
+git status : 변경상태를 확인해요.
+git add . : 해당 폴더의 전체(.)를 트럭에 싣는다.
+git commit -m “변수와 데이터타입” : 트럭에 라벨을 붙여요.
+git push origin master : 마스터(본부)로 납품해요.
+
+추후 다운로드 받는 방법 :
+[깃을 연동]
+git init : 깃을 설치
+git remote add origin “깃주소” : 깃주소와 폴더를 연동
+[최신 깃을 로드]
+git pull origin master
+
+최근 깃을 다시 올리기 :
+git reset HEAD^
+git add .
+git commit -m “바뀐 커밋명”
+git push -f origin master (-f 잊지마세요!)
+
+로그인을 요구할 경우 :
+제어판에서 웹 자격증명변경 - 윈도우탭 (모르겠으면 구글검색: git 사용자설정 윈도우)
+깃을 지웠다 다시 설치하는 게 제일 빠름
+
+사용의 참조 : 
+https://github.com/Azumait/springboot1.git

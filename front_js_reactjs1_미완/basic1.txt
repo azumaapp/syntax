@@ -1,0 +1,35 @@
+리액트학습
+
+1/30 소개
+리액트JS는 최근 가장 핫한 JS 프레임워크이다.
+
+2/30 필요인프라
+node.JS 설치 확인 : node -v, npm -v
+npx 추가설치 : npm install npx -g
+vscode 설치
+git 설치 확인 : git -v, git --version
+
+3/30 필요선행지식
+html : html 끝내기(https://www.youtube.com/watch?v=50JOpxN0554)
+css : div, span, flexbox, display block, background color 등등 (유투브사이트 클론코딩 : https://www.youtube.com/watch?v=67stn7Pu7s4&t=2345s)
+자바스크립트 : variable, object, array, class, function(args), return, argument, constants, const, let 등등 (바닐라JS 강의  총 32강:https://www.youtube.com/watch?v=wUHncG3VwPw&list=PLLUCyU7SBaR7tOMe-ySJ5Uu1UlEBznxTr)
+
+4/30 리액트의 특장점
+1. facebook이 만들고 압도적인 투자를 함. airbnb, netflix, spotify 등등 굉장히 많은 회사들이 쓰고 있음. 1주에 400만이 다운로드 받고 있음.
+1. 커뮤니티가 가장 큼. (프론트엔지니어들의 프레임워크로 react가 1위로 65%가 사용. vuejs가 2위로 25%, 앵귤러js가 3위)
+거대한 라이브러리, 오픈소스. 질문과 답은 구글검색할 경우 100% 있는 질문일 것임.
+1. 구조가 단순함. 컴포넌트별로 나눠서 작업이 가능. 단순히 자바스크립트 function과 JSX(리액트로 html을 쓰는 방법)로 구성됨.
+
+5/30 리액트 설치
+우리가 사용하는 코드는 리액트코드이기 때문에 이걸 브라우져가 이해할수 있는 코드로 바꿔주는 툴이 필요하다.
+웹팩은 리액트 코드를 브라우저가 이해할 수 있는 코드로 변경해주는 역할을 한다.
+자세히 말하면 .js, .jade .coffee .png .less .css .sass 가 얽혀있는 구조들이 웹팩을 통해 정상적인 .css .js .png로 확장자가 변경된다는 것이다.
+그러나 웹팩(webpack.github.io)은 배우기에 상당히 복잡하고 어렵다.
+페이스북이 우리같은 초보자들을 위해 제공하는 것이 있다. 
+create react app 이라는 게 있음. 이 안에 웹팩 파일이 숨어있는 셈이다.
+create reate app을 구글 검색하면 facebook의 기트허브가 나온다.  (https://github.com/facebook/create-react-app)
+여기서 밑에 문서를 보면 다음의 문구가 있다. 이것을 터미널에 입력하여 설치한다.
+npm init react-app my-app
+
+5/30 영상부터
+https://www.youtube.com/watch?v=j2jhnq8RnfU&list=PL7jH19IHhOLPp990qs8MbSsUlzKcTKuCf&index=5

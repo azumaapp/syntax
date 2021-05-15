@@ -1,0 +1,5 @@
+[싱글파일컴포넌트]
+
+    1. src/views폴더 내에 있는 About.vue, Home.vue 등을 다 싱글파일컴포넌트라고 합니다.
+    1. 작업순서 : Home.vue -> components/C1.vue -> About.vue 
+    1. 이렇게하면 다른 views여도 components들의 재사용이 가능합니다.

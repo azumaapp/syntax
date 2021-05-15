@@ -1,0 +1,200 @@
+[문제31] 원의 반지름을 입력받아 넓이를 계산하고 출력하시오
+         ① 필드명 : r             : 반지름을 저장할 정수형변수
+                     size          : 넓이를 저장할 실수형변수
+                     PI=3.141592   : final키워드 이며 실수형변수
+         ②메소드 : 생성자함수      : Scanner이용해서 입력받을것
+                    process()      : 원의넓이를 계산할것
+                    output()       : 결과를 출력할것
+
+--입/출력--
+반지름 : 10
+
+원의넓이 : 314.16
+
+
+import java.util.Scanner;
+
+public class Ex31 {
+	private int r;
+	private double size;
+	final double PI = 3.141592;
+	
+	public Ex31() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("반지름 : ");	r = sc.nextInt();
+		process();
+		
+		sc.close();
+	}
+
+	public void process() {
+		size = r * r * PI;
+	}
+	
+	public void output() {
+		System.out.printf("원의 넓이 : %.2f", size);
+	}
+	
+	public static void main(String[] args) {
+		new Ex31().output();
+	}
+}
+-----------------------------------------------------------------------
+[문제32]생성자 함수를 overloading하여 두수중 큰수를 출력하는 
+        프로그램을 완성하시오.(단, 계산과 출력은 생성자에서 할것)
+
+public static void main(String[] args) 
+{
+     Test32 ob1 = new Test32(10,20);
+     Test32 ob2 = new Test32(12.4, 9.45);
+     Test32 ob3 = new Test32('Z', 'p');
+}
+
+--출력--
+max = 20
+max = 12.4
+max = p
+
+
+public class Ex32 {
+	public Ex32() {
+	}
+	
+	public Ex32(int a, int b) {
+		System.out.println("max : " + (a>b ? a : b));
+	}
+	
+	public Ex32(double a, double b) {
+		System.out.println("max : " + (a>b ? a : b));
+	}
+	
+	public Ex32(char a, char b) {
+		System.out.println("max : " + (a>b ? a : b));
+	}
+	
+	public static void main(String[] args) {
+		new Ex32(10, 20);
+		new Ex32(12.4, 9.45);
+		new Ex32('Z', 'p');
+	}
+}
+-----------------------------------------------------------------------
+[문제33]다음프로그램을 완성하시오
+      ① 필드명: area        : 넓이(삼각형, 사다리꼴, 원)를 구하는 실수형변수
+                 PI=3.141592 : final키워드의 실수형변수
+      ② 메소드: 생성자    :area를 0.0으로 초기화
+                 circle()  :반지름을 입력받고, 원의넓이 계산한후 출력함수호출
+                 triangle():밑변,높이를 입력받아,삼각형의넓이를 계산한후출력함수호출
+                 trapezoid():아랫변,윗변,높이입력받고,사다리꼴의 넓이 계산한후
+                             출력함수호출
+                 void output():출력
+                 int menu()   :메인화면 (***도형선택***) 디자인을 디자인하고
+                               switch문이용 circle/triangle/trapezoid함수를 호출
+
+
+
+**** 도형선택 *****
+1. 삼각형
+2. 원
+3. 사다리꼴
+4. 종료
+선택 : 3
+
+
+**** 사다리꼴넓이 ****
+아랫변: 2
+윗  변: 3
+높  이: 4
+
+넓이 : ?   <---소수이하 2째자리까지
+
+
+**** 도형선택 *****
+1. 삼각형
+2. 원
+3. 사다리꼴
+4. 종료
+선택 : 4
+
+감사합니다^.^
+
+
+import java.util.Scanner;
+
+public class Ex33 {
+	static Scanner sc = new Scanner(System.in);
+	private double area;
+	final double PI = 3.141592;
+
+	public Ex33() {
+		this.area = 0;
+	}
+
+	public void circle() {
+		int r;
+
+		System.out.println("\n**** 원의 넓이 ****");
+		System.out.print("반지름 : ");	r = sc.nextInt();
+
+		area = r * r * PI;
+		output();
+	}
+
+	public void triangle() {
+		int b, h;
+
+		System.out.println("\n**** 삼각형의 넓이 ****");
+		System.out.print("밑  변 : ");	b = sc.nextInt();
+		System.out.print("높  이 : ");	h = sc.nextInt();
+
+		area = (double)b * h / 2;
+		output();
+	}
+
+	public void trapezoid() {
+		int a, b, h;
+
+		System.out.println("\n**** 사다리꼴의 넓이 ****");
+		System.out.print("아랫변 : ");	a = sc.nextInt();
+		System.out.print("윗  변 : ");	b = sc.nextInt();
+		System.out.print("높  이 : ");	h = sc.nextInt();
+
+		area = (double)(a + b) * h / 2;
+		output();
+	}
+
+	public void output() {
+		System.out.printf("넓이 : %.2f\n\n", area);
+	}
+
+	public int menu() {
+		int n;
+
+		System.out.println("**** 도형선택 ****");
+		System.out.println("1. 삼각형");
+		System.out.println("2. 원");
+		System.out.println("3. 사다리꼴");
+		System.out.println("4. 종료");
+		System.out.print("선택 : ");
+		n = sc.nextInt();
+
+		switch (n) {
+			case 1 :	triangle();		break;
+			case 2 :	circle();		break;
+			case 3 :	trapezoid();	break;
+			case 4 :	System.out.println("\n감사합니다^.^");
+		}
+		
+		return n;
+	}
+
+	public static void main(String[] args) {
+		Ex33 ob = new Ex33();
+		
+		while(true){
+			if(ob.menu() == 4) break;;
+		}
+		sc.close();
+	}
+}

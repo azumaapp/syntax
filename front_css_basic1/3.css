@@ -1,0 +1,51 @@
+/* A to Z */
+
+.div1 {
+    color:blue;
+    font-size: 30px;
+    /* font-weight: bolder, light, normal */
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+}
+
+.img1 {
+    height: 500px; width: auto;
+    padding-top: 30px;
+}
+
+.div2 {
+    padding: 10px; border: 20px; margin: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+/* <br>을 매번 써야하나? 정답은 display: block; ! */
+/* 
+1. display란 : css 속성 중 하나로, element가 어떻게 배치되고 표시되어질지를 정한다.
+display: inline; ---> element가 가로로 줄지어간다.
+    display: block; ---> element가 세로로 줄지어간다. (element 하나당 br이 적용된 것처럼 배치됨)
+    display: inline-block; ---> block과 inline의 중간. 예를 들어, 나열형 아이템은 inline으로가고, 가운데정렬시킨 아이템은 block형이 됨.
+    display: none; ---> 숨김처리
+1. html 태그별 display 속성의 초기값
+    p, div, ul, h1~h6 등의 태그의 초기값 : block
+    a, span, img 등의 태그의 초기 값 : inline 
+*/
+.inline {
+    display: inline
+}
+
+.block {
+    display: block
+}
+
+.inline-block {
+    display: inline-block
+}
+
+.none {
+    display: none
+}

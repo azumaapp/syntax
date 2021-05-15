@@ -1,0 +1,95 @@
+[vue cli(command line interface)로 vue설치하기]
+* command line interface란? : vue와 관련된 패키지를 설치할 때 명령어로 간단히 설치할 수 있게 하는 도구
+    cmd 혹은 터미널이라고도 한다. 기본 cmd 명령어를 익혀두자. https://library1008.tistory.com/42
+* vue cli 공식문서 확인 : cli.vuejs.org 접속 - get started - installation의 설치 cmd 명령어를 확인
+
+1. nodejs 설치 : nodejs.org/ko 접속 - 안정적, 신뢰도 높은 LTS버전 다운로드(8.9 버전 이상) (본 문서는 14.15.1 LTS버전을 다운받고 있음)
+
+1. nodejs 설치 후, vscode의 powershell 터미널로 이동한 다음, (* yarn으로 해도 관계없음)
+    node -v : 노드js 버전을 알려줌
+    npm -v : npm 버전을 알려줌
+    npm install -g @vue/cli : -g는 글로벌의 약자 (터미널 어느폴더더라도 vuecli 명령어 사용가능해짐)
+    * (자신의 컴퓨터에 vue-cli를 설치하고 싶지 않은 경우, "npx @vue/cli create app2(앱이름이자 폴더명)" 이런식으로 vue-cli설치없이 사용가능)
+    * (맥/리눅스 유저는 맨 앞에 sudo 붙여야함)    
+    vue.cmd --version : 뷰 버전을 살피면서 설치 확인    
+
+1. ★ 원하는 폴더에 vue 앱 만들기!
+    cd 2.intermediate : app들을 보관할 워크스페이스 폴더로 이동
+    vue.cmd create app1 : app1은 앱이름이자 폴더명
+    manually selected features
+    router, vuex, babel, linter/formatter 는 기본으로 선택 후 엔터    
+    뷰 설치까지 계속 엔터
+    cd app1 : 설치 폴더 확인 * skip 
+    dir (혹은 ls) : 설치 파일 확인 * skip 
+
+1. 만일 github 등으로 당겨온 앱이라면 npm i를 통해서 vue.cmd 웹빌드를 해야한다!
+
+1. vscode에서 내부 구조 살피기
+    첫 파일들 : app1에 들어가면 각종 configuration 파일들이 있음
+    node_modules 폴더 : 설치된 개발관련 패키지들 폴더
+    package.json : 앱이름, 버전, 프로젝트를 짤 때 필요한 패키지 dependencies들, 개발할 때만 필요한 devDependencies들이 들어감
+    src : 소스코드를 짜는 부분. 
+        main.js : vue임포트가 있음
+            vue : vue를 가져옴
+            app.vue : app.vue라는 화면을 가져옴
+            router : 컴포넌트를 사용해 싱글페이지 어플리케이션을 만드는데 사용함
+            store : vuex
+            #app : public/index.html에 있음. 이렇게 화면을 넣어줌
+        app.vue : 기본 app 뷰 설정
+        router : vue
+        store : vuex
+
+1. 웹빌드하고 구동 확인하기
+    npm run serve : 웹빌드
+    http://localhost:8080/ : 구동확인
+    app.vue : 파일 수정후 저장하면 자동 업데이트 되는지 확인
+    * 터미널 상에서 끌때는 ctrl + c
+
+
+
+
+
+[Vue Router]
+뷰는 싱글페이지 어플리케이션입니다.
+말그대로 페이지가 한개라는 뜻입니다.
+상단의 about 메뉴를 누르면 about 페이지로 이동하는 것처럼 보이지만,
+실제로는 한개의 페이지에서 돌아가는 것입니다.
+index.html 한개의 페이지만 열리고, 로딩은 다시 하지 않고, 
+화면의 변경을 포함한 모든 것이 <div id="app"></div> 이 한줄 안에서 다 이뤄지는 거에요.
+해당 div태그와 main.js안에 있던 vue인스턴스가 연결이 됩니다.
+그리고 연결이 되면서, App.vue이라는 component를 보여주게 되는 것입니다.
+vue router가 그 기능을 하게 도와주는 것입니다.
+
+<router/index.js>안에서는
+vue가 vue router를 사용하도록 설정해주고, home과 about 오브젝트 두개가 있고,
+그 오브젝트 안에 3개의 속성을 설정해주게 되는데요,
+
+path는 브라우저에서 들어갈 url 주소이고요
+    <app.vue>안에서는
+    app.vue안에 router-view라는 태그를 넣어주면 이를 사용할 수 있어요!    
+    링크는 router-link to="" 안에 아까전 path부분(/, /about 등)을 넣어주시면 돼요.
+name은 페이지의 이름,
+component는 넣을 컴포넌트 부분이에요. 이들의 파일은 views 폴더 안에 있어요.
+    <app.vue>안에서는
+    그래서 home 버튼 눌렀을 때, 자바스크립트를 통해서
+    <router-view/>부분을, ./views/Home.vue 의 컴포넌트로 바꿔주는거에요.
+이러한 흐름을 통해서, 페이지는 바뀌지만 로딩없이 한 페이지 안에 계속 변경시켜주는 형태가 완성이 돼요.
+
+<views/Home.vue> 안에서는
+HelloWorld라는 Component가 또 불려지게 되네요!
+
+<components/HelloWorld.vue> 안에서는
+또 그 안에 해당하는 화면 코드가 들어있습니다.
+
+콘솔로그(F12)에서 보시면, <rounter-link to="/">가 html상에서 a태그로 변경되어서 나옴을 볼 수 있어요.
+    about을 누르면, <router-view/>가 views/About.vue 컴포넌트를 보여줌을 또 볼 수 있어요.
+
+이렇게 하는 이유는 첫째 빠른 로딩 속도, 
+둘째 코드의 간결, 중복제거로 유지보수를 간편하게 하는 장점 때문이에요.
+이런 원리로 작동하기에, 
+페이지가 바뀌는 것 같지만 "싱글페이지 어플리케이션"이라고 부르는 것입니다.
+
+
+
+
+

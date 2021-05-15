@@ -1,0 +1,12 @@
+[자격증]
+
+1. 필수
+정보처리기사 (취업비자 처음 딸 경우에만) 또는 IT Passport
+JLPT N1
+
+1. 따두면 좋을 자격증
+aws Cloud Practitioner (학습시간 약 3일, 한국어 응시 가능) : https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c02/
+azure AZ900 (학습시간 약 1주일)
+CCNA (1-2개월) : 사실상 따놓으면 제일 도움되는 것
+gcp
+

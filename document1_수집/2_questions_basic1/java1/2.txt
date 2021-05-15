@@ -1,0 +1,247 @@
+[문제7] BufferedReader를 이용하여 입력받아 두수중 큰수를 출력하시오
+        (단, 비교연산은 삼항연산자를 이용하시오)
+Input a : 5
+Input b : 13
+
+큰수 : 13
+
+
+import java.io.*;
+class Ex07 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int a, b;
+		
+		System.out.print("Input a : ");	a = Integer.parseInt(br.readLine());
+		System.out.print("Input b : ");	b = Integer.parseInt(br.readLine());
+		
+		System.out.println("큰수 : " + (a > b ? a : b));
+	}
+}
+-----------------------------------------------------------------------
+[문제8] 값을 입력받아 0보다 작거나 100보다 크면 "입력오류!!"  출력
+        (if문과 ||연산자를 이용하시오)
+
+점수입력 : 120
+입력오류!!
+
+점수입력 : 55
+입력된값 : 55
+
+
+import java.io.*;
+class Ex08 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int num;
+		
+		System.out.print("점수입력 : ");	num = Integer.parseInt(br.readLine());
+		
+		if(num<0 || num>100)
+			System.out.println("입력오류!!");
+		else
+			System.out.println("입력된값 : " + num);
+	}
+}
+-----------------------------------------------------------------
+[문제9] 입력된 문자가 대문자이면 소문자로 출력하고
+        소문자이명 대문자로 변환하여 출력하시오
+        그외의 문자이면 "입력데이타오류"라고 표시하시오
+        (if-else문 이용)   
+
+Input Character: A
+result : a
+
+Input Character: a
+result : A
+
+Input Character: *
+입력데이터 오류
+
+
+import java.io.*;
+class Ex09 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		char ch;
+		System.out.print("Input Character : ");	ch = br.readLine().charAt(0);
+		
+		if(ch>='A' && ch<='Z')
+			System.out.println("result : " + (char)(ch+32));
+		else if(ch>='a' && ch <='z')
+			System.out.println("result : " + (char)(ch-32));
+		else
+			System.out.println("입력데이터 오류");
+	}
+}
+-----------------------------------------------------------------
+[문제10] 4개의 값을 콘솔에서 입력받아 처리하시오
+        조건) 성별 : M 이면 "남자", 나머지 "여자" 
+             (삼항연산자 이용)
+
+Input name: 장미란
+Input gender: F
+Input age:  25
+Input tall: 173.3 
+
+--결과--
+이름 : 장미란
+성별 : 여자 
+나이 : 25세
+신장 : 173.3cm  
+
+
+import java.io.*;
+class Ex10 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String name;
+		char gender;
+		int age;
+		double tall;
+		
+		System.out.print("Input name : ");	name = br.readLine();
+		System.out.print("Input gender : ");	gender = br.readLine().charAt(0);
+		System.out.print("Input age : ");	age = Integer.parseInt(br.readLine());
+		System.out.print("Input tall : ");	tall = Double.parseDouble(br.readLine());
+		
+		System.out.println("이름 : " + name);
+		System.out.println("성별 : " + (gender == 'M' ? "남자" : "여자"));
+		System.out.println("나이 : " + age + "세");
+		System.out.printf("신장 : %.1fcm", tall);
+	}
+}
+-----------------------------------------------------------------
+[문제11]2개의 숫자와 연산자를 입력하여 계산하시오
+        조건1) 실수인경우는 소수이하 2째자리까지 출력하시오
+        조건2) 연산자가 +,-,*,/ 이외의 문자가 들어오면 
+               "연산자error"출력하시오
+
+[실행결과]
+A값을 입력하시오: 25
+B값을 입력하시오: 36
+연산자를 입력(+,-,*,/) : +
+25 + 36 = xx
+
+A값을 입력하시오: 25
+B값을 입력하시오: 36
+연산자를 입력(+,-,*,/) : /
+25 / 36 = xx.xxxxx      
+
+A값을 입력하시오: 25
+B값을 입력하시오: 36
+연산자를 입력(+,-,*,/) : #
+연산자 error
+
+
+import java.io.*;
+class Ex11 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int a, b;
+		char op;
+		
+		System.out.print("A값을 입력하시오 : ");	a = Integer.parseInt(br.readLine());
+		System.out.print("B값을 입력하시오 : ");	b = Integer.parseInt(br.readLine());
+		System.out.print("연산자를 입력(+,-,*,/) ; ");	op = br.readLine().charAt(0);
+		
+		switch (op)
+		{
+			case '+' : System.out.printf("%d %c %d = %d\n", a ,op, b, a+b); break;
+			case '-' : System.out.printf("%d %c %d = %d\n", a ,op, b, a-b); break;
+			case '*' : System.out.printf("%d %c %d = %d\n", a ,op, b, a*b); break;
+			case '/' : System.out.printf("%d %c %d = %.2f\n", a ,op, b, (double)a/b); break;
+			default :  System.out.println("연산자 error");
+		}
+	}
+}
+-----------------------------------------------------------------
+[문제12]성적처리프로그램
+        
+--입출력 화면--
+
+   중간고사를 입력하시오 : 90
+   기말고사를 입력하시오 : 89
+   레포트고사를 입력하시오 : 99
+   출석고사를 입력하시오 : 100
+
+   중간고사 : 90
+   기말고사 : 89
+   레포트 : 99
+   출석 : 100
+
+   성적=93.20      <---소수이하 2째자리까지
+   학점=A              System.out.printf("성적 : %.2f", avg);
+   평가=excellent
+
+
+   조건1) (중간+기말)/2      ---> 60%
+          레포트             ---> 20%
+          출석               ---> 20%
+     
+   조건2)  90이상 'A'학점     (3)A,B학점  ---->"excellent"
+           80이상 'B'학점        C,D학점  ---->"good"
+           70이상 'C'학점        F학점    ---->"poor"
+           60이상 'D'학점        (switch문이용) 
+           나머지 'F'학점
+           (if~else if문이용)
+
+
+import java.io.*;
+class Ex12 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int mid, fin, report, attend;
+		double score;
+		char grade;
+		String app=null;
+		
+		System.out.print("중간고사를 입력하시오 : ");	mid=Integer.parseInt(br.readLine());
+		System.out.print("기말고사를 입력하시오 : ");	fin=Integer.parseInt(br.readLine());
+		System.out.print("레포트점수를 입력하시오 : ");	report=Integer.parseInt(br.readLine());
+		System.out.print("출석점수를 입력하시오 : ");	attend=Integer.parseInt(br.readLine());
+		System.out.println();
+		
+		System.out.println("중간고사 : " + mid);
+		System.out.println("기말고사 : " + fin);
+		System.out.println("레포트 : " + report);
+		System.out.println("출석 : " + attend);
+		System.out.println();
+		
+		score = (double)(mid + fin) / 2 * 0.6 + report * 0.2 + attend * 0.2;
+		if(score >= 90)
+			grade = 'A';
+		else if(score >= 80)
+			grade = 'B';
+		else if(score >= 70)
+			grade = 'C';
+		else if(score >= 60)
+			grade = 'D';
+		else
+			grade = 'F';
+		
+		switch (grade)
+		{
+			case 'A' : 
+			case 'B' : app = "excellent"; break;
+			case 'C' :
+			case 'D' : app = "good"; break;
+			case 'F' : app = "poor";
+		}
+		
+		System.out.printf("성적 : %.2f\n", score);
+		System.out.println("학점 : " + grade);
+		System.out.println("평가 : " + app);
+	}
+}

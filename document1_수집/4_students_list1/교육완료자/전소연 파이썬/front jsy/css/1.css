@@ -1,0 +1,71 @@
+/* 주석 */
+a {
+    font-size: 50px;
+    color: red;
+}
+
+div {
+    color: blue;
+}
+
+/* 선택자(selector) 우위 : id > class > tag */
+
+#a {
+    color: black;
+    font-weight: bold;
+    font-size:30px;
+}
+
+#b {
+    color: red;
+    /* font-weight: bolder, light, normal */
+    font-weight: bold;
+    font-size:20px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+    padding: 10px; 
+    /* padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px; */
+    margin: 30px;
+    /* text-align: left, center, right */ 
+    text-align: center;
+    /* visibility: hidden; */
+    visibility: visible;
+}
+
+#c {
+    color: antiquewhite;
+    font-weight: 100;
+    font-style: bold;
+    font-size:40px;
+    padding: 10px;
+}
+
+#d {
+    color:bisque;
+    font-family: 'Times New Roman';
+    font-size:30px;
+    text-align: right;
+}
+
+#e {
+    color:chartreuse;
+    margin: 100px;
+    font-size:100px;
+    font-family:'sans-serif';
+}
+
+#f {
+    color: blueviolet;
+    font-weight:lighter;
+    font-size:50px;
+    font-family:'monospace';
+    padding: 20px;
+}
+
+.human {
+    color:brown;
+    font-size: 20px;
+}

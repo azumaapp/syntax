@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>padding, border, margin</title>
+</head>
+<body>
+    <!-- 서로간 거리를 두는, 패딩, 보더, 마진의 차이점 
+    패딩 : 내부 간격 (패딩을 껴입을수록 내부 면적이 늘어남)
+    보더 : 경계선의 간격
+    마진 : 서로의 외부 간격
+    -->
+    <style>
+        div > span {            
+            display: inline-block;
+            background: greenyellow;
+            padding: 10px; 
+            /* padding: 0px;  */
+            margin: 20px; 
+        }
+
+        /* 
+        디자인 처음 시작시, 기본적으로 스타일 다 죽이고 시작한다면 아래와 같이...
+        * {
+            border-collapse:collapse;
+            margin:0px;
+            padding:0px; 
+            text-decoration: none;
+            color: black;
+            list-style: none;
+        }
+        */
+        /* 테이블 보더에 색 주기 */
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        /* table > thead > tr > th {
+            border: 1px solid gray;
+        } */
+        table th { /* 위랑 같음 */
+            border: 1px solid gray;           
+        }
+        table td { 
+            border: 1px solid gray;           
+            background: pink;
+        }
+    </style>
+
+    <!-- 간격 -->
+    <div>
+        <span>Hello</span>
+        <span>HTML5</span>
+        <span>and PBM!</span>
+    </div>
+
+    <!-- 테이블 -->
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>성별</th>
+                <th>나이</th>
+                <th>키</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td>김개똥</td>
+                <td>남</td>
+                <td>29</td>
+                <td>170</td>
+            </tr>           
+            <tr>
+                <td>김말자</td>
+                <td>여</td>
+                <td>39</td>
+                <td>160</td>
+            </tr>           
+        </tbody>
+    </table>
+    
+</body>
+</html>

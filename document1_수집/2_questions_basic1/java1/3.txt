@@ -1,0 +1,161 @@
+[문제13]년도를 입력받아 윤년/평년 구하기
+      (공식)①,② 두조건을 다 만족해야 윤년임
+ 	   ①년도를 4로 나누어 떨어져야 함
+	   ②년도를 100으로나누어 떨어지지 않거나
+	     년도를 400으로 나누어 떨어져야 함
+      (참고) 4(윤년), 100(평년), 400(윤년)임 
+
+--출력--
+년도 입력 : 2000
+윤년
+
+년도 입력 : 2001
+평년
+
+년도 입력 : 2004
+윤년
+
+
+import java.io.*;
+class Ex13 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int year;
+		
+		System.out.print("년도 입력 : ");	year=Integer.parseInt(br.readLine());
+		
+		if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+			System.out.println("윤년");
+		else
+			System.out.println("평년");
+	}
+}
+---------------------------------------------------------------------------
+[문제14] 50개의 난수를 만들어서 다음과 같이 출력하시오
+       조건1) 0 - 100 사이의 수 일것
+       조건2) 1줄에 6개씩 표시하시오  
+
+--출력--
+12      72      74      0       20      89
+84      83      53      0       95      53
+68      55      89      6       20      68
+17      9       75      56      17      85
+62      33      7       34      85      28
+28      55      95      31      69      22
+30      92      1       16      88      80
+64      55      71      12      29      72
+20      41
+합=2420
+
+
+import java.util.Random;
+class Ex14 {
+
+	public static void main(String[] args) {
+		int num;
+		int sum = 0;
+
+		for(int i=1; i<=50; i++)
+		{
+			num = new Random().nextInt(101);
+			System.out.print(num + "\t");
+			sum += num;
+			if(i % 6 == 0)
+				System.out.println();
+		}
+		System.out.println("\n합 = " + sum);
+	}
+}
+--------------------------------------------------------------------------------
+[문제15] 2자리의 난수를 발생하여 발생된 숫자를 맞추는 게임 프로그램
+         난수발생) 1. int a=(int)(Math.random()*100) : 0 - 99 사이의 난수
+                   2. ① import java.util.Random;
+                      ② Random 변수1 = new Random();
+                      ③ int 변수2 = 변수1.nextInt(최대값); 
+                               ==>  0 ~ (최대값 - 1)사이의 임의의 수
+
+[실행결과]
+
+*** 난수가 발생하였습니다...맞추어 보세요...*** 
+
+숫자 입력 : 50
+컴퓨터의 숫자가 더 큽니다..
+
+숫자 입력 : 90
+컴퓨터의 숫자가 더 작습니다..
+
+          :
+
+숫자 입력 : 83
+추카추카...xx번만에 맞추셨습니다...
+
+
+import java.io.*;
+class Ex15 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int a = (int)(Math.random()*100);
+		int num, cnt = 0;
+		
+		while(true) {
+			System.out.print("숫자입력 : ");	num = Integer.parseInt(br.readLine());
+			cnt++;
+			if(num>a)
+				System.out.println("컴퓨터의 숫자가 더 작습니다.\n");
+			else if(num<a)
+				System.out.println("컴퓨터의 숫자가 더 큽니다.\n");
+			else
+				break;
+		}
+		System.out.println("추카추카~! " + cnt + "번만에 맞추셨습니다.");
+	}
+}
+--------------------------------------------------------------------------------
+[문제16]1~100사이의수 중에서  3의 배수이면서 7의 배수 구하기 
+      조건) for문과 && 연산자를 반드시 이용
+
+--출력--
+  21 42 63 84   
+
+
+class Ex16 {
+
+	public static void main(String[] args) {
+		for(int i=1; i<=100; i++)
+		{
+			if(i % 3 ==0 && i % 7 ==0){
+				System.out.print(i + "\t");
+			}
+		}
+	}
+}
+--------------------------------------------------------------------------------
+[문제17] for문을 이용하여 제곱승을 구하시오
+
+x의 값을 입력하시오 : 3
+y의 값을 입력하시오 : 3
+3의 3승은 27
+
+
+import java.io.*;
+class Ex17 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int x, y;
+		int result=1;
+		System.out.print("x의 값을 입력하시오 : ");	x=Integer.parseInt(br.readLine());
+		System.out.print("y의 값을 입력하시오 : ");	y=Integer.parseInt(br.readLine());
+		
+		for(int i=0; i<y; i++)
+		{
+			result *= x;
+		}
+		System.out.println(x + "의 " + y + "제곱은 " + result);
+	}
+}

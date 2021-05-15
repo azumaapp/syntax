@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Flex</title>
+</head>
+<body>
+    <!-- display: flex; -->
+    <style>
+        .flexable {
+            display: flex;
+        }
+        div > span {
+            border: 1px solid white;
+            background: pink;
+        }
+        /* 첫번째 자식에게 너는 3자리를 먹으라고 주는 특별히 옵션 */
+        div > div:first-child{
+            flex: 3;
+        }
+        /* 자식에게 일반적으로 1자리를 먹으라고 주는 옵션 */
+        div > div {
+            flex: 1;
+            background: orange;
+            border: 1px solid white;
+        }
+        /* 자식이 총 3이면 장남은 3, 차남 삼남은 1을 먹어서 총 5분의 3, 1, 1, 이 된다. 이것이 flex! */
+    </style>
+    <!-- Flex -->
+    <div class="flexable">
+        <span>span</span>
+        <span>span</span>        
+        <div>div</div>
+        <div>div</div>
+    </div>
+    <div class="flexable">
+        <div>div</div>
+        <div>div</div>
+        <div>div</div>
+    </div>
+
+</body>
+</html>

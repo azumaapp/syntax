@@ -1,0 +1,122 @@
+<!-- [자바스크립트 처음 시작할때 쉽지만 모를수 있는 객체복사방법] -->
+<!-- https://www.youtube.com/watch?v=OMA5iKEy6uY -->
+
+<!-- 
+    1. 자바스크립트에는 데이터타입에 기본자료형과 오브젝트가 있습니다.
+        기본자료형 : Boolean, Null, Undefined, Number, String, Symbol
+        오브젝트형 : []
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Basic</title>
+</head>
+<body>
+    <!-- ★ 한 paragraph씩 주석 풀면서 브라우저에서 F12눌러서 콘솔창 열고 실행 -->
+    <script>
+
+
+
+        // // 변수에 값을 넣을 때
+        // let a = 1
+        // let b = a
+        // a = 2
+        // console.log(a) // 2
+        // console.log(b) // 1
+        // // 일반 변수인 a와 b는 별개의 데이터를 가지며, b는 변경되지 않았으므로 그대로 1을 가집니다.
+
+        
+
+
+        // // 객체에 값을 넣을 때
+        // let a = { c: 1 }
+        // let b = a
+        // a.c = 2
+        // console.log(a.c) // 2
+        // console.log(b.c) // 2
+        // // 객체는 하나의 주소를 바라봅니다.(=하나의 주소를 참조합니다. =set by reference). 즉 같은 데이터를 바라보므로 a가 바뀌면 b도 바뀝니다.
+        // console.log(a === b) // true : a와 b는 하나의 주소를 바라봅니다. 즉, 같으므로 true가 나옵니다.
+
+
+
+
+
+        // // Q1. 그러면, 객체의 상호참조가 아닌, 복사를 하고 싶을 때 어떻게 해야할까요?
+
+        // // 해결책1 : Object.assign(빈객체, 복사할 객체) 함수를 사용해요.
+        // let a = { c:1 }
+        // let b = Object.assign({}, a) // 첫번째는 빈객체, 두번째는 복사하고 싶은 객체를 넣으면 빈객체 안에 a 객체가 복사되어 들어갑니다. 그러면 a객체와 참조주소(reference)가 달라집니다.
+        // a.c = 2
+        // console.log(a.c) // 2
+        // console.log(b.c) // 1
+        // // Object.assign(빈객체, 복사할 객체) 함수를 사용하면, 같은 초기값을 가진, 서로 다른 객체가 됩니다. 이 지점부터 각자의 값을 수정하면 값이 달라집니다.
+        // console.log(a === b) // false : a와 b는 다른 객체가 됩니다. 즉, 다르므로 false가 나옵니다.
+
+
+
+
+        // // 해결책2 : spread syntax를 사용하는 방법도 있어요.
+        // let a = { c:1 }
+        // let b = {...a} // ...a를 하면 a객체의 껍데기를 벗겨내고 a안의 알맹이만 쏙 빼옵니다. 그리고 b라는 새 객체에 넣어줍니다.
+        // a.c = 2
+        // console.log(a.c) // 2
+        // console.log(b.c) // 1
+        // // Object.assign(빈객체, 복사할 객체) 함수를 사용하면, 같은 초기값을 가진, 서로 다른 객체가 됩니다. 이 지점부터 각자의 값을 수정하면 값이 달라집니다.
+        // console.log(a === b) // false : a와 b는 다른 객체가 됩니다. 즉, 다르므로 false가 나옵니다.
+
+
+
+
+        // // Q2. 이것들을 사용해도 복사가 안될 때가 있어요. 객체 안에 객체가 있는 경우에요. 그럴 땐 어떻게 해야할까요?
+
+        // 즉, 객체 안에 객체가 있을 때        
+        // let a = {
+        //     c: {
+        //         d: 1
+        //     }
+        // }
+        // let b = {...a}
+        // console.log(a.c.d)
+        // console.log(b.c.d)
+
+        // console.log(a === b) // false : a와 b는 다른 객체가 됩니다. 즉, 다르므로 false가 나옵니다. 그러나 그럼에도 불구하고,
+        // console.log(a.c === b.c) // true : a.c와 b.c는 같은 객체입니다. 왜냐면, b와 a는 다른 객체이지만 동일한 객체인 c를 동일하게 참조하고 있기 때문입니다.
+
+        // a.c.d = 2 // 그러므로, 이것을 바꾸게 되면,
+        // console.log(a.c.d) // 2
+        // console.log(b.c.d) // 2 : b역시 바뀌게 됩니다. 
+
+
+
+
+        // // 해결책1 : 
+        // let a = {
+        //     c: {
+        //         d: 1
+        //     }
+        // }
+        // console.log(JSON.stringify(a)) // JSON.stringify()를 하면 a의 값은 {"c":{"d":1}} 이런식으로 string으로 바뀌게 됩니다.
+        // console.log(JSON.parse(JSON.stringify(a))) // {"c":{"d":1}}에 JSON.parse()를 하면 다시 객체(object)데이터로 바꿔주는데, 이때 "새로운" 객체로 만들어주게 되는 것입니다. 
+        // let b = JSON.parse(JSON.stringify(a)) // 그러므로 이렇게 하면 b에 a의 모든 값들을 가진 새로운 객체가 복사되어 생성됩니다.
+
+        // console.log(a.c.d) // 1
+        // console.log(b.c.d) // 1
+
+        // console.log(a === b) // false : a와 b는 다른 객체가 됩니다. 즉, 다르므로 false가 나옵니다.
+        // console.log(a.c === b.c) // false : a.c와 b.c도 다른 객체가 됩니다. 즉, 다르므로 false가 나옵니다.
+
+        // a.c.d = 2 // 그러므로, 이것을 바꾸게 되더라도,
+        // console.log(a.c.d) // 2
+        // console.log(b.c.d) // 2 : b역시 바뀌는 문제가 해결되었습니다!
+
+
+
+
+</script>
+
+
+</body>
+</html>

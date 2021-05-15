@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline태그와 Block태그</title>
+</head>
+<body>
+    <style>
+        /* blockTag 클래스에 적용하기 */
+        .blockTag{
+            background-color: yellowgreen;
+        }
+        /* blockTag 클래스의 자식요소로서의 div들에 적용하기 */
+        .blockTag > div{
+            background:tomato;
+            border: 1px solid black;
+        }
+        /* inlineTag 클래스에 적용하기 */
+        .inlineTag{
+            background-color: skyblue;
+            /* display: block;
+            display: inline;
+            display: inline-block; */
+        }
+        .colorBtn{
+            width:100px;
+            height:36px;
+            background-color: green;
+            color: white;
+            text-align: center;
+            /* line-height: 36px; */
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+
+    <!-- block-tag : div -->
+    <div class="blockTag">
+        <div>item</div>
+        <div>item</div>
+        <div>item</div>
+    </div>
+
+    <!-- inline-tag : span -->
+    <div class="inlineTag">
+        <span>item</span>
+        <span>item</span>
+        <span>item</span>
+    </div>
+
+
+    <!-- 추가할 사항 : form 태그 안에 input을 바로 넣어버리면 보기가 상당히 안좋다. 
+            해결법은 ul li을 활용하기 -->
+    <form action="2.html" method="get">
+    <!-- <form action="2.html" method="post"> -->
+        <ul>
+            <li><input type="text" placeholder="id" name="id"/></li>
+            <!--             
+            <li>X: <input type="text" placeholder="do you agree with it?" name="agree" value="Agreed" /></li>
+            <li>X: <input type="text" placeholder="readOnly" name="readOnly" value="readOnly" readOnly /></li>
+            <li>X: <input type="text" placeholder="disabled" name="disabled" value="disabled" disabled /></li> 
+            -->
+            <li><input type="password" placeholder="pw" name="pw"/></li>
+            <li><input type="email" placeholder="email" name="email"/></li>
+            <li>
+                Male <input type="radio" placeholder="male" name="gender" value="man" checked />
+                Female <input type="radio" placeholder="female" name="gender" value="woman" />
+            </li>
+            <li>Agree1? <input type="checkbox" name="chk1" value="true" /></li>
+            <li>Agree2? <input type="checkbox" name="chk2" value="true" /></li>
+            <li>Agree3? <input type="checkbox" name="chk3" value="true" /></li>
+            <li>
+                <select>
+                    <option name="opt1" value="true">select1</option>
+                    <option name="opt2" value="true">select2</option>
+                    <option name="opt3" value="true">select3</option>
+                </select>
+            </li>
+            <li>
+                <!-- <button class="colorBtn" type="button" onclick="alert('test')">Back</button>
+                <button class="colorBtn" type="submit">Send</button> -->
+                <input class="colorBtn" type="button" value="Back" onclick="alert('test')">
+                <input class="colorBtn" type="submit" value="Send">                
+            </li>
+        </ul>
+    </form>
+</body>
+</html>

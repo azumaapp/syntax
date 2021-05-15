@@ -1,0 +1,39 @@
+/* 참조API : https://www.w3schools.com/css/default.asp */
+
+div {
+    font-size:20px;
+    font-weight:bold; /* light, normal, bold, bolder */
+    font-family:'Arial';
+    font-style:italic;
+}
+
+.a {
+    color:red;    
+}
+
+.b {
+    color:blue;
+}
+
+img {    
+    /* 자체 사이즈 */
+    width: auto;
+    height: 40rem; /* 1rem = 16px */
+
+    /* padding = 개체내부 간격 */
+    padding: 1rem; 
+    padding-top: 1rem; 
+    padding-bottom: 1rem; 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    /* border = 경계선 */
+    border: 1rem;
+    border-style: solid;
+    border-color: skyblue;
+    /* margin = 개체외부 간격 */
+    margin: 1rem;
+    margin-top: 1rem; 
+    margin-bottom: 1rem; 
+    margin-left: 1rem; 
+    margin-right: 1rem; 
+}

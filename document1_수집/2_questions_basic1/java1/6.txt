@@ -1,0 +1,172 @@
+[문제28]다음을 수정/완성하시오
+(1)클래스명:Test28
+     필드명 : -base:double  (초기값:5.0)
+                 -height:double (초기값:3.5)
+     메서드명: +getArea():double
+                   +getHypotenuse():double 
+                   +getPerimeter():double
+(2)조건
+   1)공  식 : 삼각형의 넓이 = (밑변 * 높이) /2
+                빗변길이 = Math.sqrt(밑변*밑변+높이*높이)  
+                둘레길이 = 밑변 + 높이 + 빗변길이 
+   2) Test28로 객체 ob를 생성한다
+   3) getArea()는 삼각형의 넓이를 리턴한다
+       getHypotenuse() 빗변의 길이를 리턴한다
+       getPerimeter()는 둘레길이를 리턴한다 
+
+[출력화면]
+삼각형의넓이 : 8.75
+빗변길이 : 6.10
+둘레길이 : 14.60
+
+
+public class Ex28 {
+	private double base = 5;
+	private double height = 3.5;
+	
+	public double getArea() {
+		return base * height / 2;
+	}
+	
+	public double getHypotenuse() {
+		return Math.sqrt(base * base + height * height);
+	}
+	
+	public double getPerimeter() {
+		return base + height + getHypotenuse();
+	}
+	
+	public static void main(String[] args) {
+		Ex28 ob = new Ex28();
+		
+		System.out.printf("삼각형의 넓이 : %.2f\n", ob.getArea());
+		System.out.printf("빗변길이 : %.2f\n", ob.getHypotenuse());
+		System.out.printf("둘레길이 : %.2f\n", ob.getPerimeter());
+	}
+}
+--------------------------------------------------------------------
+[문제29]함수 overloading을 이용하여 다음을 완성하시오
+(1)클래스명:Test29
+    ① 필드명 : PI:double     (초기값:3.141593, final로 선언)
+    ② 메소드 : 
+           area(a:int):double       => 원의넓이=반지름*반지름*PI
+           area(a:int, b:int):double     => 사각형의넓이=가로*세로
+           area(a:int, b:int, c:int):doble     => 사다리꼴의 넓이=(밑변 + 윗변 )*높이/2 
+(2)조건
+     1)각각의 area(3),area(4,5),area(3,4,7) 메서드를 만들어 결과값을 구한다
+
+[결과화면]
+원의넓이 : 28.274337
+사각형의넓이 : 20.0
+사다리꼴의넓이 : 24.5
+
+
+public class Ex29 {
+	final double PI = 3.141593;
+	
+	public double area(int a) {
+		return a * a * PI;
+	}
+	
+	public double area(int a, int b) {
+		return a * b;
+	}
+	
+	public double area(int a, int b, int c) {
+		return (double)(a + b) * c / 2;
+	}
+	
+	public static void main(String[] args) {
+		Ex29 ob = new Ex29();
+		
+		System.out.println("원의 넓이 : " + ob.area(3));
+		System.out.println("사각형의 넓이 : " + ob.area(4, 5));
+		System.out.println("사다리꼴의 넓이 : " + ob.area(3, 4, 7));
+	}
+}
+--------------------------------------------------------------------
+[문제30]다중클래스를 만들고 setter & getter를 이용하여 다음을 완성하시오
+(1)클래스명: Test30
+(2)클래스명:  BookShop
+    필드명 : -bname:String   (책이름)
+                -author:String   (저자) 
+                -price:int          (가격) 
+    메서드명 : +setBook(bname:String,  author:String, price:int):void
+                   +viewBook():void
+                   +setter & getter
+(3)조건
+    1) Test30클래스의 main()메서드에서 BookShop 클래스로 객체 ob를 만든다
+    2) setBook("자바완성","황완성",25000)로 값을 대입한후 viewBook()메서드로 출력한다
+    3)  setBname("JSP잡기"),  setAuthor("송JP"), setPrice(3500)로 값을 대입한후
+          getBname(), getAuthor(), getPrice()로 출력한다
+
+[출력화면]
+책이름 : 자바완성
+저  자 : 황완성
+가  격 : 25000원
+
+책이름 : JSP잡기
+저  자 : 송JP
+가  격 : 35000원
+ 
+
+
+class BookShop {
+	private String bname;
+	private String author;
+	private int price;
+	
+	public void setBook(String bname, String author, int price) {
+		this.bname = bname;
+		this.author  = author;
+		this.price = price;
+	}
+	
+	public void viewBook() {
+		System.out.println("책이름 : " + bname);
+		System.out.println("저  자 : " + author);
+		System.out.println("가  격 : " + price + "원");
+	}
+
+	public String getBname() {
+		return bname;
+	}
+
+	public void setBname(String bname) {
+		this.bname = bname;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+}
+
+public class Ex30 {
+	public static void main(String[] args) {
+		BookShop bs = new BookShop();
+		
+		bs.setBook("자바완성", "황완성", 25000);
+		bs.viewBook();
+		System.out.println();
+		
+		bs.setBname("JSP잡기");
+		bs.setAuthor("송JP");
+		bs.setPrice(35000);
+		
+		System.out.println("책이름 : " + bs.getBname());
+		System.out.println("저  자 : " + bs.getAuthor());
+		System.out.println("가  격 : " + bs.getPrice() + "원");
+	}
+}

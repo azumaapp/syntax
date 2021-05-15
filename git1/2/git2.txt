@@ -1,0 +1,168 @@
+﻿[실무프로젝트 단위에서 git을 사용하는 방법]
+
+
+
+[업데이트 사항]
+* 현재 깃 리스트 : master, develop, frontend/yang
+* 현재 체크아웃 : master
+
+
+
+0. 관련 용어
+    commit
+    pull request
+    fork
+    clone
+    branch
+    checkout
+    merge
+    local branch
+    master branch
+    develop branch
+
+
+1. 초기 권한 세팅
+    PL : 깃허브에서 세팅 - manage access - collaborator 깃 유저네임으로 추가
+    PG : 메일로 권한 받음 - 깃배쉬에서 user.name 설정 확인
+
+1. 다수 프로젝트 작업의 흐름
+    최신 master(=현장에선 develop) 브랜치 merge
+        기존소스를 다른 폴더에 백업후 master를 머지한다.
+        both changes를 통해서 머지를 완료한다.
+
+    branch
+        (develop 브랜치 만들어두고 시작)
+        git checkout -b frontend/yang : local에 frontend/yang이라는 branch를 작성
+        git add 올릴파일명(전부일경우에는 .)
+        git commit -m "메시지"
+        git push origin frontend/yang : remote branch에도 해당 branch를 작성하며 올리기
+        각자가 브랜치 작업 후 각자 브랜치에 올리기
+        기능이 완료되었으면 기트허브에 들어가 branch에 커밋한 것의 new pull request를 누른다.
+            커밋할 때의 주의사항을 지켰는지 확인한다.
+            리뷰자를 지정한다.
+            PR을 실시한다.
+            기존 master와 충돌이 일어나서 풀리퀘스트가 안될 경우, 로컬 frontend/yang에 체크아웃한 상태로 master(develop) 최신 브랜치를 선택후 패치 - 머지(충돌 both ok 작업)한 뒤 진행한다.
+                git checkout frontend/yang
+                git merge master
+            깃허브의 PR창에서 리뷰자가 master(develop) 브랜치에 frontend/yang을 병합해준다. (실습에선 master, 현장에선 develop에 할 것이다) 
+
+    merge작업 후 기존 branch삭제
+        깃허브의 PR창에서 Delete Branch를 누른다.
+        git checkout origin develop : 최신 develop(master) 깃을 리모트에서 체크아웃하고 develop(master) 로컬 branch를 생성한다.
+        git checkout -b develop 로컬 깃을 만들면서 checkout해둔다. 
+        git push origin :frontend/yang : 원격 remote branch 삭제.
+        git branch -D frontend/yang : 로컬 branch 삭제. -D는 commit 이력이 남아있어도 강제로 branch를 삭제한다는 옵션임.
+        git checkout -b frontend/donghwa : 새로운 이름(frontend/donghwa)의 로컬 branch 생성
+
+    merge작업 없이 closed 된 후 기존 branch삭제
+        ★기존소스를 다른 폴더에 백업
+        git checkout origin develop : ★리모트 디벨로프 브랜치를 체크아웃한다.
+        git checkout -b develop : ★로컬 디벨로프 브랜치를 새 이름으로 만들면서 체크아웃 해둔다.
+        git push origin :frontend/yang : 기존의 frontend/yang 리모트 브랜치 삭제
+        git branch -D frontend/yang : 기존의 frontend/yang 로컬 브랜치 삭제. 기존 코드도 삭제되니 주의!
+        git checkout -b frontend/donghwa : 새로운 이름으로 로컬 브랜치를 만들고 기존소스 보면서 다시 작업
+
+    새로운 깃을 생성하고 다음 기능의 코딩작업을 이어나간다. (빼기, 곱하기, 나누기의 부가기능)
+
+    반복하면서 backend/kim, frontend/lee 등 타 PG의 브랜치 만들어본다. (유저기능, 계산버튼)
+
+
+
+2. 숙지사항들
+    핵심내용 : 브랜치, 머지, 풀리퀘스트
+        코드는 로컬브랜치로 관리된다. (커밋시 로컬브랜치에 커밋후 리모트 브랜치에 푸시한다)
+        머지를 사용한다.
+        master를 직접 쓰지 않고, develop 브랜치를 master처럼 사용한다.
+
+    커밋할 때의 주의사항
+        로컬브랜치를 만들때 원칙에 따라 한다. (예: feature/name+?)
+        커밋할 때 : 풀리퀘스트 전가지 가급적 2~4개 정도의 커밋수를 유지하도록 한다. 리뷰자가 빡세니까.
+        커밋전에 로그상 버그는 전부 디버깅이 원칙이다.
+        커밋전에 콘솔로그 정리
+        커밋전에 주석 일본어 통일 + 남들이 보기 편한 주석으로 해야한다. (모두가 이해할 수 있는 주석)
+        커밋전에 메소드는 앞 주석부분에 @param지정을 해준다.
+        커밋전에 자바스크립트라면 let을 가능한한 const(재할당 불가)로 바꾼다.
+        커밋전에 코드는 긴 코드의 경우 여러줄로 나눠준다.
+
+    PR시의 절차
+        만일을 대비해 지금까지 한 코드를 어딘가에 잘 백업해두자.
+        상기 주의사항을 잘 지킨 상태로 커밋을 해둔다.
+        소스트리 : 내 로컬 브랜치(feature/name)를 체크아웃으로 해서 develop 최신버전(소스트리의 리모트에 있는 origin/develop)을 팻치후에 내 브랜치로 머지한다. (풀 옆에 숫자 뱃지가 없어질 거임)
+        IDE : 충돌처리를 해준다. (incoming할 지 current 쓸지 both를 쓸지 등을 결정한다.)
+        소스트리 : 로컬상의 브랜치(feature/name)을 푸시해 리모트(origin/feature/name)으로 내려보낸다.
+        깃허브 : 풀리퀘스트를 누르고, 기능명 쓰고, 리뷰자 지정하고, PR후 리뷰자에게 슬랙을 보내준다.
+        깃허브 : automatically merge가 불가능한 상황이면 소스트리에서 디벨롭 최신 머지부터 다시하고(풀에 숫자가 안뜨면 팻치 후에 풀해보자) 빨간 줄 충돌이 있으면 처리 후 다시 풀리퀘스트 한다.
+
+    PR 후 작업
+        [머지 완료시]
+            대기 : 다음 머지 전까지 코드 대대적 수정은 안하고, 주석정리나 에러잡기 하며 대기
+            깃허브 : closed request 누른 뒤, 삭제
+            소스트리 : 리모트 브랜치 삭제, 로컬 브랜치 삭제
+            탐색기 : .git삭제, 모든 워크스페이스 내의 파일 백업후 삭제
+            깃배쉬 : 워크스페이스에 git init - git remote add origin 깃주소, git pull origin develop
+            IDE : npm i , npm start 후 테스트
+            소스트리 : feature/name으로 새 로컬 브랜치 작성
+        [클로즈드 될 시]
+            깃허브 : closed request 누른 뒤, 삭제
+            소스트리 : 리모트 브랜치 삭제, 로컬 브랜치 삭제
+            탐색기 : .git삭제, 모든 워크스페이스 내의 파일 백업후 삭제
+            깃배쉬 : 워크스페이스에 git init - git remote add origin 깃주소, git pull origin develop
+            IDE : npm i , npm start 후 테스트
+            소스트리 : feature/name으로 새 로컬 브랜치 작성
+            상기의 PR(풀 리스퀘스트)시의 절차를 다시 한다.
+        [클로즈드 안된 상태에서 수정대응 요청이 올 시]
+            기존 디벨로프 커밋과의 충돌시 : 디벨로프 최신화되면서 변한 부분이 있으면, 최신화된 소스를 클릭후 내 브랜치에서 "머지"해서 변화된 곳을 대응한다.
+            기타 변화에 대응 : 하란대로 하기, 이해안되면 정확히 뭘 추가하라고 하는건지 물어보기            
+        [이클립스 로컬호스트 재설정] (현장에서 배울 내용)
+            이클립스 소스 최신 받기
+                이클립스에서 깃 퍼스펙티브를 누름
+                깃 리포지토리에서 indoor-sim 우클릭 후 키리카에
+                데벨로프 깃으로 변경 (충돌 없는지 확인)
+            이클립스에서 기존 indoor-sim과 indoor-sim-ui 기존꺼 파일 삭제 없이 날리기
+                indoor-sim과 indoor-sim-ui을 새걸로 pom.xml 다시 임포트하기
+                indoor-sim-ui의 src/main/resources의 application-develop.properties에서 nasDirectory=\temp\indoor\isdoc(지정한 위치)로 지정
+                위 uri 넣을 때 역슬로 넣어야하는 부분 특히 주의
+                리프레시 : 이클립스 익스플로러 클릭 후 F5
+                클린 : 스프링부트 대쉬보드에서 indoor-sim-ui 우클릭 후 "구성 열기" - 클린 클릭 - 서버 구동 재시작 (클린은 빌드 꼬인 걸 새로 정리)
+                클라이언트에서 dev.env.js에서 localhost:8080으로 도메인 바꾸고 npm start
+                (시뮬레이션, NSA, PDF보존 등) 서버 관련 기능 확인 (F12에서 네트워크 부분 체크 - 로컬 isDoc 폴더에 저장되는지 확인 
+
+
+
+3. sourcetree
+
+    sourcetree를 사용하면 시각적으로 더 편하게 브랜치 상황을 파악할 수 있음.
+
+    최신 master(=현장에선 develop) 브랜치 merge
+        기존소스를 다른 폴더에 백업후 master를 머지한다.
+        both changes를 통해서 머지를 완료한다.
+
+    branch
+        (develop 브랜치 만들어두고 시작)
+        local에 frontend/yang이라는 branch를 작성
+        올릴 파일을 올린뒤 stage에 싣는다. (주의 : 자기 관련된 파일만 올릴 것. 실수로 저장하여 수정된 파일이나, 패키지제이슨, 서버 관련 파일등은 손대더라도 올리지 않는다.)
+        커밋명을 입력한 뒤 커밋
+        푸쉬버튼을 눌러 remote branch에도 해당 branch를 작성하며 올린다.
+        각자가 브랜치 작업 후 각자 브랜치에 올린다.
+        기능이 완료되었으면 기트허브에 들어가 branch에 커밋한 것의 new pull request를 누른다.
+            커밋할 때의 주의사항을 지켰는지 확인한다.
+            리뷰자를 지정한다.
+            PR을 실시한다.    
+            기존 master와 충돌이 일어나서 풀리퀘스트가 안될 경우, 로컬 frontend/yang에 체크아웃한 상태로 master(develop) 최신 브랜치를 선택후 패치 - 머지(충돌 both ok 작업)한 뒤 진행한다.
+            깃허브의 PR창에서 리뷰자가 master(develop) 브랜치에 frontend/yang을 병합해준다. (실습에선 master, 현장에선 develop에 할 것이다) 
+
+    merge작업 후 기존 branch삭제
+        깃허브의 PR창에서 Delete Branch를 누른다.
+        최신 develop(master) 깃을 리모트에서 체크아웃하고 develop(master) 로컬 branch를 생성한다.
+        develop(master) 로컬 깃을 checkout해둔다. 
+        원격 frontend/yang remote branch 삭제.
+        로컬 frontend/yang branch 삭제.
+        새로운 이름(frontend/donghwa)의 로컬 branch 생성
+
+    merge작업 없이 closed 된 후 기존 branch삭제
+        ★기존소스를 다른 폴더에 백업후 전체커밋
+        ★리모트 디벨로프 브랜치를 체크아웃한다.
+        ★로컬 디벨로프 브랜치를 만든다.
+        디벨로프 로컬 branch로 checkout한 뒤 기존의 frontend/yang 리모트 브랜치, 로컬 브랜치 삭제
+        새로운 이름으로 로컬 브랜치를 만들고 기존소스 보면서 다시 작업
+
