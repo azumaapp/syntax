@@ -1,4 +1,4 @@
-[SQL 기본 개념]
+[MySQL 연동]
 참조: https://stricky.tistory.com/202
 
 1. 시작하며
@@ -23,9 +23,10 @@
 1. SQL 관련 룰
     개체((테이블, 인덱스 제약조건, 프로시저, 펑션 등), 컬럼의 케이스는 스네이크 케이스 (ex:table_example)로 한다.
 
-1. SQL을 A5M2에 연동하기
-    데이터베이스 study1.db를 A5M2에 추가
-    해당 db의 <default>를 연다.
+1. MySQL을 A5M2에 연동하기
+    XAMPP 설치 및 MySQL 가동 또는 MySQL 별도설치
+    데이터베이스 MySQL를 A5M2에 추가 (ID는 기본 root, passwd는 기본 없이 접속)
+    해당 db의 <MySQL>를 연다.
     *.py를 실행해서 sql 쿼리를 커밋    
     <default>에서 ctrl + F5로 새로고침하여 커밋 내용 확인
 

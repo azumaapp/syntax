@@ -1,15 +1,8 @@
 import sqlite3
 
-
-def setDB():
-    conn = sqlite3.connect("study1.db")
-    if conn:
-        print('Successfully Connected To: ', type(conn))
-
 # DML : Dababase Manipulation Language
 
 # INSERT 1 : 특정 테이블에 전체 컬럼 데이터를 신규로 삽입할 때
-
 
 def insertAll(table):
     conn = sqlite3.connect("study1.db")
@@ -22,7 +15,6 @@ def insertAll(table):
 
 # INSERT 2 : 특정 테이블에 일부 컬럼 데이터만 신규로 삽입할 때
 
-
 def insertPart(table):
     conn = sqlite3.connect("study1.db")
     cursor = conn.cursor()
@@ -33,7 +25,6 @@ def insertPart(table):
     conn.close()
 
 # SELECT 1 : 특정 테이블내 데이터의 전체를 획득할 때
-
 
 def selectAll(table):
     conn = sqlite3.connect("study1.db")
@@ -52,12 +43,11 @@ def selectPart(table):
     cursor = conn.cursor()
     # (WHERE 1은 모두 TRUE로써 모두 출력, 조건을 붙이면 조건 해당사항만 출력)
     cursor.execute("SELECT * FROM "+table+" WHERE my_field2='David';")
-    print(cursor.fetchall())
+    print(cursor.fetchone())
     conn.commit()
     conn.close()
 
 # UPDATE : 특정 테이블 내 데이터의 전체, 또는 일부를 새로운 값으로 갱신 할 때
-
 
 def update(table):
     conn = sqlite3.connect("study1.db")
@@ -71,7 +61,6 @@ def update(table):
 
 # DELETE 1 : 특정 테이블 내 데이터의 일부를 삭제 할 때
 
-
 def deletePart(table):
     conn = sqlite3.connect("study1.db")
     cursor = conn.cursor()
@@ -82,7 +71,6 @@ def deletePart(table):
 
 # DELETE 2 : 특정 테이블 내 데이터의 전체를 삭제 할 때
 
-
 def deleteAll(table):
     conn = sqlite3.connect("study1.db")
     cursor = conn.cursor()
@@ -91,16 +79,15 @@ def deleteAll(table):
     conn.commit()
     conn.close()
 
-
 if __name__ == "__main__":
-    setDB()
-    # insertAll('first_table') # 1
-    # insertPart('first_table') # 1
-    # selectAll('first_table') # 2
-    # selectPart('first_table') # 2
-    # update('first_table') # 3
-    # deletePart('first_table') # 4
+    # insertAll('table_1st') # 1
+    # insertPart('table_1st') # 1
+    # selectAll('table_1st') # 2
+    # selectPart('table_1st') # 2
+    # update('table_1st') # 3
+    # deletePart('table_1st') # 4
+    # deleteAll('table_1st') # 5
 
     # DCL 작업을 위해 인스턴스 1 추가해놓기
-    deleteAll('first_table') # 5
-    insertAll('first_table') # 5
+    deleteAll('table_1st') # 6
+    insertAll('table_1st') # 6

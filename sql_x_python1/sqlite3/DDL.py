@@ -1,10 +1,5 @@
 import sqlite3
 
-def setDB():
-    conn = sqlite3.connect("study1.db")
-    if conn:
-        print('Successfully Connected To: ', type(conn))
-
 # DDL : Dababase Definition Language
 
 # CREATE : 데이터베이스 내 개체 (테이블, 인덱스 제약조건, 프로시저, 펑션 등)을 생성 할 때
@@ -23,7 +18,7 @@ def create(table):
 def rename(table):
     conn = sqlite3.connect("study1.db")
     cursor = conn.cursor()
-    sql = "ALTER TABLE "+table+" RENAME TO 'renamed';"
+    sql = "ALTER TABLE "+table+" RENAME TO 'table_renamed';"
     cursor.execute(sql)
     if cursor.rowcount == -1: print("1 table renamed")
     # conn.commit()
@@ -66,17 +61,16 @@ def drop(table):
     # conn.commit()
     conn.close()
 
-# ★ 순서대로 열어서 실행해보기
+# ★ 순서대로 하나씩 열어서 실행해보기
 if __name__ == "__main__":
-    setDB()
-    # create("first_table") # 1
-    # rename("first_table") # 2
-    # truncate("renamed_table") # 3
-    # alter("renamed_table") # 4
-    # drop("renamed_table") # 5
+    # create("table_1st") # 1
+    # rename("table_1st") # 2
+    # truncate("table_renamed") # 3
+    # alter("table_renamed") # 4
+    # drop("table_renamed") # 5
     
     # DML 작업을 위해 만들어놓기
-    drop("first_table") # 6
-    create("first_table") # 6
-    truncate("first_table") # 6
+    drop("table_1st") # 6
+    create("table_1st") # 6
+    truncate("table_1st") # 6
     

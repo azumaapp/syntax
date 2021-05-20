@@ -1,0 +1,197 @@
+[SELECT문: 날짜 함수]
+참조: https://stricky.tistory.com/232
+
+1. 절차
+A5M2에서 mysql에 접속한 뒤, Query-1 탭을 클릭
+SQL 입력 (★ A5M2에 입력할 때는 마지막 구분자 ;를 쓰지 않는다.)
+커런트스키마에서 ctrl + F5로 커밋결과 리프레쉬
+
+1. 데이터조회하기안녕하세요.
+
+ 
+
+오늘은 SQL 독학 강의 <일반 함수>에 관해서 공부를 해보도록 하겠습니다.
+
+ 
+
+일반 함수는 그동안 우리가 배웠던 숫자, 문자, 날짜 등과 관련 없이 쓰일 수 있는 함수를 뜻합니다. 일반 함수도 여러 가지 많이 있겠지만, 포스팅에서는 가장 많이 쓰이는 일반 함수를 위주로 공부해보도록 하겠습니다.
+
+ 
+
+아마, 이번 포스팅이 단일행 함수 에서는 마지막이 될 것 같습니다. 조금조금씩 너무 질질 끈 건 아닌가 싶긴 한데.. 그래도 한 발짝 한 발짝 차곡차곡 내공을 쌓아가는 것이 가장 좋은 방법인 것 같습니다.
+
+ 
+
+너무 조바심 가지지 마시고, 첨부터 하나하나씩 확인 해서 공부하실 수 있으면 좋겠습니다.
+
+ 
+
+그럼 바로 시작 해보도록 하겠습니다.
+
+ 
+
+#이전 강의 보러 가기#
+
+2020/04/07 - [Database/sql 강의] - sql 독학 강의 # 단일행 함수 잘 사용 하기(형 변환 함수) 7편 -sTricky
+
+ 
+sql 독학 강의 # 단일행 함수 잘 사용 하기(형 변환 함수) 7편 -sTricky
+
+sql 독학 강의 # 단일행 함수 잘 사용 하기(형 변환 함수) 7편 -sTricky 컨텐츠 index 1. mysql의 데이터 타입 알아보기 2. 묵시적 형 변환 이란? 3. CAST, CONVERT 함수 사용 하기 안녕하세요. 코로나 여파로 여..
+
+stricky.tistory.com
+ 
+
+1. ifnull 함수 사용 하기
+oracle에서 NVL이라는 함수를 들어보셨을 겁니다. mysql에서는 같은 기능을 하는 함수가 ifnull입니다. null인 데이터 값이 있을 때 null이라고 출력하지 않고 지정하는 다른 특정 값으로 출력하게 하는 함수입니다.
+
+ 
+
+우선 아래와 같이 salary라는 테이블에 데이터가 있다고 가정을 하겠습니다.
+
+
+bonus라는 칼럼을 보면 나머지는 다 값이 있으나 홍길동과 손흥민의 경우 null이라고 되어 있습니다. 데이터가 아무것도 없다는 뜻이죠.
+
+ 
+
+여기서, 잠깐!! null의 의미를 정확하게 아시나요? null과 0을 혼동하는 경우가 간혹 있는데, null은 그 어떤 데이터도 없다는 뜻입니다. 0은 0이라는 데이터가 들어 있지만 null은 그냥 아무것도 없는 것을 말합니다. 데이터가 없으니 비교 연산자로도 비교를 할 수 없으며, inner join을 해도 join 되지 않습니다. null 끼리도 연결이 되지 않는다는 것입니다. 아래 null과 0을 쉽게 이해할 수 있는 그림이 있어서 가져왔습니다. 이거 보고 넘어 갈게요!
+
+
+null의 의미를 잘 이해하시길 바랍니다.
+
+ 
+
+다시 ifnull 함수 사용하기로 돌아와서, 위 데이터에 있는 null 값을 0으로 표현해 보겠습니다. 사용법은 예제를 보시면 바로 아 실수 있을 겁니다.
+
+select name, dept, salary, ifnull(bonus, 0) from class.salary;
+위 SQL을 실행하면 결과는 아래와 같이 나옵니다.
+
+
+ 
+
+위에서 null이었던 bonus 칼럼의 데이터가 0으로 표기된 것을 알 수 있습니다. 이번에는 0 대신 '해당 없음'이라는 text가 출력되도록 해보겠습니다.
+
+ 
+
+select name, dept, salary, ifnull(bonus, '해당없음') from class.salary;
+위 SQL의 결과는 아래와 같습니다.
+
+
+원하는 데로 null 데이터가 '해당 없음'으로 잘 나왔습니다.
+
+ 
+
+ifnull 함수의 사용법은 매우 간단합니다.
+
+ ifnull(data, 'null 대신 들어갈 문자나 숫자, 또는 컬럼명')
+ifnull에서 null 값 대신 나오는 데이터에 칼럼을 지정할 수도 있습니다.
+
+null이 있으면 null 값 대신 이름이 나오도록 해보겠습니다.
+
+select name, dept, salary, ifnull(bonus, name) from class.salary;
+위 SQL의 결과는 아래와 같습니다.
+
+
+null 대신 이름이 잘 출력이 되었습니다.
+
+ 
+
+ifnull 잘 이해가 되셨나요?
+
+ 
+
+SQL을 작성하다 보면 ifnull의 쓰임이 매우 많이 있으니 잘 알아두시길 바랍니다.
+
+ 
+
+2. if 함수 사용 하기
+if 함수 역시 자주 쓰이는 함수 중 하나입니다. if 함수는 ifnull을 대신할 수도 있습니다. 사용법은 예제를 보시면 금방 이해가 되실 겁니다.
+
+ 
+
+위에서 참조한 데이터를 if 함수를 사용해서 null 대신 '해당 없음'이라고 출력하도록 해보겠습니다.
+
+select name, dept, salary, if(bonus is null, '해당없음', bonus) from class.salary;
+
+결과가 잘 나왔습니다.
+
+ 
+
+if 함수의 사용법은 아래와 같습니다.
+
+if(조건, 조건 성립시 출력, 조건 미성립시 출력)
+위 SQL을 보면 bonus is null 은 조건입니다. null은 위에서도 말했지만 비교 연산자를 사용하지 않고 is, is not을 사용하여 조건을 입력하게 됩니다. bonus 칼럼 값이 null이면 '해당 없음'을 출력하고, null이 아니면 그냥 bonus 값을 출력하라는 내용입니다.
+
+ 
+
+이번엔 salary 칼럼의 값이 300 이상일 때 '고액 연봉자'라고 출력하고, 그 이하일 땐 '일반 연봉자'라고 출력하도록 if 문을 사용해보겠습니다.
+
+select name, dept, salary, if(salary >= 300, '고액연봉자', '일반연봉자') from class.salary;
+
+SQL문과 아래 결과를 비교해 보면 이해가 되실 겁니다.
+
+ 
+
+if문은 이렇게 사용을 하시면 됩니다.
+
+ 
+
+ 
+
+3. case 함수 사용 하기
+case 함수는 oracle과도 거의 같다고 보시면 됩니다. 어떤 칼럼 값이 A 이면 '가', B 이면 '나', C 이면 '다'.... 이런 식으로 여러 가지 경우를 고려해서 출력을 해야 할 때 사용할 수 있습니다.
+
+ 
+
+일단 예제를 먼저 하나 보겠습니다.
+
+select name
+     , case when dept = 'A' then '경영지원부'
+            when dept = 'B' then '영업부'
+            else '회계팀' end as dept
+     , salary
+     , bonus
+from class.salary;
+위 SQL을 보면 dept 칼럼의 값이 A 이면 '경영지원부', B 이면 '영업부' 나머지는 '회계팀'이라고 출력하라고 한 SQL 입니다. 이렇게 해도 되지만, C 가 '회계팀' 이라고 나와야 하는 상황이라면 여기에 D 또는 E, F... 등 다른 값이 들왔을 때도 다 같이 '회계팀'이라고 출력이 되겠죠? 그래서 SQL 내 case 함수를 아래와 같이 바꿔 줍니다.
+
+select name
+     , case when dept = 'A' then '경영지원부'
+            when dept = 'B' then '영업부'
+            when dept = 'C' then '회계팀' end as dept
+     , salary
+     , bonus
+from class.salary;
+이렇게 말이죠! 지금 현재 있는 데이터에서는 결과는 같습니다만, 그래도 더욱 명확하게 SQL이 작성이 되었습니다.
+
+ 
+
+SQL의 결과는 아래와 같습니다.
+
+
+ 
+
+4. ifnull, if, case를 복합적으로 사용 하기
+이번 포스팅 마지막으로 위에서 배운 ifnull, if, case 함수들을 한 SQL에서 복합적으로 사용하는 예제를 보겠습니다.
+
+select name
+     , case when dept = 'A' then '경영지원부'
+            when dept = 'B' then '영업부'
+            when dept = 'C' then '회계팀' end as dept
+     , salary
+     , if(salary >= 300 , '고액연봉', '일반') as salary_type
+     , ifnull(bonus, 0)
+     , case when ifnull(bonus, 0) = 0 then '해당없음'
+            else '보너스 해당자' end as bonus_type
+from class.salary;
+위 SQL의 결과를 먼저 보겠습니다.
+
+
+자, 이젠 위에서 배운 내용을 토대로 위 SQL을 한번 나름대로 해석을 해보시길 바랍니다. 이 내용들이 이해 가신다면 이번 포스팅 내용을 잘 숙지하신 것입니다.
+
+ 
+
+보시다가 도저히 이해가 안 가시면 댓글로 문의하시기 바랍니다.
+
+
+
+출처: https://stricky.tistory.com/233 [The DataBase that i am good at]
