@@ -1,9 +1,0 @@
-[SELECT문: SQL의 꽃 JOIN]
-참조: https://stricky.tistory.com/243
-
-1. 절차
-A5M2에서 mysql에 접속한 뒤, Query-1 탭을 클릭
-SQL 입력 (★ A5M2에 입력할 때는 마지막 구분자 ;를 쓰지 않는다.)
-커런트스키마에서 ctrl + F5로 커밋결과 리프레쉬
-
-1. 수업준비 (순서대로)
