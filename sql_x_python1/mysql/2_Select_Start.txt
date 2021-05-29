@@ -19,8 +19,7 @@ INSERT INTO table_2nd(name, dept_cd, phone, address) VALUES ('홍길동', 'A', '
 3) 확인
 SELECT * FROM table_2nd
 
-1. SELECT문: 데이터 조회
-
+1. 데이터 조회하기
 1) 원하는 데이터만 SELECT하기
 select * from table_2nd
 select name, phone from table_2nd

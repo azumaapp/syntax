@@ -1,12 +1,8 @@
 ﻿[실무프로젝트 단위에서 git을 사용하는 방법]
 
-
-
 [업데이트 사항]
 * 현재 깃 리스트 : master, develop, frontend/yang
 * 현재 체크아웃 : master
-
-
 
 0. 관련 용어
     commit
@@ -19,7 +15,6 @@
     local branch
     master branch
     develop branch
-
 
 1. 초기 권한 세팅
     PL : 깃허브에서 세팅 - manage access - collaborator 깃 유저네임으로 추가

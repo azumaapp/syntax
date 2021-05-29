@@ -1,5 +1,5 @@
 [SELECT문: SQL의 꽃 JOIN]
-참조: https://stricky.tistory.com/243, https://stricky.tistory.com/245, https://stricky.tistory.com/248, https://stricky.tistory.com/255, https://stricky.tistory.com/260
+참조: https://stricky.tistory.com/243 ~ 260
 
 1. 절차
 A5M2에서 mysql에 접속한 뒤, Query-1 탭을 클릭
@@ -60,6 +60,13 @@ INSERT INTO mysql.table_7th_student (student_id, major_id, bl_prfs_id, name, tel
 ,(1028, 9903, 7089903, '하지만', '01022228965')
 ,(1029, 9904, 7099904, '기지효', '01012090912')
 ,(1030, 9905, 7109905, '박민호', '01074746363')
+,(1031, 9901, null, '신채령', '01044755564')
+,(1032, 9902, null, '이만도', '01022287777') 
+,(1033, 9903, null, '박만호', '01099972253') 
+,(1034, 9904, null, '최이강', '01029386577') 
+,(1035, 9905, null, '강이민', '01033334444') 
+,(1036, 9901, null, '민형도', '01099973331') 
+,(1037, 9902, null, '도지란', '01055567774')
 
 INSERT INTO mysql.table_7th_professor (prfs_id, bl_major_id, name, tel) VALUES (7019901, 9901, '김보경', '023445678')
 ,(7029902, 9902, '조숙', '023446789')
@@ -134,14 +141,6 @@ join을 사용해서 여러 테이블이나 스키마에 분산되어 있는 데
 위와 같이 student 테이블과 major 테이블에 각각 따로 들어가 있는 데이터를, 오른쪽의 join 로직을 거치면 하나의 테이블처럼 데이터를 볼 수 있게 됩니다.
 그림에서는 2개의 테이블만 join을 했지만 나중에 3개, 4개, 그 이상의 join도 가능합니다.
 
-
-
-
-
-
-
-
-
 2) Inner join (Equi join) : 
 정의 : 
 가장 보편적인 join 방법이며, Equi join, 등가 조인이라고도 합니다. 서로 같은 값을 가지는 것만 합칩니다. 
@@ -183,12 +182,6 @@ from mysql.table_7th_professor p
               on p.bl_major_id = m.major_id
 ansi SQL에서는 cross join, join, inner join 모두 같은 결과를 보여주고 있습니다.
 
-
-
-
-
-
-
 3) 다중 Inner join (Equi join) : 
 정의 : 
 다중 inner join은 3개 이상의 테이블을 동시에 join 하여 출력하는 것을 말합니다.
@@ -216,17 +209,6 @@ from mysql.table_7th_student s
                     on s.bl_prfs_id = p.prfs_id
                         and p.bl_major_id = m.major_id
 결과는 동일합니다.
-
-
-
-
-
-
-
-
-
-
-
 
 4) Inner join (Non Equi Join) : 
 정의 : 
@@ -264,41 +246,29 @@ ANSI SQL 표현법도 거의 똑같아 보입니다.
 결과는 각 고객의 point와 가져갈 수 있는 상품명이 잘 매핑되어져서 나옵니다.
 기존의 Inner join에서 "= 표시가 없고 between등으로 조건절이 변형되었다는 점"만 다릅니다.
 
-
-
-
-
-
-
-
-
-
-
-
 5) Outer join : 
 정의 : 
-서로 같은 값을 가지는 것은 Equi Join과 똑같이 합쳐서 처리하지만, "다른 값"을 가지는 것은 조인 컬럼값을 "NULL"로 둡니다. 
+Inner Join 다음으로 많이 사용하는 기법으로,
+서로 같은 값을 가지는 것은 Inner Join(Equi Join)처럼 합쳐서 처리하지만, 
+"다른 값"을 가지는 것은 조인값을 "NULL"로 둡니다. 
 Outer Join에는 세가지 방식이 있습니다.
-left outer join과 right outer join은, 어느 한쪽의 데이터를 모두 출력 한 뒤에 조건에 맞는 데이터만 다른 쪽에 출력을 하는 것을 말합니다. 
-조건에 맞지 않은 데이터는 NULL 표시됩니다.
-둘째 full outer join입니다. 
-서로의 것을 추가합니다.
-조건에 맞지 않은 데이터는 서로 NULL 표시로 추가해줍니다.
+left outer join : 좌측 데이터중 우측의 조건에 맞는 데이터만 좌측에 추가, 조건에 맞지 않으면 NULL 표시
+right outer join : 우측 데이터중 좌측의 조건에 맞는 데이터만 좌측에 추가, 조건에 맞지 않으면 NULL 표시
+full outer join : 서로의 데이터중 조건에 맞는 데이터를 서로에게 추가, 조건에 맞지 않으면 서로 NULL 표시 (UNION으로 대체 가능)
 [그림] 11_5.png
 
+현재, table_7th_student 테이블에서, student, professor 테이블이 각각 있을 때,
+student 테이블에 일부 담당 교수 ID가 없는(null로 되어있는) 학생이 있습니다.
+이런 경우를 아직 담당교수 배정이 안된 학생이라고 가정한다면 
+두 테이블을 일반 inner join으로 join 한다면 전체 학생에서 
+아직 담당 교수가 배정되지 않은 학생들은 빠지게 됩니다.
+이런 누락 없이 데이터를 모두 보고자 할 때 outer join을 쓰게 됩니다.
+
 예시 : 
-
-*** 여기서부터 https://stricky.tistory.com/260 참조
-
-
-
-
-
-
-
-
-
-
+select s.name, s.bl_prfs_id, p.name, p.prfs_id 
+    from mysql.table_7th_student s
+    left outer join mysql.table_7th_professor p
+    on s.bl_prfs_id = p.prfs_id
 
 6) Cartesian Product join (카티션곱 조인) : 
 정의 : 
@@ -346,14 +316,6 @@ mysql문법을 사용할 때는 major 테이블과 professor 테이블 사이에
 50건의 데이터가 출력이 되었음을 알 수 있습니다.
 major_title 칼럼을 보시면 학과명 5개가 반복되면서 마지막 칼럼인 name에 있는 교수 이름이 하나씩 연결되는 것을 확인하실 수 있습니다.
 
-
-
-
-
-
-
-
-
-6) Self join : 
+7) Self join : 
 한 테이블이 자기 자신과 join을 다시 하는 경우를 말합니다. 아주 일반적인 경우는 아니지만 꼭 필요한 경우가 있습니다. 
 일반적인 사용법은 다른 join과 같습니다.
