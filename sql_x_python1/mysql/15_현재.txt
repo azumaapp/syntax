@@ -1,0 +1,41 @@
+TODO: https://stricky.tistory.com/282 보면서 아래 수정하기
+
+
+
+[INSERT문: 기본 데이터 삽입]
+참조: https://stricky.tistory.com/268
+
+1. 절차
+A5M2에서 mysql에 접속한 뒤, Query-1 탭을 클릭
+SQL 입력 (★ A5M2에 입력할 때는 마지막 구분자 ;를 쓰지 않는다.)
+커런트스키마에서 ctrl + F5로 커밋결과 리프레쉬
+
+1. 수업준비 (순서대로)
+1) 테이블 생성
+create table mysql.table_9th (
+    seq        int(10) primary key ,
+    cont       text,
+    name       varchar(15),
+    tel_num    int(11),
+    input_date datetime
+)
+테이블 9th로부터 복제해서 하나 더 만들기
+create table mysql.table_10th as select * from mysql.table_9th where 1=2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
