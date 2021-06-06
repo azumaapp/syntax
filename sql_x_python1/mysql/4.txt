@@ -7,7 +7,7 @@ SQL 입력 (★ A5M2에 입력할 때는 마지막 구분자 ;를 쓰지 않는�
 커런트스키마에서 ctrl + F5로 커밋결과 리프레쉬
 
 1. 수업준비 (순서대로)
-create table table_4th (country_name varchar(100), capital_city varchar(100), continent varchar(100))
+create table table_4th (country_name varchar(100), capital_city varchar(100), continent varchar(100)) character set utf8
 
 INSERT INTO table_4th (country_name, capital_city, continent) VALUES ('USA', 'Washington', 'America')
 ,('England', 'London', 'Europe')

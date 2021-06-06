@@ -13,14 +13,14 @@ create table mysql.table_7th_student (
     bl_prfs_id int(10) comment '담당교수ID',
     name varchar(20) comment '학생이름',
     tel varchar(15) comment '학생연락처'
-)
+) character set utf8
 
 create table mysql.table_7th_professor (
     prfs_id int(10) comment '교수ID',
     bl_major_id int(10) comment '소속학과ID',
     name varchar(20) comment '교수이름',
     tel varchar(15) comment '교수연락처'
-)
+) character set utf8
 
 create table mysql.table_7th_major (
     major_id int(10) comment '학과ID',
@@ -28,8 +28,8 @@ create table mysql.table_7th_major (
     major_prfs_cnt int(5) comment '학과소속교수수',
     major_student_cnt int(5) comment '학과소속학생수',
     tel varchar(15) comment '학과사무실연락처'
-)
-
+) character set utf8
+ 
 INSERT INTO mysql.table_7th_student (student_id, major_id, bl_prfs_id, name, tel) VALUES (1001, 9901, 7029901, '한지호', '01098447362')
 ,(1002, 9902, 7029902, '김은숙', '01023456787')
 ,(1003, 9903, 7039903, '강경호', '01092938476')
@@ -92,9 +92,9 @@ INSERT INTO mysql.table_7th_major (major_id, major_title, major_prfs_cnt, major_
 
 * 아래는 Outer Join(비등가 조인)용으로 새로운 테이블을 만들어서 비교하겠습니다.
 
-create table mysql.table_8th_customer(name varchar(10), point int)
+create table mysql.table_8th_customer(name varchar(10), point int) character set utf8
 
-create table mysql.table_8th_gift(name varchar(20) null, point_s int null, point_e int null)
+create table mysql.table_8th_gift(name varchar(20) null, point_s int null, point_e int null) character set utf8
 
 INSERT INTO mysql.table_8th_customer (name, point) VALUES ('김철수', 5)
 ,('홍길동', 12)

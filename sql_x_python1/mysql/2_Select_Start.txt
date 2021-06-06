@@ -8,7 +8,8 @@ SQL 입력 (★ A5M2에 입력할 때는 마지막 구분자 ;를 쓰지 않는�
 
 1. 수업준비 (순서대로)
 1) 테이블 생성
-CREATE TABLE table_2nd(name varchar(50), dept_cd varchar(1), phone varchar(15), address varchar(100))
+CREATE TABLE table_2nd(name varchar(50), dept_cd varchar(1), phone varchar(15), address varchar(100)) character set utf8
+
 2) 데이터 입력
 INSERT INTO table_2nd(name, dept_cd, phone, address) VALUES ('홍길동', 'A', '01023456789', '조선 한양읍 ')
 , ('손흥민', 'A', '0112345434', '영국 런던 ')
