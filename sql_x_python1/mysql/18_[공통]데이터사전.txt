@@ -1,4 +1,4 @@
-[CREATE문: 테이블 작성]
+[데이터 사전]
 참조: https://stricky.tistory.com/296
 
 0. Data Dictionary 란?

@@ -1,4 +1,4 @@
-[CREATE, ALTER문: 인덱스]
+[인덱스]
 참조: https://stricky.tistory.com/310
 
 1. 인덱스
