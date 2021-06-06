@@ -18,7 +18,7 @@ view를 select 하게 되면 view가 가지고 있는 SQL문이 실행이 되는
 왜 굳이 view라는 object를 만들어서 따로 관리를 하는것 일까요?
 
 1. 학습 준비
-CREATE TABLE table_15th_index (
+CREATE TABLE table_16th_view (
 	title       varchar(255)   not null comment '게시물제목',
     content     longtext         null comment '게시물내용',
     del_flg     tinyint(1)   not null comment '삭제여부' default 0,
