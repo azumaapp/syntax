@@ -1,0 +1,5 @@
+[AZ-900 라이센스 취득 2/6주차] 핵심 Azure 서비스에 대해 설명하기 (출제비중 15~20%)
+참조: https://docs.microsoft.com/ko-kr/learn/paths/az-900-describe-core-azure-services/?WT.mc_id=dotnet-21151-cxa&ocid=AID3027813
+참조: https://www.youtube.com/watch?v=892Nhkhwk4A
+
+

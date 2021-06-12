@@ -1,0 +1,63 @@
+[AZ-900 라이센스 취득 1/6주차] 클라우드 개념에 대해 설명하기 (출제비중 20~25%)
+참조: https://docs.microsoft.com/ko-kr/learn/paths/az-900-describe-cloud-concepts/
+
+1. 클라우드 컴퓨팅이란
+    1) 인터넷을 통해 컴퓨팅 서비스를 제공
+    2) 하드웨어처럼 구매할 필요 없고 사양/용량별로 쓴만큼만 내면됨.
+
+1. 클라우드로 이동하는 이유
+    1) 빠른 혁신
+    1) 제한없는 서비스 풀
+    1) 음성인식 서비스
+    1) 원격분석 서비스
+
+문제 : https://docs.microsoft.com/ko-kr/learn/modules/intro-to-azure-fundamentals/knowledge-check
+
+https://docs.microsoft.com/ko-kr/learn/modules/fundamental-azure-concepts/benefits-of-cloud-computing 여기서부터 시작 ***
+https://docs.microsoft.com/ko-kr/learn/modules/fundamental-azure-concepts/types-of-cloud-computing
+
+1. 클라우드 컴퓨팅의 범주
+    1) IaaS (Infrastructure-as-a-Service) : 클라이언트 테넌트(우리)가 직접 가상머신에 실제로 서버를 구성하고 앱을 설치하고 운영. 가장 유연성이 높음. 단, 유지보수도 우리가 다 해야함. (* 하드웨어 유지 관리는 안함)
+    1) PaaS (Platform-as-a-Service) : 코딩하고 배포만 함. 가상머신은 스스로 운영안함. 서버 자체 못 바꿈. 
+    1) Saas (Software-as-s-Service) : 코딩도 안함. 그냥 만들어진 소프트웨어를 돈내고 쓸 뿐. 예를 들면 Office 365.
+
+1. 클라우드 컴퓨팅의 장점
+    1) 고가용성(안정성) : 문제발생시에도 가동중지시간 없음.
+    1) 확장성 : 수직스케일링(RAM이나 CPU 추가), 수평스케일링(가상머신 추가) 가능.
+    1) 탄력성 : 자동스케일링.
+    1) 민첩성 : 신속한 배포 가능.
+    1) 지리적배포 : 전세계로 배포 가능.
+    1) 재해복구 : 클라우드 기반 백업 서비스.
+
+1. 클라우드 컴퓨팅의 유형
+    1) 퍼블릭 클라우드(오프-프레미스) : 자원을 모두에게 공유해서 사용 (플랫폼서비스, 소프트웨어)
+    1) 하이브리드 클라우드 : 둘을 합친 것. (플랫폼서비스, 원격가상머신, 소프트웨어) * 예: 구글드라이브
+    1) 프라이빗 클라우드(온-프레미스) : 자원을 일부 조직만 사용하는 것, (물리머신, 가상머신)
+
+1. 자본비용 및 운영비용
+    1) CapEx(자본비용) : 물리적 인프라 비용 초기 지출. 감가상각 발생. (PC 구매, 인프라장비 구매)
+    1) OpEx(운영비용) : 초기비용 없고, 쓴 만큼 지불. 운영비용이 발생. (클라우드 모델에 해당)
+
+문제 : https://docs.microsoft.com/ko-kr/learn/modules/fundamental-azure-concepts/knowledge-check
+
+1. 애저의 관리그룹, 구독, 리소스그룹, 리소스
+    1) 위계 : 
+        관리그룹
+            ↳구독 구독
+                ↳리소스그룹 리소스그룹 리소스그룹
+                    ↳리소스 리소스 리소스 리소스 리소스 리소스 리소스 ...
+    1) 관리그룹 : 
+        여러 Azure 구독의 거버넌스를 관리하는 데 사용된다.
+        거버넌스 조건(액세스, 정책, 규정 등)을 하위그룹에 적용, 상속한다.
+    1) 구독 : 
+        Azure 계정에 연결된 Azure 서비스의 논리적 단위
+        추적 및 청구 목적으로 함께 제공되는 Azure 서비스 세트로, 둘 이상 사용불가.
+    1) 리소스그룹 : 
+        Azure 리소스가 배포되고 관리되는 논리적 단위
+        역할 기반 엑세스 제어를 리소스그룹에 적용할 수 있다.
+        리소스그룹은 중첩할 수 없다. (리소스는 한 리소스그룹에만 있어야 한다.)
+        리소스그룹을 삭제하면 그 안의 리소스도 모두 삭제된다.
+    1) 리소스 : 
+        가상머신, 웹앱, 스토리지, DB 등 사용자가 만드는 서비스의 인스턴스이다.
+
+문제 : https://docs.microsoft.com/ko-kr/learn/modules/azure-architecture-fundamentals/knowledge-check
