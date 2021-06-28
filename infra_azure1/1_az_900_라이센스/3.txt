@@ -1,3 +1,0 @@
-[AZ-900 라이센스 취득 3/6주차] Azure의 핵심 솔루션 및 관리 도구에 관해 설명하기 (출제비중 10~15%)
-참조1: https://aka.ms/msdevkr/az900/3
-참조2: https://www.youtube.com/watch?v=GgKAkAWLnPw

@@ -1,3 +1,0 @@
-[AZ-900 라이센스 취득 4/6주차] 일반적인 보안 및 네트워크 보안 기능에 관해 설명하기 (출제비중 10~15%)
-참조1: https://aka.ms/msdevkr/az900/4
-참조2: https://www.youtube.com/watch?v=GgKAkAWLnPw

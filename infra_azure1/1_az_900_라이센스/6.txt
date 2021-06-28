@@ -1,3 +1,0 @@
-[AZ-900 라이센스 취득 6/6주차] Azure 비용 관리 및 서비스 수준 약정에 대해 설명하기 (출제비중 10~15%)
-참조1: https://aka.ms/msdevkr/az900/6
-참조2: https://www.youtube.com/watch?v=GgKAkAWLnPw
