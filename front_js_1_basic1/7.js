@@ -35,7 +35,6 @@ function clicked1() {
     title.innerHTML = "Hi! From JS"
     title.style.color = "red"
     document.title = "탭 이름 바꾸기"
-
 }
 
 
