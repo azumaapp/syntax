@@ -5,5 +5,8 @@ const calculator = {
     },
     minus: function(a, b) {
         return a - b
-    }
+    },
+    pi: 3.14
 }
+
+console.log(calculator.pi)

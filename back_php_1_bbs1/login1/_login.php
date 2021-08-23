@@ -32,11 +32,9 @@ if($row > 0){  // 로그인 성공 - 세션입력
     // 로그인 처리
     require ('_loginok.php');
     // 로그인 성공 알림후 메인으로 이동
-    echo "<script>window.alert('로그인이 완료되었습니다.')</script>";
-    echo "<meta http-equiv='refresh' content='0;url=../index.php'>";
+    echo "<script>window.alert('로그인이 완료되었습니다.');location.href='../index.php'</script>";
     exit;
 } else {  // 로그인 실패 - 세션입력하지 않음
-    echo "<script>alert('로그인에 실패하였습니다. 아이디와 비밀번호를 확인하세요.')</script>";
-    echo "<meta http-equiv='refresh' content='0;url=login.php'>";
+    echo "<script>alert('로그인에 실패하였습니다. 아이디와 비밀번호를 확인하세요.');location.href='login.php'</script>";
 }
 ?>
