@@ -17,12 +17,6 @@ public class java1_boolean {
 
 
 
-        // contains 메소드로 알아보는 Boolean
-        System.out.println("contains 메소드로 알아보는 Boolean");
-        System.out.println(var1.contains("world")); // return true;
-        System.out.println(var1.contains("Yang")); // return false;
-
-
 
 
         // 비교연산자와 같이 알아보는 Boolean
@@ -31,6 +25,13 @@ public class java1_boolean {
         System.out.println(1 == 1); // true
         System.out.println(1 < 1);
         System.out.println(1 >= 1);
+
+
+
+        // 메소드와 같이 알아보는 Boolean
+        System.out.println("contains 메소드로 알아보는 Boolean");
+        System.out.println(var1.contains("world")); // return true;
+        System.out.println(var1.contains("Yang")); // return false;
 
     }
 

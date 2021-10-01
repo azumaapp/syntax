@@ -17,5 +17,7 @@ win+g : 녹화시작
 ctrl+alt+tab : 알트탭 고정
 ctrl+shift+esc 작업관리자
 
+win+p : 디스플레이 확장 복제 변경
+
 참조 
 https://pepepien.tistory.com/173
