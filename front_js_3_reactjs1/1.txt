@@ -1,0 +1,37 @@
+리액트학습
+
+소개
+리액트JS는 최근 가장 핫한 JS 프레임워크이다.
+리액트JS의 장점은 다음과 같다.
+SPA(Single Page Application) Framework중에서 커뮤니티가 가장 큼. 
+(프론트엔지니어들의 프레임워크로 react가 1위로 65%가 사용. vuejs가 2위로 25%, 앵귤러js가 3위)
+구조가 단순함. 컴포넌트별로 나눠서 작업이 가능. 단순히 자바스크립트 function과 JSX(리액트로 html을 쓰는 방법)로 구성됨.
+
+설치
+vscode 설치
+node.JS 설치 확인 : node -v, npm -v
+git 설치 확인 : git -v, git --version
+npx 설치 : npm install npx -g
+웹팩 설치방법1 : npx create-react-app movie_app (이후 터미널에서 code movie_app_2021 이라고 치면 vscode에서 해당 앱 위치로 열어준다.)
+웹팩 설치방법2 : npm init react-app movie_app
+
+참조 : 웹팩이란?
+    우리가 사용하는 코드는 리액트코드이기 때문에 이걸 브라우져가 이해할수 있는 코드로 바꿔주는 툴이 필요하다.
+    웹팩은 리액트 코드를 브라우저가 이해할 수 있는 코드로 변경해주는 역할을 한다.
+    자세히 말하면 .js, .jade .coffee .png .less .css .sass 가 얽혀있는 구조들이 웹팩을 통해 정상적인 .css .js .png로 확장자가 변경된다는 것이다.
+    그러나 웹팩(webpack.github.io)은 배우기에 상당히 복잡하고 어렵다.
+    페이스북이 우리같은 초보자들을 위해 제공하는 것이 있다. 
+    create react app 이라는 게 있음. 이 안에 웹팩 파일이 숨어있는 셈이다.
+    create reate app을 구글 검색하면 facebook의 기트허브가 나온다.  (https://github.com/facebook/create-react-app)
+    여기서 밑에 문서를 보면 다음의 문구가 있다. 이것을 터미널에 입력하여 설치한다.
+    npm init react-app my-app(my-app은 앱 이름이다.)
+
+https://www.youtube.com/watch?v=j2jhnq8RnfU&list=PL7jH19IHhOLPp990qs8MbSsUlzKcTKuCf&index=5
+
+movie_app_2021 앱 폴더에 들어가서, README.md 파일을 고친다.
+
+
+
+
+
+
