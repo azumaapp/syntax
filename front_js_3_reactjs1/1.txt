@@ -31,6 +31,7 @@ movie_app_2021 앱 폴더에 들어가서, README.md 파일을 고친다.
 
 npm start
 
+localhost:3000에 가본다.
 
 
 
