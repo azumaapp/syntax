@@ -1,4 +1,5 @@
-리액트학습
+리액트학습 1.
+참조 URL : https://www.youtube.com/watch?v=j2jhnq8RnfU&list=PL7jH19IHhOLPp990qs8MbSsUlzKcTKuCf&index=5
 
 소개
 리액트JS는 최근 가장 핫한 JS 프레임워크이다.
@@ -26,10 +27,9 @@ npx 설치 : npm install npx -g
     여기서 밑에 문서를 보면 다음의 문구가 있다. 이것을 터미널에 입력하여 설치한다.
     npm init react-app my-app(my-app은 앱 이름이다.)
 
-https://www.youtube.com/watch?v=j2jhnq8RnfU&list=PL7jH19IHhOLPp990qs8MbSsUlzKcTKuCf&index=5
-
 movie_app_2021 앱 폴더에 들어가서, README.md 파일을 고친다.
 
+npm start
 
 
 
