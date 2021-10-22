@@ -1,0 +1,27 @@
+[JSX]
+
+App.js가 실제 HTML이 있는 곳이다.
+index.html도, index.js도 아니다.
+react가 하는 일은 component를 사용해서 HTML처럼 작성하는 것이다.
+javascript와 HTML간의 이러한 조합을 jsx라고 부른다. (SPA중에서도 react에서만 사용하는 기법)
+반대로 말해보면, jsx는 리액트에서 js 위에 배워야할 유일한 것이다.
+
+jsx란?
+javascript안의 HTML이다. (=DOM) 다시 말해, 리액트 .js 파일 안의 함수 안의 return 값에 들어가는 HTML 태그의 형식이다.
+기존 HTML과는 다르게, Component를 만들때의 jsx의 일정한 규칙이 있으므로 주의해야 한다.
+예를 들면, 두개 이상의 형제 태그가 있으면 반드시 <div>등 상위 요소 하나로 감싸야한다.
+예시:
+<div>
+    <h1>Hello</h1>
+    <h2>I am react!</h2>
+</div>
+
+jsx component를 만드는 법
+1. src 안에 첫글자를 대문자로 시작하는 파일을 만든다. → Potato.js
+2. 그 안에 다음 코드를 첫줄로 적어둔다. → import React from "react";
+3. (이를 하지 않으면, component를 사용하는 것을 이해하지 못한다.)
+4. 첫글자를 대문자로 시작하는 함수를 하나 만든다. → function Potato() { return () }
+5. return 이하에 HTML 태그를 작성한다.
+6. App.js에서 <Potato />태그로 Potato.js를 불러온다. 
+App.js에서 하고 index.js에서 하지 않는 이유 : index.js는 하나의 <App /> (=App.js)만을 불러올 수 있다.) App.js 안에서는 다양한 jsx들을 넣을 수 있다.
+
