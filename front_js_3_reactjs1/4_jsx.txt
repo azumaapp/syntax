@@ -6,6 +6,11 @@ react가 하는 일은 component를 사용해서 HTML처럼 작성하는 것이�
 javascript와 HTML간의 이러한 조합을 jsx라고 부른다. (SPA중에서도 react에서만 사용하는 기법)
 반대로 말해보면, jsx는 리액트에서 js 위에 배워야할 유일한 것이다.
 
+component란?
+component는 html을 반환하는 함수이다.
+우리는 function app()을 갖고 있고 그것은 html을 리턴한다. 이 함수가 바로 컴포넌트이다.
+호출할 때는 <App />으로 호출하게 된다.
+
 jsx란?
 javascript안의 HTML이다. (=DOM) 다시 말해, 리액트 .js 파일 안의 함수 안의 return 값에 들어가는 HTML 태그의 형식이다.
 기존 HTML과는 다르게, Component를 만들때의 jsx의 일정한 규칙이 있으므로 주의해야 한다.
