@@ -1,4 +1,11 @@
+State에 대해 알아야할 모든 것
+
 튜토리얼은 끝났다.
 App.js 내의 모든 food 관련 로직을 지우고 movieapp으로 바꾼다.
 function App은 class App 으로 바꾼다.
 react는 자동적으로 class component의 render method를 실행한다.
+
+react는 state를 변경할 때는 refresh를 해줘야한다.
+1. state는 this.와 함께 호출을 할 수 있다. (예:this.state.count +- 1)
+2. currnet : 외부의 영향을 받지 않고 currentState로부터 데이터를 세팅할 수 있는 방식이다.
+3. 포인트 : this.setState를 호출할 때마다 react는 새로운 state와 함께 render function을 호출할 것이다.
