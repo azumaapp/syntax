@@ -1,0 +1,4 @@
+튜토리얼은 끝났다.
+App.js 내의 모든 food 관련 로직을 지우고 movieapp으로 바꾼다.
+function App은 class App 으로 바꾼다.
+react는 자동적으로 class component의 render method를 실행한다.
