@@ -1,42 +1,82 @@
 function clicked1() {
-    // 백틱, 리턴    
+    // JS DOM Functions
 
-    // introYang은 introduce 함수의 리턴 값이다.
-    const introYang = introduce("Yang", "a developer", 13)
+    /*
+        JS DOM이란?
+            DOM은 문서 객체 모델 (Document Object Model)의 약자이다.
+            DOM을 HTML이라고도 할수도 있는데,
+            자바스크립트는 HTML 소스를 모두 객체로 만들어서 
+            document라는 변수안으로 가져온다.
+            그때 그 객체로 만들어진 변수 document를 DOM이라고 한다.
+            꺼내는 방법은 단순히 document라는 변수를 꺼내면 된다.
+        
+        자주쓰는 DOM 명령어들
+            아래 코드들은 innerHTML이나 style명령어와 함께 결합해 이것저것 바꿀 수 있음
+            document.getElementById("이름")
+            document.getElementByClassName("이름")
+            document.getElementByName("이름")
+            document.getElementByTagName("이름") : 태그이름으로 소스를 찾아냄
+            ↓ 통합하기!
+            document.querySelector("#id") : #id, .class, tag 다 됨!
 
-    // 리턴값으로 콘솔을 띄우거나 리턴값으로 얼럿을 띄우거나...등등 여러가지로 사용 가능하다.
-    // console.log(introYang) // ***
-    // alert(introYang) // ***
 
-    // calculator 객체(=클래스)는 plus에서 a + b를 반환한다. minus에서 a - b를 반환한다.
-    const calculator = {
-        plus: function(a, b) {
-            return a + b
-        },
-        minus: function(a, b) {
-            return a - b
-        }
-    }
+    */
 
-    // 플러스와 마이너스의 결과값을 구해보자.
-    const plus = calculator.plus(5, 5)
-    const minus = calculator.minus(10, 5)
-    console.log(plus)
-    console.log(minus)
+    // document : html의 모든 태그가 전부 나온다.
+    // console.log(document) // ***
+
+    // document.getElementById("title") : id가 title인 태그가 전부 나온다.
+    // const title = document.getElementById("title")
+    const title = document.querySelector("#title")
+    // console.log(title) // *** 해당 DOM(HTML 소스)이 전부 나온다.
+    // console.dir(title) // *** 해당 DOM을 가지고 내가 할 수 있는 모든 명령어가 나온다.
+    
+    // dir안에 나오는 명령어 중에서 DOM의 내용물을 바꾸는 명령어들을 써보자.
+    title.innerHTML = "Hi! From JS"
+    title.style.color = "red"
+    document.title = "탭 이름 바꾸기"
 }
 
-function introduce(name, job, age) {
-    // `` 백틱과 ${}를 통해서 ''+변수+'' 등을 일일이 입력하는 귀찮음을 해소할 수 있다.
-    return `hello ${name}! My job is ${job}. I am ${age} years old.`
+
+/* 
+    ★ JS는 이벤트 컨트롤러이다.
+    JS는 단지 html과 css를 바꾸고 싶어서 만들어지진 않았다.
+    JS는 이벤트에 반응하기 위해서 만들어졌다.
+    그럼 이벤트란 뭐냐.
+    이벤트는 웹사이트에서 발생하는 것들을 말하는 것이다.
+    click, resize, submit, contextMenu, input change, load, before closing, closing, ...
+    같은 것들이 모두 이벤트이다.
+    우리는 이 이벤트를 중간에 가로챌 수 있다.       
+*/
+
+function handleResize1() {
+    console.log("handleResize1()을 통해서 즉시 한번 실행된 거에요.")
+}
+function handleResize2() {
+    console.log("handleResize2를 통해서 윈도우 사이즈가 변경될 때마다 실행되는 거에요.")
+}
+function handleResize3(event) {
+    console.log(event)
+}
+function handleResize4() {
+    title.style.color = "blue"
 }
 
-// 백틱에서의 삼항연산자(Ternery Operator) 문법
-// = `${조건 ? `${true일경우 변수}`: false일 경우 변수}`
-const a = 3
-const b = 10
-const c = 5
-// console.log(`${a}:${b}:${c}`)
-// 10보다 적을 땐 0을 붙여서 01, 02... 이런식으로 나오도록 하려면?
-console.log(
-    `${a < 10 ? `0${a}` : a}`
-)
+/*
+    ★★ function을 부르는 두가지 방법
+    "method()"로 부르면 지금 당장 실행하라는 뜻이 되고,    
+    "method"으로만 부르면 지금 당장 실행하는게 아니라, 당신이 "원하는 때마다" 실행하게 된다.
+*/
+
+// 이 코드는 당장 한번 handleResize를 실행한다.
+window.addEventListener("resize", handleResize1())
+
+// 윈도우를 resize할 때마다 지정한 메소드를 실행한다!
+window.addEventListener("resize", handleResize2)
+
+// 윈도우를 resize할 때마다 이벤트 객체 자체를 출력해봅시다.
+window.addEventListener("resize", handleResize3)
+
+// 윈도우에 우클릭할 때 블루로 바뀌게 해봅시다.
+window.addEventListener("contextmenu", handleResize4)
+

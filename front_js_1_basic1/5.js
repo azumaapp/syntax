@@ -1,42 +1,42 @@
 function clicked1() {
-    // 함수와 파라미터
-    // 펑션(함수) : 메소드
-    // 파라미터 : 아규먼트를 받는 곳
-    // 아규먼트(인자, 인자값) : 사용자가 파라미터에 입력하는 값
-    
-    // 파라미터가 없는 함수1
-    // greet1() // ***
-    // 파라미터가 없는 함수2
-    // cal1() // ***
+    // 백틱, 리턴    
 
-    // 파라미터가 있는 함수1
-    // let name = prompt('이름이 뭐에요?') // ***
-    // greet2(name) // ***
-    // 파라미터가 있는 함수2
-    // let a = Number(prompt('a값은?')) // ***
-    // let b = Number(prompt('b값은?')) // ***
-    // cal2(a, b) // ***
+    // introYang은 introduce 함수의 리턴 값이다.
+    const introYang = introduce("Yang", "a developer", 13)
 
+    // 리턴값으로 콘솔을 띄우거나 리턴값으로 얼럿을 띄우거나...등등 여러가지로 사용 가능하다.
+    // console.log(introYang) // ***
+    // alert(introYang) // ***
+
+    // calculator 객체(=클래스)는 plus에서 a + b를 반환한다. minus에서 a - b를 반환한다.
+    const calculator = {
+        plus: function(a, b) {
+            return a + b
+        },
+        minus: function(a, b) {
+            return a - b
+        }
+    }
+
+    // 플러스와 마이너스의 결과값을 구해보자.
+    const plus = calculator.plus(5, 5)
+    const minus = calculator.minus(10, 5)
+    console.log(plus)
+    console.log(minus)
 }
 
-// ***
-// function greet1() {
-//     alert('환영합니다!')
-// }
+function introduce(name, job, age) {
+    // `` 백틱과 ${}를 통해서 ''+변수+'' 등을 일일이 입력하는 귀찮음을 해소할 수 있다.
+    return `hello ${name}! My job is ${job}. I am ${age} years old.`
+}
 
-// function greet2(nameInput) {
-//     alert(nameInput+'님 환영합니다!')    
-// }
-
-// function cal1() {
-//     let a = 1
-//     let b = 2
-//     let result = a + b
-//     alert(result+'='+a+'+'+b)
-// }
-
-
-// function cal2(a, b) {
-//     let result = a+b
-//     alert(result+'='+a+'+'+b)
-// }
+// 백틱에서의 삼항연산자(Ternery Operator) 문법
+// = `${조건 ? `${true일경우 변수}`: false일 경우 변수}`
+const a = 3
+const b = 10
+const c = 5
+// console.log(`${a}:${b}:${c}`)
+// 10보다 적을 땐 0을 붙여서 01, 02... 이런식으로 나오도록 하려면?
+console.log(
+    `${a < 10 ? `0${a}` : a}`
+)
