@@ -1,37 +1,174 @@
-// 도입과 주석
-
-// JS 주석1: 변수 지정시 변수 설명, 메소드내의 한줄 설명 등 간단히 주석달 경우
-
-/**
- * JS 주석2: 메소드에 주석달 경우. 파라미터가 있는 경우에는 아래 행을 추가한다.
- * @param {String} parameterName1 무슨 값을 받아야하는지에 대한 파라미터 설명
- * @param {Array<Object>} parameterName2 무슨 값을 받아야하는지에 대한 파라미터 설명
- */
-
-/**
- * 버튼 클릭시 실행하는 메소드
- */
-function clicked2() {
-    // 아래를 1천줄 내외의 복잡한 명령이라고 가정해보자.(실제로 대형프로젝트에서 많이 보게됨)
-    // 그러면 왜 JS의 도입을 3번째 방법으로만 쓰는지 명확해질 것이다.
-    let title = '경고메시지'
-    let msg = '보내기'
-    alert(title + ' ' + msg);
+// 이벤트처리 함수 (검색어 : js 이벤트 종류)
+function clicked1() {
+    alert('호출!')
 }
 
-// 아래와 같이 메소드가 여러개 있다고 하면 파일로 나누는 게 납득가죠?
-function clicked3() {
-    alert('버튼 3 좌클릭 완료')
+function rightclicked1() {
+    alert('우클릭 호출!')
 }
 
-function rightClicked3() {
-    alert('버튼 3 우클릭 완료')
+// 시작함수 : init()안에 담는 것을 원칙으로 한다.
+function init() {
+    // 콘솔로그 : js 작업을 할 때 파레트 역할
+    console.log('안녕!')
+    // 변수 : 변하는 수
+    let a = 1
+    console.log(a)
+    // 변수의 타입 : String(문자열), Number(수)
+    let b = '1'
+    console.log(b)
+    console.log(a+a)
+    console.log(b+a)
+
+    // Null
+    let null1 = null
+    console.log(null1)
+
+    // Boolean (true, false)
+    let num1 = 1
+    let num2 = 2
+    let boo1 = (num1 < num2)
+    let boo2 = (num1 === num2)
+    console.log('boo1:', boo1)
+    console.log('boo2:', boo2)
+
+    // Array(배열) : index는 0부터 시작, value는 index에 해당하는 값
+    let c = [1, 2, 3, 4, 5]
+    console.log('c:', c)
+    console.log('c[0]:', c[0])
+    console.log('c[1]:', c[1])
+    console.log('c.length', c.length) // 배열의 길이 출력
+    console.log('c[c.length - 1]:', c[c.length - 1]) // 끝에서 1번째 출력
+    // Array의 추가
+    c.push(6)
+    console.log('c:', c)
+    // Array의 삭제
+    c.pop() // 마지막꺼 삭제
+    c.splice(2, 2) // splice(a, b) : a번째 인덱스부터, b 개수만큼 삭제
+    console.log('c:', c)
+
+
+
+
+
+//     // Array -> Set으로 전환
+//     let arr2 = [30, 30, 28, 28, 29, 29, 27, 27, 32, 32, 31, 31, 31]
+//     console.log('arr2 before:', arr2)
+//     const set1 = new Set(arr2) // arr2의 값으로 새로운 Set를 만든다.
+//     console.log('set1:', set1)
+//     // Set의 추가
+//     set1.add(33)
+//     console.log('set1:', set1)
+//     // Set -> Array로 전환
+//     arr2 = Array.from(set1)
+//     console.log('arr2 after:', arr2)
+
+//     // Object
+//     let obj1 = { 'key1': 'value1', 'key2': 'value2' }
+//     console.log('obj1.key1:', obj1.key1)
+//     console.log('obj1.key2:', obj1.key2)
+//     // Object의 추가
+//     obj1.key3 = 'value3'
+//     console.log('obj1.key3:', obj1.key3)
+//     // Object의 삭제
+//     delete obj1.key3
+//     console.log('obj1.key3:', obj1.key3) // undefined 키 자체를 찾을 수가 없다. null 키를 찾긴 하지만 값이 없다.
+//     console.log('obj1:', obj1)
+
+
+
+
+//     // Object 추가학습(1) : Array와 Object의 차이 3가지, JSON 타입
+//     /*
+//         Array와 Object의 차이 3가지
+//         1. Array는 인덱스로 값을 꺼내고, Object는 키로 값을 꺼낸다.
+//         1. Array는 순서가 있고, Object는 순서가 없다.
+//         1. Array는 For문과 함께 쓸 수 있고, Object는 쓸 수 없다.
+
+//         JSON타입 : 고객정보 [{고객1}, {고객2}, {고객3}, ...] -> 고객1 { id : '', pw: '', name: '' }
+//     */
+//     let client1 = { 'id': 'user1', 'pw': '1', 'name': '김' }
+//     let client2 = { 'id': 'user2', 'pw': '2', 'name': '이' }
+//     let client3 = { 'id': 'user3', 'pw': '3', 'name': '박' }
+//     let client4 = { 'id': 'user4', 'pw': '4', 'name': '최' }
+//     let clientArray = [client1, client2, client3, client4]
+//     console.log('clientArray[2].name:', clientArray[2].name)
+
+
+
+
+
+//     // Object 추가학습(2) : 일반변수와 Object의 차이 : Object를 복사하는 방법
+
+//     // 일반 변수
+//     let int1 = 1
+//     let int2 = int1
+//     int1 = 2
+//     console.log('int2:', int2) // 1이라고 가정을 했고, 정답도 1이었다.
+
+//     // 객체
+//     let object1 = { 'a': 1, 'b': 2 }
+//     let object2 = object1
+//     object1.a = 2
+//     console.log('object2.a:', object2.a) // 1이라고 가정을 했고, 정답은 1이 아니었다. -> 왜?
+//     /*
+//         왜?
+//         Object는 "주소"를 참조합니다.
+//         선언이나 변경을 할 때에는 값이 아닌, 주소를 대입
+//         결국 같은 주소를 보게 됩니다.
+//         일반변수처럼 값만 복사하려면 주소를 복사해서 새로운 주소로 만들어주는 처리가 필요합니다.
+//         JSON.stringify : 문자화를 해서 카피를 한다. 그러나 이거는 객체가 아니다. 그냥 "{ a: 1, b: 2 }"라는 문자열이 된 것.
+//         JSON.parse : 파싱(컴퓨터가 이해할 수 있는 형태로 번역)해서 객체로 바꿔준다.
+//     */
+//     console.log('JSON.stringify(object1):', JSON.stringify(object1))
+//     console.log('JSON.parse(JSON.stringify(object1)):', JSON.parse(JSON.stringify(object1)))
+
+
+
+
+
+//     // Object 추가학습(3) : 콘솔로그의 정체
+
+//     /*
+//         콘솔은 사실, 객체입니다.
+//         콘솔로그는 console 객체 안의 key중 log라는 키를 사용하는 것입니다.
+//         이렇게, 객체 안에서 담아서 키를 처리하는 방식은 타 언어에서도 종종 사용됩니다.
+//         이런 객체를 다른 말로는 클래스라고도 합니다. (class = object)
+//         파이썬, 자바, 자바스크립트 등등 클래스 기반의 언어들은 그래서, "객체지향언어"라고 부릅니다.
+//      */
+//     console.log(console)
+//     console.error("이렇게 쓰면 Error 메시지를 띄웁니다.")
+
+
+
+
+
+
+
+    
+
+
+//     // 캐스팅 : 데이터타입을 변환 Number(), String(), Boolean(), ....
+//     let cast1 = '150'
+//     console.log('cast1+1234:', cast1+1234)
+//     let cast2 = Number(cast1)
+//     console.log('cast2+1234:', cast2+1234)
+//     let cast3 = String(cast2)
+//     console.log('cast3+1234:', cast3+1234)
+
+// }
+
+// 변수의 데이터타입
+/*
+    Null : 값이 없음 // 파이썬에서 none과 같음
+    Number : 실수(정수, 소수를 포함)
+    String : 문자열('hello')
+    Boolean : 논리(true/false)
+    Object : 객체 { 'key1':value1, 'key2':value2, ... } // 파이썬에서 Dict와 같음
+    Array : 배열 [1, 2, 3, ...] // 파이썬에서 List와 같음
+    Set : 집합 Set {1, 2, 3} // 중복제거 집합
+*/
+
+
 }
-
-function rightClicked4() {
-    alert('버튼 4 우클릭 완료')
-}
-
-
-
-
+init()
