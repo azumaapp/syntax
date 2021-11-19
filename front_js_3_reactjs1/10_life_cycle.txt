@@ -1,0 +1,15 @@
+Component Life Cycle
+
+1. Mounting : component가 screen에 표시될 때 호출하는 것들
+    constructor() : BeforeMount
+    render() : Mount
+    componentDidMount() : afterMount
+
+2. Updating : state를 변경할 때, 호출하는 것들
+    render() : Update
+    componentDidUpdate : afterUpdate
+
+3. Unmounting : component가 screen에 표시되지 못할 때 호출하는 것들
+    componentWillUnmount()
+
+실제 코드는 10_App.js를 참조하세요.
