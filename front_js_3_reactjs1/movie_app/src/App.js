@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import Movie from "./Movie"
 
 // 앱
 class App extends React.Component {
@@ -15,7 +16,7 @@ class App extends React.Component {
       data: {
         data : { movies }
       }
-    }  = await axios.get("https://yts.mx/api/v2/list_movies.json") // JSON 취득
+    }  = await axios.get("https://yts.mx/api/v2/list_movies.json?sort_by=rating") // JSON 취득 : https://yts.lt/api#ist_movies 에서 파라미터 조작 확인
     console.log(movies) // {data: {data : { movies }}} = movies.data.data.movies
     this.setState({ movies, isLoading: false })
   }
@@ -23,9 +24,24 @@ class App extends React.Component {
     this.getMovies()
   }
   render() {
-    const { isLoading } = this.state
-    return <div>{this.state.isLoading ? "Loading..." : "We are ready"}</div>
+    const { isLoading, movies } = this.state // { } 안에 movies를 넣지 않으면 아래를 this.state.movies라고 해야한다.
+    return <div>
+      {
+        isLoading ? "Loading..." : 
+          movies.map(movie => (
+            <Movie
+              key={movie.id} // key를 넣지 않으면 다음의 메시지가 뜬다. => Warning: Each child in a list should have a unique "key" prop.
+              id={movie.id}
+              year={movie.year}
+              title={movie.title}
+              summary={movie.summary}
+              poster={movie.medium_cover_image}
+            />
+          ))
+      }
+    </div>
   }
 }
 
-export default App;
+// 아래 코딩을 해두면 App.js를 임포트했을 때, <App /> 로 꺼낼 수 있음 : index.js에서 꺼내고 있음
+export default App
