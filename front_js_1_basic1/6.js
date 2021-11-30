@@ -28,10 +28,14 @@ function clicked1() {
     // document.getElementById("title") : id가 title인 태그가 전부 나온다.
     // const title = document.getElementById("title")
     const title = document.querySelector("#title")
-    // console.log(title) // *** 해당 DOM(HTML 소스)이 전부 나온다.
-    // console.dir(title) // *** 해당 DOM을 가지고 내가 할 수 있는 모든 명령어가 나온다.
-    
+
+
+    console.log(document)
+    console.log(title) // *** 해당 DOM(HTML 소스)이 전부 나온다.
+    console.dir(title) // *** 해당 DOM을 가지고 내가 할 수 있는 모든 명령어가 나온다.
     // dir안에 나오는 명령어 중에서 DOM의 내용물을 바꾸는 명령어들을 써보자.
+
+
     title.innerHTML = "Hi! From JS"
     title.style.color = "red"
     document.title = "탭 이름 바꾸기"
@@ -64,7 +68,7 @@ function handleResize4() {
 
 /*
     ★★ function을 부르는 두가지 방법
-    "method()"로 부르면 지금 당장 실행하라는 뜻이 되고,    
+    "method()"로 부르면 지금 당장 한번 실행하라는 뜻이 되고,    
     "method"으로만 부르면 지금 당장 실행하는게 아니라, 당신이 "원하는 때마다" 실행하게 된다.
 */
 
@@ -80,3 +84,5 @@ window.addEventListener("resize", handleResize3)
 // 윈도우에 우클릭할 때 블루로 바뀌게 해봅시다.
 window.addEventListener("contextmenu", handleResize4)
 
+// 이런 식으로 HTML과 JS의 기능을 완전분리한다.
+document.querySelector('#btn1').addEventListener("click", clicked1)

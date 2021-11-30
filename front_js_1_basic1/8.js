@@ -7,7 +7,10 @@
 */
 
 function init() {
+    // DOM
     const title = document.querySelector("#title")
+
+    // EVENT
     title.addEventListener("click", handleClick)
     title.addEventListener("contextmenu", handleContextmenu)    
 }
@@ -19,7 +22,7 @@ function handleClick() {
     if(title.className !== "topic") {
         title.className = "topic"
     } else {
-        title.className = "" // 문제발생! 이걸 쓰면 버튼 클래스가 지워져버림
+        title.className = "" // 문제발생! 이걸 쓰면 large 클래스가 지워져버림
     }
     console.log(title)
 }
@@ -38,4 +41,3 @@ function handleContextmenu() {
 function clicked1() {
     title.classList.toggle("topic")
 }
-

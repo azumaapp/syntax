@@ -21,7 +21,7 @@ function init() {
     title.addEventListener("contextmenu", handleContextmenu)
     window.addEventListener("offline", handleOffline)
     window.addEventListener("online", handleOnline)
-    title.addEventListener("mouseenter", handleMouseenter)
+    // title.addEventListener("mouseenter", handleMouseenter)
 }
 init()
 
@@ -29,15 +29,15 @@ function handleClick() { alert('타이틀에 좌클릭했습니다.') }
 function handleContextmenu() { alert('타이틀에 우클릭했습니다.') }
 function handleOffline() { console.log('오프라인 상태입니다.') }
 function handleOnline() { console.log('온라인 상태입니다.') }
-function handleMouseenter() { 
-    const currentColor = title.style.color
-    // console.log(currentColor) // ***
-    if(currentColor === BASE_COLOR) { 
-        title.style.color = OTHER_COLOR
-    } else {
-        title.style.color = BASE_COLOR
-    }
-}
+// function handleMouseenter() {
+//     const currentColor = title.style.color
+//     // console.log(currentColor) // ***
+//     if(currentColor === BASE_COLOR) { 
+//         title.style.color = OTHER_COLOR
+//     } else {
+//         title.style.color = BASE_COLOR
+//     }
+// }
 
 // 그 외의 Event Types를 알고 싶을 때의 검색어 : HTML Javascript DOM event MDN
 // event의 기원을 알고 싶으면 항상 "MDN"을 검색하라!
