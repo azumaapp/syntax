@@ -20,8 +20,9 @@ function getMovie(url) {
         })
         .then(data => {
             // json 출력
-            console.log(data)
+            // console.log(data) // 들어오는지 확인 1
             movies.push(data)
+            // render(movies) // 확인 2까지 한뒤 주석풀기
         })
         .catch(err => {
             // error 처리
@@ -29,8 +30,13 @@ function getMovie(url) {
         });
 }
 
-getMovie(url)
-console.log('결과값:', movies)
+getMovie(url) // 여기서 전역변수 movies의 값을 갱신한다.
+// console.log('결과값:', movies) // 들어오는지 확인 2
+
+
+// 자료를 토대로 HTML을 만들어낸다.
+function render(movies) {
+    console.log('movies:', movies) // 들어오는지 확인 3
+}
 
 // TODO : movies의 값을 토대로 DOM을 변경해본다.
-// 템플릿 주소 : https://www.templateshub.net/templates/Entertainment에서 4번째 https://www.templateshub.net/template/Film-Review-Movie-Database 에 들어가서 다운로드

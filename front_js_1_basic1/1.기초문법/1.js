@@ -104,14 +104,14 @@ function init() {
 
     // Object 추가학습(2) : 일반변수와 Object의 차이(Object를 복사하는 방법)
     // 일반 변수
-    let a = 1
-    let b = a
+    a = 1 // 변수명 a, b는 위에서 한번 선언했으므로 다시 let은 안쓴다.
+    b = a
     a = 2
     console.log(b) // 1
 
     // 객체 변수
-    let c = { a: 1, b: 2 }
-    let d = c
+    c = { a: 1, b: 2 }
+    d = c
     c.a = 2
     console.log(d.a)
 
