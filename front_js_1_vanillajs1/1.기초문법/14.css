@@ -1,0 +1,12 @@
+/* 제일 마지막에 작성할 부분 */
+
+.movieTitle {
+    color: white;
+    background-color: gray;
+    margin-top: 10px;
+    width: 300px;
+}
+
+.movieImage {
+    width: 300px;
+}
