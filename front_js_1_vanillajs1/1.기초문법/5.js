@@ -1,39 +1,36 @@
-function clicked1() {
-    // 백틱, 리턴(있으면 nonvoid, 없으면 void)
+// 백틱
+// `` 백틱을 쓰면 줄바꿈도 인식하고 '나 "등의 부호도 위계와 관계없이 자유롭게 쓸 수 있다.    
+console.log(
+    `
+    줄바꿈 OK
+    ' " 기호사용 OK
+    `
+)
 
-    // introYang은 introduce 함수의 리턴 값이다.
-    const introYang = introduce("Yang", "a developer", 13)
-
-    // 리턴값으로 콘솔을 띄우거나 리턴값으로 얼럿을 띄우거나...등등 여러가지로 사용 가능하다.
-    console.log(introYang) // ***
-    // alert(introYang) // ***
-
-    // calculator 객체(=클래스)는 plus에서 a + b를 반환한다. minus에서 a - b를 반환한다.
-    const calculator = {
-        pi: 3.14,
-        plus: function(a, b) {
-            return a + b
-        },
-        minus: function(a, b) {
-            return a - b
-        }
-    }
-
-    console.log(calculator.plus(111, 222))
-    console.log(calculator.pi)
-
-    // 플러스와 마이너스의 결과값을 구해보자.
-    // const plus = calculator.plus(5, 5)
-    // const minus = calculator.minus(10, 5)
-    // console.log(plus)
-    // console.log(minus)
-}
-
+// 백틱과 템플릿 리터럴(Template Literal, 한국어로 템플릿 문자열)
 function introduce(name, job, age) {
-    // `` 백틱과 ${}를 통해서 ''+변수+'' 등을 일일이 입력하는 귀찮음을 해소할 수 있다.
+    // `` 백틱과 ${} 템플릿 리터럴를 통해서 ''+변수+'' 등을 일일이 입력하는 귀찮음을 해소할 수 있다.
+    // *** 아래 return이 의미하는 바가 무엇인지는 아래 clicked1 메소드에서 확인해보자.
     return `hello ${name}! My job is ${job}. I am ${age} years old.`
 }
 
+
+
+
+// *** 리턴값 이용하기
+function clicked1() {
+    // 함수형 프로그래밍에서 Method는 기본적으로 뱉어내는 리턴값이 있다. 
+    // 예를 들어, pi라는 메소드가 있고 이는 3.14라는를 리턴값이 있다.
+    // 예로 let a = pi() 를 하게 되면 a에 3.14가 들어가게 해주는 것이다. 
+    // 이렇게 하면 함수를 단순 명령 수행뿐 아니라 그 결과값을 마치 일종의 변수처럼 쓸 수 있게 되는 것이다.
+    // 리턴값이 없으면 Void Method라고 한다.
+
+    // 여기서 result 변수안에는 위의 introduce 함수의 리턴 값이 들어가게 된다. 
+    const result = introduce("Yang", "a developer", 13)
+
+    // 리턴값이 콘솔에 뜨는지 확인하자.
+    console.log(result)
+}
 
 
 
