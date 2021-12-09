@@ -1,0 +1,41 @@
+<알아야할 엑셀 기초 기능>
+셀 보호
+삽입 - 스마트아트, 스크린샷, 워드아트
+테마
+템플릿
+VBA안에서 엑셀함수쓰기 : Application.SUM(1, 2)
+드롭다운 : 데이터 - 데이터유효성 검사
+날짜(달력탭, 일정탭) : 홈 - 조건부서식
+틀고정(일정탭) : 보기 - 틀고정
+휴일 적용 : 수식 - 이름관리자
+피벗테이블 : 삽입 - 피벗테이블
+숏컷키 : ctrl + pageup, down 등
+눈금선 보기 해제 : 페이지레이아웃 - 눈금선 보기 해제
+
+<엑셀 함수 리스트 (=TODAY())>
+SUM, SUMIF, AVERAGE
+IF, IFERROR
+COUNT, COUNTA, COUNTBLANK, COUNTIF
+DAY, MONTH, YEAR, EOMONTH, NOW, TODAY
+HLOOKUP(조회값, 조회범위, 행번호, 일치옵션)1
+HLOOKUP(조회값, 조회범위, 행번호, 일치옵션)2
+VLOOKUP(조회값, 조회범위, 열번호, 일치옵션)1
+VLOOKUP(조회값, 조회범위, 열번호, 일치옵션)2
+ROUND, ROUNDDOWN, ROUNDUP
+LEFT, MID, RIGHT, REPLACE, LOWER, UPPER, PHONETIC, TEXT, TEXTJOIN
+WEEKDAY, WEEKNUM, WORKDAY
+
+<VLookUp>
+     A		B         C      D
+     Id	  Realname 	Gender 	Area
+3    azuma	 yang	   m	Tokyo
+4    kim     kim	   m	Osaka
+=VLOOKUP("azuma", A3:D5, 4, FALSE) =Tokyo
+
+<HLookUp>	
+     A          B       C
+2    Id	       azuma   kim
+3    Realname	yang   kim
+4    Gender	     m     m
+5    Area	    Tokyo   Osaka
+=HLOOKUP("azuma", B2:C5, 4, FALSE) =Tokyo

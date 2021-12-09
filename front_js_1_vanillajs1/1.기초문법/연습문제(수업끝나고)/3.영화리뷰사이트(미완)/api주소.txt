@@ -1,6 +1,0 @@
-// 사용할 API 주소(예제) : 영화 리뷰 사이트의 API를 호출한다.
-// API GET : https://yts.mx/api/v2/list_movies.json
-// API GET SORT BY : https://yts.mx/api/v2/list_movies.json?sort_by=rating
-// API 튜토리얼 : https://yts.mx/api
-
-// API 호출 명령어 참조 : https://hogni.tistory.com/142

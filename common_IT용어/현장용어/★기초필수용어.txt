@@ -1,0 +1,30 @@
+[사전에 이해가 필요한 개념]
+
+<초급>
+    common : git(clone, fetch, pull, push, commit, merge, pull request), ide, package, class, method(function), 
+            variables, return value, debugging, 
+            html, css, javascript, 
+            api doc(application programming interface document)
+    front-end : html, css, javascript, navbar, header, footer, 
+                grid, 개발자도구(F12)
+    back-end : java, php, python, database
+    infra : server, host, client, deploy
+
+<초중급>
+    common : library, framework, framework와 library의 차이, 
+                mvc pattern
+    front-end : jsp, jquery, bootstrap, vuejs, reactjs
+    back-end : mapper, mybatis, batch, interceptor, pom, filter, 
+                mybatis, lombok
+    infra : aws, azura
+    process : 요건정의(분석:제품챔피언), 설계(업체가 통제), 
+                제조(개발), 테스트(QA업체), 유지/보수
+    document : 단체테스트 사양서, 결합테스트 사양서, 기본설계, 상세설계
+    
+<중급>
+    모든 개념 이해하고 있음 (가끔 구글링)
+
+<준비물>
+    common : window os, chrome, git, github, xampp
+    Java : eclipse(pleiades), sts
+    Python, PHP : python, vscode
