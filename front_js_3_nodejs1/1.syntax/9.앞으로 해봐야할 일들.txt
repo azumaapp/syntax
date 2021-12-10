@@ -1,0 +1,7 @@
+1. Node.js 안에 있는 서버 구현 기능을 활용하여 bbs를 만들어보자.
+
+2. Node.js가 주로 사용하는 db는 MongoDB, MySQL 등이 있으므로 사용해보자.
+
+3. Node.js awesome을 검색해서 많은 awesome한 module 들을 공부해보자.
+
+4. Npm으로 spa 앱들의 공통적인 요소들을 미리 구현해놓은 framework들을 공부해보자.
