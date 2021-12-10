@@ -1,0 +1,10 @@
+사용자가 xss(cross site scripting)을 통해서 해킹을 할 수 있다.
+이를 출력보안을 통해 해결해보자.
+
+
+1. 먼저 xss를 어떻게 하는 지 알아보겠다. 화면에서 create를 누른뒤 form input 안에 <script>alert('메롱')</script> 을 넣어보겠다.
+2. submit하면 출력시 얼럿창에 메롱이 떠버린다. 이런 형태로 script를 먹히게 하면 위험하다. location.href=""를 통해서 위험한(?) 사이트로 이동시켜버릴 수도 있다.
+3. 보안 모듈 설치 : > npm i sanitize-html
+4. main.js 코드의 수정
+5. 다시 create를 누른뒤 form input 안에 <script>alert('메롱')</script> 을 넣어본다.
+6. 해당 파일에서 메롱 경고창이 실행이 안 되는지 열어서 확인해본다. 안되면 성공!
