@@ -14,4 +14,4 @@ process_create를 누른다. - payload 탭을 들어간다. - form data에 title
         실행 : pm2 start main.js --watch --ignore-watch="data/*" 
             --watch 옵션의 의미 : 로컬 폴더내에 코드 변경이 있으면 리로드
             --ignore-watch="data/*" 옵션의 의미 : main.js가 수정되면 리로드 하지만 data안에 있는 파일은 수정될 때 리로드하지 않도록 함
-        종료 : pm2 kill
+        종료 : pm2 kill 또는 pm2 stop id(=> pm2 stop 0)
