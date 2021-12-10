@@ -1,23 +1,14 @@
-// server.js : express를 호출
-const express = require('express')
-const app = express()
-const port = 3000
-const server = app.listen(port, () => {
-  console.log(`Start Server : http://localhost:${port}`)
-})
+// 1. 우리는 함수를 마치 변수의 "값"처럼 사용할 수 있다. 즉, 함수 = "값"
+let a = function() {
+    console.log('콜백으로 부를 처리')
+}
 
-// views 폴더안에 있는 *.html을 가져오겠다 선언
-app.set('views', __dirname + '/views')
-// 해당 app은 ejs 템플릿을 사용한다 선언
-app.set('view engine', 'ejs')
-app.engine('html', require('ejs').renderFile)
+// 2. 콜백(callback)을 사용해서 매우 긴 시간이 걸리는 함수를 나중에 처리한다.
+function slowfunc(callback) {
+    console.log('1번째 처리')
+    console.log('2번째 처리')
+    console.log('3번째 처리')
+    callback()
+}
 
-// 라우터들의 설정 : '/*'를 넣어서 url path별로 처리할 페이지를 컨트롤해줌
-// 렌더링하기
-app.get('/', (req, res) => {
-  res.render('index.html')
-})
-
-app.get('/about', (req, res) => {
-  res.send('about page!')
-})
+slowfunc(a) // 이렇게 되면 a 함수가 callback 파라미터의 인자값으로 들어가서, a 변수안에 있는 함수가 실행된다.

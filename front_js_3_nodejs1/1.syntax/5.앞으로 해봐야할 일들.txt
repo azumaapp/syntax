@@ -1,0 +1,13 @@
+1. Node.js 안에 있는 서버 구현 기능을 활용하고, local file들을 db로 하여 bbs를 만들어볼 것이다.
+
+2. Node.js의 서버 구축 프레임워크 express와 db를 함께 사용해서 bbs를 만들어볼 것이다.
+주로 사용하는 db는 MongoDB, MySQL 등이 있으므로 사용해볼 것이다.
+
+3. 만든 앱을 배포해볼 것이다.
+
+4. Node.js awesome을 검색해서 많은 awesome한 module 들을 공부해볼 것이다.
+(시간이 있다면) 웹앱이 아닌 데스크톱앱 전용 프레임워크 electronJS도 간단하게 다뤄볼 것이다.
+
+
+---> 레벨업
+JS 학습의 최종단계로서, Npm으로 spa 앱들의 공통적인 요소들을 미리 구현해놓은 framework (vue나 reactjs) 단계로 넘어갈 것이다.

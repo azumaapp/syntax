@@ -1,0 +1,17 @@
+1. 콘솔창 말고 네트워크창 확인하기
+
+f12를 누른다. - 네트워크 탭에 들어간다. - 화면의 create 버튼을 누른다. - 값을 입력하고 submit 해본다. - 화면에 not found가 뜸을 확인한다. - 
+process_create를 누른다. - payload 탭을 들어간다. - form data에 title과 description이 post로 은밀하게 전송된 것을 확인한다.
+
+
+1. PM2를 활용하여 실행하기
+
+실행할 때는 node main.js로 실행해도 되지만, 이러면 코드수정때마다 ctrl+c로 끄고 다시 해야한다.
+아래와 같은 옵션을 넣어서 pm2로 실행하면 f5만 누르면 자동으로 변경된다.
+    PM2 (Package Manager 2) 활용하기
+        설치 : > npm i pm2 -g 
+            -g 옵션의 의미 : 글로벌로 설치하여 어느 로컬폴더에서도 실행가능
+        실행 : pm2 start main.js --watch --ignore-watch="data/*" 
+            --watch 옵션의 의미 : 로컬 폴더내에 코드 변경이 있으면 리로드
+            --ignore-watch="data/*" 옵션의 의미 : main.js가 수정되면 리로드 하지만 data안에 있는 파일은 수정될 때 리로드하지 않도록 함
+        종료 : pm2 kill

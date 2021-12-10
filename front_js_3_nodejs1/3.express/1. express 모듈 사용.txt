@@ -1,0 +1,10 @@
+express는 JS로 서버쪽을 실행하기 위한 프레임워크이다. 
+기존 nodejs에서 서버를 다루는 것이 중복되고 반복되는 작업이었기에,
+작업을 더 편리하게 할 수 있게 프레임워크로 짜둔 것이다.
+
+설치한 모듈을 *.js에서 사용하기
+1. npm i express
+2. package-lock.json 파일을 열어서 보면 express가 독립적으로 만든 게 아니라,
+     그것이 의존하는 것들도 다같이 설치가 됐음을 알 수 있다.
+3. const express = require('express') 를 js 코드안에 넣는다.
+4. 구글에 "npm express" 검색, 해당 API에 가서 사용법을 익힌 뒤 사용한다. 

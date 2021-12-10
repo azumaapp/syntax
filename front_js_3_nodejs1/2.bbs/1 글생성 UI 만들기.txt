@@ -1,4 +1,0 @@
-콘솔창 말고 네트워크창 확인하기
-
-f12를 누른다. - 네트워크 탭에 들어간다. - 화면의 create 버튼을 누른다. - 값을 입력하고 submit 해본다. - 화면에 not found가 뜸을 확인한다. - 
-process_create를 누른다. - payload 탭을 들어간다. - form data에 title과 description이 post로 은밀하게 전송된 것을 확인한다.
