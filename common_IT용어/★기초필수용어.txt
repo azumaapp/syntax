@@ -5,7 +5,7 @@
             variables, return value, debugging, 
             html, css, javascript, 
             api doc(application programming interface document)
-    front-end : html, css, javascript, navbar, header, footer, 
+    front-end : html, css, javapmscript, navbar, header, footer, 
                 grid, 개발자도구(F12)
     back-end : java, php, python, database
     infra : server, host, client, deploy

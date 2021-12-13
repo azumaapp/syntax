@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩카페</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>    
+    <!-- 메뉴 -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" aria-expanded="false"
+                data-toggle="collapse" data-target="#menu">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">코딩카페</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li id="menu1"><a href="index.html">홈</a></li>
+                    <li id="menu2"><a href="lesson.html">강의</a></li>
+                    <li id="menu3"><a href="contact.html">문의</a></li>
+                    <li id="menu4"><a href="login.html">로그인</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 점보트론 -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 id="title" class="text-center">코딩 카페</h1>
+            <p id="titleText" class="text-center">코딩 카페는 다양한 코딩 수업을 제공합니다.</p>
+            <p id="titleButton" class="text-center"><a class="btn btn-secondary btn-lg">강의 듣기</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- login form 넣기 -->
+        </div>
+    </div>
+
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 text-center">
+                    <h5>Copyright &copy; </h5>
+                    <script>document.write(new Date().getFullYear());</script>
+                    <h5>D. Yang</h5>
+                </div>
+
+                <div class="col-sm-4">
+                    <h4 class="text-center">제작자 소개</h4>
+                    <p class="text-center">개발자 양동화라고 합니다. 5G 기술의 수출 및 도입, 개발에 관여하고 있습니다.</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <a href="index.html" class="list-group-item">홈</a>
+                        <a href="#" class="list-group-item">강의</a>
+                        <a href="#" class="list-group-item">문의</a>
+                        <a href="#" class="list-group-item">로그인</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Facebook</a>
+                        <a href="#" class="list-group-item">Instagram</a>
+                        <a href="#" class="list-group-item">Twitter</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>    
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+    <script>activeMenu(4);</script>
+</body>
+</html>

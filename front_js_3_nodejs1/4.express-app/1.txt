@@ -1,0 +1,5 @@
+express 실전수업
+1. 깃에서, 해당폴더 안에 있는 express-app.zip을 받아서 깐다.
+2. 해당 파일 위치에서 터미널을 열고 npm i, npm audit fix
+3. pm2 start main.js --watch 로 실행 (끌때는 pm2 kill)
+
