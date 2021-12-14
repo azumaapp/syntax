@@ -1,107 +1,65 @@
-// API란? : https://brunch.co.kr/@operator/65
+// DOM 객체는 HTML안의 DOM 트리안에서 위계적인 구조를 띈다.
+// ★ F12 누른 뒤 Element탭으로 넘어가보면 DOM 트리를 볼 수 있다.
 
-// 사용할 API 주소(예제) : 영화 리뷰 사이트의 API를 호출한다.
-// API GET : https://yts.mx/api/v2/list_movies.json
-// API GET SORT BY : https://yts.mx/api/v2/list_movies.json?sort_by=rating
-// API 튜토리얼 : https://yts.mx/api
+// 자 여기서는 a, b 변수라는 두 종류의 아들 태그(Child Tag)가 있다. 
+// 그들에게 부모를 지정하여 넣어줘보자.
 
-// API 호출 명령어 참조 : https://hogni.tistory.com/142
+// 전역변수 a
+let a = document.createElement("div") // "div" 태그 대신 다른 태그로도 가능
+a.innerHTML = "새로 생성됐음"
 
-let url = "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
-let movies = []
-let movieListArr = []
-
-function getMovie(url) {
-    fetch(url)
-        .then(res => {
-            // response 처리
-            console.log(res)
-            // 응답을 JSON 형태로 파싱
-            return res.json()
-        })
-        .then(data => {
-            // json 출력
-            // console.log(data) // 들어오는지 확인 1
-            movies.push(data)
-            render(movies) // 확인 2까지 한뒤 주석풀기
-        })
-        .catch(err => {
-            // error 처리
-            console.log('Fetch Error', err);
-        });
+// 바디에 생성(바디 맨 끝)
+function create1() {
+    let body = document.body
+    body.appendChild(a)
 }
 
-getMovie(url) // 여기서 전역변수 movies의 값을 갱신한다.
-// console.log('결과값:', movies) // 들어오는지 확인 2
-
-// 자료를 토대로 HTML을 만들어낸다.
-function render(movies) {
-    console.log('movies:', movies) // 들어오는지 확인 3
-    console.log('movies[0].data.movies', movies[0].data.movies) // 들어오는지 확인 4 (더 자세히 보기)
-
-    movieListArr = movies[0].data.movies
-    for (let i = 0; i < movieListArr.length; i++) {
-        createMovieList(movieListArr[i])
-    }
-
-    // ↓↓↓ movies[0].data.movies 배열 데이터의 인덱스 중 하나의 밸류를 복사해서 보면서 작업한다. ↓↓↓
-
-    // background_image: "https://yts.mx/assets/images/movies/jai_bhim_2021/background.jpg"
-    // background_image_original: "https://yts.mx/assets/images/movies/jai_bhim_2021/background.jpg"
-    // date_uploaded: "2021-11-03 16:12:36"
-    // date_uploaded_unix: 1635952356
-    // description_full: "When a tribal man is arrested for a case of alleged theft, his wife turns to a human-rights lawyer to help bring justice."
-    // genres: (2) ['Crime', 'Drama']
-    // id: 37384
-    // imdb_code: "tt15097216"
-    // language: "ta"
-    // large_cover_image: "https://yts.mx/assets/images/movies/jai_bhim_2021/large-cover.jpg"
-    // medium_cover_image: "https://yts.mx/assets/images/movies/jai_bhim_2021/medium-cover.jpg"
-    // mpa_rating: ""
-    // rating: 9.5
-    // runtime: 164
-    // slug: "jai-bhim-2021"
-    // small_cover_image: "https://yts.mx/assets/images/movies/jai_bhim_2021/small-cover.jpg"
-    // state: "ok"
-    // summary: "When a tribal man is arrested for a case of alleged theft, his wife turns to a human-rights lawyer to help bring justice."
-    // synopsis: "When a tribal man is arrested for a case of alleged theft, his wife turns to a human-rights lawyer to help bring justice."
-    // title: "Jai Bhim"
-    // title_english: "Jai Bhim"
-    // title_long: "Jai Bhim (2021)"
-    // torrents: (2) [{…}, {…}]
-    // url: "https://yts.mx/movies/jai-bhim-2021"
-    // year: 2021
-    // yt_trailer_code: "ElXnVVDl8cA"
+// 원하는 태그에 생성
+function create2() {
+    let parent = document.querySelector("#create2")
+    parent.appendChild(a)
 }
 
-/**
- * DOM 객체를 생성한다. 
- * 연습이므로, 타이틀 (title), 이미지 (background_image) 밸류만 사용해서 해보도록 하겠다.
- * 생성방법: 12.js의 DOM 객체 생성편 참조
- * @param {Object} movieObj 영화 한개의 객체 정보
- */
-function createMovieList(movieObj) {
-    // <타이틀>
-    let title = document.createElement("div")
-    title.innerHTML = movieObj.title // 교육받을 내용
-    title.setAttribute("class","movieTitle") // 부여받을 정체성, 소속(identity, class등)
-    // 스타일 꾸미기 : 사실 이 아래 부분은 쓰지말고, css에 해당 내용들을 담아서 사용하는 것이 더 좋다. (14.css 참조)
-    // title.style.color="white"
-    // title.style.backgroundColor="gray"
-    // title.style.marginTop="10px"
-    // title.style.width="300px"
+// 원하는 태그에 계속 생성
+function create3() {
+    // 지역변수 b : 계속 새로운 Element가 생성될 수 있음
+    let b = document.createElement("div")
+    b.innerHTML = "새로 생성됐음"
 
-    // <이미지>
-    let image = document.createElement("img")
-    image.src = movieObj.background_image // 교육받을 내용
-    image.setAttribute("class","movieImage") // 부여받을 정체성, 소속(identity, class등)
-    // image.style.width="300px" // 스타일 꾸미기
-
-    // 모두 부모 태그에 갖다 붙이기
-    let parent = document.querySelector("#movieList")
-    parent.appendChild(title)
-    parent.appendChild(image)
+    let parent = document.querySelector("#create3")
+    parent.appendChild(b)
 }
 
-// TODO: 해당 API에서 더 많은 변수를 꺼내어 자신의 느낌대로 HTML, CSS를 짜고 영화리뷰사이트를 간단히 만들어봅시다.
-// TODO: 연습문제 폴더에 있는 영화리뷰 사이트 템플릿에 만든 내용을 넣어 완성해봅시다.
+// 스타일 추가하여 생성
+function create4() {
+    // 아들 태그 생성
+    let b = document.createElement("div")
+
+    // 아들 키우기(?)
+    b.innerHTML = "축구선수" // 교육받을 내용
+    b.setAttribute("id","son") // 부여받을 정체성, 소속(identity, class등)
+    b.setAttribute("class","tottenham") // 부여받을 정체성, 소속(identity, class등)
+    b.style.backgroundColor="yellow" // 스타일 꾸미기
+
+    // 부모에게 갖다 붙이기
+    let parent = document.querySelector("#create4")
+    parent.appendChild(b)
+}
+
+// 부모에게서 자식 객체 삭제
+function delete1() {
+    // 삭제할 자식 찾기
+    let son = document.querySelector("#son")
+
+    // 부모 객체 알아내기
+    let parent = son.parentElement
+
+    // 부모로부터 id="son"인 DOM 객체를 "하나씩" 떼어내기
+    parent.removeChild(son)
+
+    // DOM 객체가 DOM 트리에서 제거되면 브라우저 화면이 즉각 갱신되어 
+    // DOM 객체에 의해 출력된 HTML 콘텐츠가 사라진다. 
+    // 떼어낸 DOM 객체는 DOM 트리의 임의의 위치에 다시 부착할수 있다.
+}
+
+// 퀴즈: son 아이디가 없을 때 삭제를 눌러도 에러메시지가 안 나오게 예외 처리를 해보세요.

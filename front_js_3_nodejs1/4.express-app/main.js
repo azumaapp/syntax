@@ -4,7 +4,7 @@ const port = 3000
 const fs = require('fs')
 const template = require('./lib/template.js')
 
-app.get('/', (req, response) => {
+app.get('/', (request, response) => { // ★ (A) => { B } 방식은 function(A) { return B } 와 의미가 같다.
   fs.readdir('./data', function(error, filelist){
     var title = 'Welcome';
     var description = 'Hello, Node.js';
@@ -17,9 +17,6 @@ app.get('/', (req, response) => {
   });
 })
 
-app.get('/page', function(req, res) {
-  return res.send('/page')
-})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

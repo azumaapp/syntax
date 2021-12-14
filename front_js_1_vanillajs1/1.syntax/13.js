@@ -1,42 +1,22 @@
-// API란? : https://brunch.co.kr/@operator/65
+// 함수는 값이다. 따라서 변수에 담아서 사용할 수도 있다.
+// 이번에는 리턴이 있는 함수를 통해서, 
+// 함수가 어떻게 변수에 담길 수 있는지,
+// 함수가 어떻게 변수의 값이 될 수 있는지 알아보겠다.
 
-// 사용할 API 주소(예제) : 영화 리뷰 사이트의 API를 호출한다.
-// API GET : https://yts.mx/api/v2/list_movies.json
-// API GET SORT BY : https://yts.mx/api/v2/list_movies.json?sort_by=rating
-// API 튜토리얼 : https://yts.mx/api
-
-// API 호출 명령어 참조 : https://hogni.tistory.com/142
-
-let url = "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
-let movies = []
-
-function getMovie(url) {
-    fetch(url)
-        .then(res => {
-            // response 처리
-            console.log(res)
-            // 응답을 JSON 형태로 파싱
-            return res.json()
-        })
-        .then(data => {
-            // json 출력
-            // console.log(data) // 들어오는지 확인 1
-            movies.push(data)
-            // render(movies) // 확인 2까지 한뒤 주석풀기
-        })
-        .catch(err => {
-            // error 처리
-            console.log('Fetch Error', err);
-        });
+// ★ 리턴값(return value) : 함수의 결과값
+// 리턴값이 있으면 함수를 변수처럼 값으로 사용할 수 있다.
+function ab(a, b) {
+    return a + b
 }
+let aa = ab(1, 2)
+console.log('리턴값 담은 변수인 aa:', aa)
 
-getMovie(url) // 여기서 전역변수 movies의 값을 갱신한다.
-// console.log('결과값:', movies) // 들어오는지 확인 2
+// ★ 변수에 함수를 넣을 때는, 다음과 같이 함수명을 생략하고 사용할 수 있다.
+let bb = function(a, b) { return a + b}
+console.log('리턴값 담은 변수인 bb(1, 2):', bb(1, 2))
 
-
-// 자료를 토대로 HTML을 만들어낸다.
-function render(movies) {
-    console.log('movies:', movies) // 들어오는지 확인 3
-}
-
-// TODO : movies의 값을 토대로 DOM을 변경해본다.
+// ★ 화살표 함수(arrow function expression) :
+// 함수를 변수처럼 값으로 사용하고 싶을 때 위 보다 더 간편하게 표현하는 방법이다.
+// ( A ) => { B } 방식의 함수는 function(A) { B } 와 의미가 같다.
+let cc = ( a, b ) => { return a + b }
+console.log('화살표함수 cc(1, 2):', cc(1, 2))
