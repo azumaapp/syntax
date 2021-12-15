@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 const fs = require('fs')
+const path = require('path')
+const sanitizeHtml = require('sanitize-html')
 const template = require('./lib/template.js')
 
 app.get('/', (request, response) => { // ★ (A) => { B } 방식은 function(A) { return B } 와 의미가 같다.
@@ -14,6 +16,35 @@ app.get('/', (request, response) => { // ★ (A) => { B } 방식은 function(A) 
       `<a href="/create">create</a>`
     );
     response.send(html);
+  });
+})
+
+app.get('/page/:pageId', function(request, response) {
+  fs.readdir('./data', function(error, filelist) {
+    // 1. queryData.id를 request.params.pageId로 변경
+    // 2. 상단에 sanitizeHtml, path를 require해줌
+    // 3. lib 폴더의 template.js에서 주소체계를 queryString체계에서 semantic url 형식으로 바꿔줌
+    // 4. pm2 start main.js --watch로 실행
+    // 5. 확인 후 pm2 kill
+    var filteredId = path.parse(request.params.pageId).base;
+    fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
+      var title = request.params.pageId;
+      var sanitizedTitle = sanitizeHtml(title);
+      var sanitizedDescription = sanitizeHtml(description, {
+        allowedTags:['h1']
+      });
+      var list = template.list(filelist);
+      var html = template.HTML(sanitizedTitle, list,
+        `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
+        ` <a href="/create">create</a>
+          <a href="/update?id=${sanitizedTitle}">update</a>
+          <form action="delete_process" method="post">
+            <input type="hidden" name="id" value="${sanitizedTitle}">
+            <input type="submit" value="delete">
+          </form>`
+      );
+      response.send(html);
+    });
   });
 })
 
@@ -36,31 +67,8 @@ app.listen(port, () => {
 //     var pathname = url.parse(_url, true).pathname;
 //     if(pathname === '/'){
 //       if(queryData.id === undefined){
-//
 //         });
 //       } else {
-//         fs.readdir('./data', function(error, filelist){
-//           var filteredId = path.parse(queryData.id).base;
-//           fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
-//             var title = queryData.id;
-//             var sanitizedTitle = sanitizeHtml(title);
-//             var sanitizedDescription = sanitizeHtml(description, {
-//               allowedTags:['h1']
-//             });
-//             var list = template.list(filelist);
-//             var html = template.HTML(sanitizedTitle, list,
-//               `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
-//               ` <a href="/create">create</a>
-//                 <a href="/update?id=${sanitizedTitle}">update</a>
-//                 <form action="delete_process" method="post">
-//                   <input type="hidden" name="id" value="${sanitizedTitle}">
-//                   <input type="submit" value="delete">
-//                 </form>`
-//             );
-//             response.writeHead(200);
-//             response.end(html);
-//           });
-//         });
 //       }
 //     } else if(pathname === '/create'){
 //       fs.readdir('./data', function(error, filelist){
