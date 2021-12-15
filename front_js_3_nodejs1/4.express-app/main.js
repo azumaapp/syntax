@@ -25,8 +25,7 @@ app.get('/page/:pageId', function(request, response) {
     // 1. queryData.id를 request.params.pageId로 변경
     // 2. 상단에 sanitizeHtml, path를 require해줌
     // 3. lib 폴더의 template.js에서 주소체계를 queryString체계에서 semantic url 형식으로 바꿔줌
-    // 4. pm2 start main.js --watch로 실행
-    // 5. 확인 후 pm2 kill
+    // 4. pm2 start main.js --watch로 실행 (* 이후 끌 때 pm2 kill)
     var filteredId = path.parse(request.params.pageId).base;
     fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
       var title = request.params.pageId;
@@ -38,7 +37,7 @@ app.get('/page/:pageId', function(request, response) {
       var html = template.HTML(sanitizedTitle, list,
         `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
         ` <a href="/create">create</a>
-          <a href="/update?id=${sanitizedTitle}">update</a>
+          <a href="/update/${sanitizedTitle}">update</a>
           <form action="delete_process" method="post">
             <input type="hidden" name="id" value="${sanitizedTitle}">
             <input type="submit" value="delete">
@@ -72,9 +71,7 @@ app.get('/create', function(request, response) {
 // post 방식 create
 // 1. create_process 이름을 create로 변경
 // 2. 상단에 qs를 require해줌
-// 3. pm2 start main.js --watch로 실행
-// 4. Create 직접 입력해본다.
-// 5. 글 등록 확인 후 pm2 kill
+// 3. Create 해보기
 app.post('/create', function(request, response) {
   var body = '';
   request.on('data', function(data){
@@ -90,6 +87,60 @@ app.post('/create', function(request, response) {
       })
   });  
 })
+
+// get 방식 update
+// 1. '/'을 라우팅한 부분에서 a href 이후 update?id= 부분을 update/로, 주소체계를 semantic url 형식으로 바꿔줌
+// 2. 아래 코드에서 queryData.id를 request.params.pageId로 변경
+app.get('/update/:pageId', function(request, response) {
+  fs.readdir('./data', function(error, filelist){
+    var filteredId = path.parse(request.params.pageId).base;
+    fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
+      var title = request.params.pageId;
+      var list = template.list(filelist);
+      var html = template.HTML(title, list,
+        `
+        <form action="/update" method="post">
+          <input type="hidden" name="id" value="${title}">
+          <p><input type="text" name="title" placeholder="title" value="${title}"></p>
+          <p>
+            <textarea name="description" placeholder="description">${description}</textarea>
+          </p>
+          <p>
+            <input type="submit">
+          </p>
+        </form>
+        `,
+        `<a href="/create">create</a> <a href="/update?id=${title}">update</a>`
+      );
+      response.send(html);
+    });
+  });
+})
+
+// post 방식 update
+// 1. update_process 이름을 update로 변경
+// 2. 실행해서 업데이트 해보기
+app.post('/update', function(request, response) {
+  var body = '';
+  request.on('data', function(data){
+      body = body + data;
+  });
+  request.on('end', function(){
+      var post = qs.parse(body);
+      var id = post.id;
+      var title = post.title;
+      var description = post.description;
+      fs.rename(`data/${id}`, `data/${title}`, function(error){
+        fs.writeFile(`data/${title}`, description, 'utf8', function(err){
+          response.writeHead(302, {Location: `/?id=${title}`});
+          response.end();
+        })
+      });
+  });
+
+})
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
@@ -107,47 +158,7 @@ app.listen(port, () => {
 //     } else if(pathname === '/create'){
 //     } else if(pathname === '/create_process'){
 //     } else if(pathname === '/update'){
-//       fs.readdir('./data', function(error, filelist){
-//         var filteredId = path.parse(queryData.id).base;
-//         fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
-//           var title = queryData.id;
-//           var list = template.list(filelist);
-//           var html = template.HTML(title, list,
-//             `
-//             <form action="/update_process" method="post">
-//               <input type="hidden" name="id" value="${title}">
-//               <p><input type="text" name="title" placeholder="title" value="${title}"></p>
-//               <p>
-//                 <textarea name="description" placeholder="description">${description}</textarea>
-//               </p>
-//               <p>
-//                 <input type="submit">
-//               </p>
-//             </form>
-//             `,
-//             `<a href="/create">create</a> <a href="/update?id=${title}">update</a>`
-//           );
-//           response.writeHead(200);
-//           response.end(html);
-//         });
-//       });
 //     } else if(pathname === '/update_process'){
-//       var body = '';
-//       request.on('data', function(data){
-//           body = body + data;
-//       });
-//       request.on('end', function(){
-//           var post = qs.parse(body);
-//           var id = post.id;
-//           var title = post.title;
-//           var description = post.description;
-//           fs.rename(`data/${id}`, `data/${title}`, function(error){
-//             fs.writeFile(`data/${title}`, description, 'utf8', function(err){
-//               response.writeHead(302, {Location: `/?id=${title}`});
-//               response.end();
-//             })
-//           });
-//       });
 //     } else if(pathname === '/delete_process'){
 //       var body = '';
 //       request.on('data', function(data){
