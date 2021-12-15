@@ -38,7 +38,7 @@ app.get('/page/:pageId', function(request, response) {
         `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
         ` <a href="/create">create</a>
           <a href="/update/${sanitizedTitle}">update</a>
-          <form action="delete_process" method="post">
+          <form action="/delete" method="post">
             <input type="hidden" name="id" value="${sanitizedTitle}">
             <input type="submit" value="delete">
           </form>`
@@ -132,15 +132,32 @@ app.post('/update', function(request, response) {
       var description = post.description;
       fs.rename(`data/${id}`, `data/${title}`, function(error){
         fs.writeFile(`data/${title}`, description, 'utf8', function(err){
-          response.writeHead(302, {Location: `/?id=${title}`});
-          response.end();
+          response.redirect(`/?id=${title}`);
         })
       });
   });
-
 })
 
-
+// post 방식 delete
+// 1. delete_process 이름을 delete로 변경
+// 2. '/' 라우팅에서 delete 부분의 href 수정 (/을 넣어야 최상위로 감)
+// 3. 아래 코드 response.writeHead 이하 리다이렉션 부분 수정 => response.redirect('/');
+// 4. 위 리다이렉션을 update post에도 적용
+// 4. 실행해서 삭제 해보기
+app.post('/delete', function(request, response) {
+  var body = '';
+  request.on('data', function(data){
+      body = body + data;
+  });
+  request.on('end', function(){
+      var post = qs.parse(body);
+      var id = post.id;
+      var filteredId = path.parse(id).base;
+      fs.unlink(`data/${filteredId}`, function(error){
+        response.redirect('/');
+      })
+  });
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
@@ -160,19 +177,6 @@ app.listen(port, () => {
 //     } else if(pathname === '/update'){
 //     } else if(pathname === '/update_process'){
 //     } else if(pathname === '/delete_process'){
-//       var body = '';
-//       request.on('data', function(data){
-//           body = body + data;
-//       });
-//       request.on('end', function(){
-//           var post = qs.parse(body);
-//           var id = post.id;
-//           var filteredId = path.parse(id).base;
-//           fs.unlink(`data/${filteredId}`, function(error){
-//             response.writeHead(302, {Location: `/`});
-//             response.end();
-//           })
-//       });
 //     } else {
 //       response.writeHead(404);
 //       response.end('Not found');
