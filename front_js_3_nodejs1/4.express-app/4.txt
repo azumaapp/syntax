@@ -1,0 +1,6 @@
+post 방식 create
+1. create_process 이름을 create로 변경
+2. 상단에 qs를 require해줌
+3. pm2 start main.js --watch로 실행
+4. Create 직접 입력해본다.
+5. 글 등록 확인 후 pm2 kill

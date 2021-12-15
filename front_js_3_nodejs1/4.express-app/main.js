@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const fs = require('fs')
 const path = require('path')
-const sanitizeHtml = require('sanitize-html')
 const template = require('./lib/template.js')
+const fs = require('fs')
+const qs = require('querystring');
+const sanitizeHtml = require('sanitize-html')
 
 app.get('/', (request, response) => { // ★ (A) => { B } 방식은 function(A) { return B } 와 의미가 같다.
   fs.readdir('./data', function(error, filelist){
@@ -48,18 +49,51 @@ app.get('/page/:pageId', function(request, response) {
   });
 })
 
+// get 방식 create
+app.get('/create', function(request, response) {
+  fs.readdir('./data', function(error, filelist){
+    var title = 'WEB - create';
+    var list = template.list(filelist);
+    var html = template.HTML(title, list, `
+      <form action="/create" method="post">
+        <p><input type="text" name="title" placeholder="title"></p>
+        <p>
+          <textarea name="description" placeholder="description"></textarea>
+        </p>
+        <p>
+          <input type="submit">
+        </p>
+      </form>
+    `, '');
+    response.send(html);
+  });
+})
+
+// post 방식 create
+// 1. create_process 이름을 create로 변경
+// 2. 상단에 qs를 require해줌
+// 3. pm2 start main.js --watch로 실행
+// 4. Create 직접 입력해본다.
+// 5. 글 등록 확인 후 pm2 kill
+app.post('/create', function(request, response) {
+  var body = '';
+  request.on('data', function(data){
+      body = body + data;
+  });
+  request.on('end', function(){
+      var post = qs.parse(body);
+      var title = post.title;
+      var description = post.description;
+      fs.writeFile(`data/${title}`, description, 'utf8', function(err){
+        response.writeHead(302, {Location: `/?id=${title}`});
+        response.end();
+      })
+  });  
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
-
-// var http = require('http');
-// var fs = require('fs');
-// var url = require('url');
-// var qs = require('querystring');
-// var template = require('./lib/template.js');
-// var path = require('path');
-// var sanitizeHtml = require('sanitize-html');
 
 // var app = http.createServer(function(request,response){
 //     var _url = request.url;
@@ -71,37 +105,7 @@ app.listen(port, () => {
 //       } else {
 //       }
 //     } else if(pathname === '/create'){
-//       fs.readdir('./data', function(error, filelist){
-//         var title = 'WEB - create';
-//         var list = template.list(filelist);
-//         var html = template.HTML(title, list, `
-//           <form action="/create_process" method="post">
-//             <p><input type="text" name="title" placeholder="title"></p>
-//             <p>
-//               <textarea name="description" placeholder="description"></textarea>
-//             </p>
-//             <p>
-//               <input type="submit">
-//             </p>
-//           </form>
-//         `, '');
-//         response.writeHead(200);
-//         response.end(html);
-//       });
 //     } else if(pathname === '/create_process'){
-//       var body = '';
-//       request.on('data', function(data){
-//           body = body + data;
-//       });
-//       request.on('end', function(){
-//           var post = qs.parse(body);
-//           var title = post.title;
-//           var description = post.description;
-//           fs.writeFile(`data/${title}`, description, 'utf8', function(err){
-//             response.writeHead(302, {Location: `/?id=${title}`});
-//             response.end();
-//           })
-//       });
 //     } else if(pathname === '/update'){
 //       fs.readdir('./data', function(error, filelist){
 //         var filteredId = path.parse(queryData.id).base;
