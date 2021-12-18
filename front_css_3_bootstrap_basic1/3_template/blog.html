@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩카페</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">브랜드</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">홈</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="bbs.html">게시판</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">블로그</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                회원
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="login.html">로그인</a></li>
+                                <li><a class="dropdown-item" href="#">회원가입</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">회원수정</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">OO님 환영합니다.</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    </header>
+
+    <!-- Blog START -->
+    <div class="container">
+        <div class="row">
+            <button class="btn btn-secondary col-lg-3" style="margin:20px;">블로그 등록</button>
+        </div>
+        <div class="row">
+            <ul class="list-group col-lg-6 text-center">
+                <a href="#" class="list-group-item">Cras justo odio</a>
+                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item">Morbi leo risus</a>
+                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </ul>
+            <ul class="list-group col-lg-6 text-center">
+                <a href="#" class="list-group-item">Cras justo odio</a>
+                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item">Morbi leo risus</a>
+                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </ul>
+        </div>
+    </div>
+    <!-- Blog END -->
+
+
+    
+    <!-- Footer Start -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 text-center">
+                    <h5>Copyright &copy; </h5>
+                    <script>document.write(new Date().getFullYear());</script>
+                    <h5>D. Yang</h5>
+                </div>
+
+                <div class="col-sm-4">
+                    <h4 class="text-center">제작자 소개</h4>
+                    <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum perspiciatis deserunt accusamus quos officiis voluptatem delectus, amet, incidunt in neque sequi nobis earum harum sit provident eius dicta quidem ab?</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <a href="index.html" class="list-group-item">홈</a>
+                        <a href="#" class="list-group-item">강의</a>
+                        <a href="#" class="list-group-item">문의</a>
+                        <a href="#" class="list-group-item">로그인</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Facebook</a>
+                        <a href="#" class="list-group-item">Instagram</a>
+                        <a href="#" class="list-group-item">Twitter</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>    
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+    <script>activeMenu(3)</script>
+
+</body>
+</html>

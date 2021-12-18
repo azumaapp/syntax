@@ -1,0 +1,16 @@
+/* 전체 영역 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+* {
+  font-family: 'Nanum Gothic Coding', monospace;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #bbbbbb;
+  text-decoration: none;
+  cursor: pointer;
+}
