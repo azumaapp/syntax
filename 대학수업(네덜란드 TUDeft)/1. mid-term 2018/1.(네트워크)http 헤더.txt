@@ -1,0 +1,22 @@
+참고 : 
+1~4번에 해당하는 네트워크 분야는 설명하는 분야가 아니다...
+그냥 암기과목이라 보면 된다.
+나는 앱 개발이기에 잘 설명할 수 없는 분야이기도 하다.
+
+
+HTTP 헤더의 예시
+
+HTTP/1.1 200 OK
+Date: Mon, 01 Apr 2019 13:37:20 GMT
+Content-Type: text/html; charset=utf-8
+Cache-Control: no-store, no-cache, private
+Expires: Sat, 15 Nov 2008 16:00:00 GMT
+Set-Cookie: uuid2=5975858; Path=/; Domain=.adnxs.com
+
+
+<해석>
+HTTP는 application layer에 속한다.
+그러므로 헤더가 있다는 것은 메시지 패킷이 있음을 의미하며,
+이는 사용자가 주소창에 adnxs.com을 입력했다는 뜻. 
+또한 쿠키는 uuid2=5975858를 가지고 있음. (host 정보가 있음)
+이는 Valid하다.

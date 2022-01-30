@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: 15px;
+            left: 50px;
+            background-color: tomato;
+            animation: colors 1s infinite;
+        }
+        @keyframes colors {
+            0% {
+                background-color: tomato;
+            }
+            5% {
+                background-color: deepskyblue;
+            }
+            10% {
+                background-color: gold;
+            }
+            /* more colors in 5% increments */
+            95% {
+                background-color: seagreen;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sqaure">
+    </div>    
+</body>
+</html>

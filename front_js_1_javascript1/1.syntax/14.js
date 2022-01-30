@@ -53,7 +53,6 @@ function delete1() {
 
     // 부모 객체 알아내기
     let parent = son.parentElement
-
     // 부모로부터 id="son"인 DOM 객체를 "하나씩" 떼어내기
     parent.removeChild(son)
 
@@ -63,3 +62,11 @@ function delete1() {
 }
 
 // 퀴즈: son 아이디가 없을 때 삭제를 눌러도 에러메시지가 안 나오게 예외 처리를 해보세요.
+
+// 답:
+// if (son && son.parentElement) {
+//     // 부모 객체 알아내기
+//     let parent = son.parentElement
+//     // 부모로부터 id="son"인 DOM 객체를 "하나씩" 떼어내기
+//     parent.removeChild(son)
+// }

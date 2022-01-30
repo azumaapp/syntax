@@ -1,0 +1,11 @@
+Accept-Encoding:identity
+요청 헤더에서 전송됩니다. 
+클라이언트는 압축되지 않은 내용만 이해합니다.
+
+<해설>
+Accept-Encoding 요청 HTTP 헤더는, 
+보통 압축 알고리즘인, 클라이언트가 이해 가능한 컨텐츠 인코딩이 무엇인지를 알려줍니다. 
+컨텐츠 협상을 사용하여, 서버는 제안된 내용 중 하나를 선택하고 사용하며 
+Content-Encoding 응답 헤더를 이용해 선택된 것을 클라이언트에게 알려줍니다.
+Accept-Encoding:identity는, 부호화(encoding)되지 않았음을 의미합니다.
+

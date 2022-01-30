@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        #main {
+            display: grid;
+            /* grid관련 참조하기 : https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-columns */
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        /* 아래 light-blue가 적용이 안되는 이유는, 아래 div > .square가 더 구체적인 선택자이므로, 먼저 적용됨. */
+        .square {
+            position: relative;
+            width: calc(50vw - 10px);
+            height: calc(50vh - 10px);
+            background-color: light-blue;
+            color: black;
+            border: 5px solid white;
+            font-size: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* (2) square가 두개 왔을 때부터 */
+        .square + .square {
+            background-color: grey;
+        }
+        /* (1) 네개 모두에 일단 적용. 보이는 건 첫번째만 될거임. */
+        div > .square {
+            background-color: orange;
+        }
+        /* (3, 4번) square가 세개 왔을 때부터 */
+        .square + .square + .square {
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="square odd"></div>
+        <div class="square even"></div>
+        <div class="square odd"></div>
+        <div class="square even"></div>
+    </div>
+    <!--
+        다음중 S1과 S3에 적용이 안 '될' 것은? A
+        A .sqaure.odd {} // 문법이 틀림. 가운데 띄어쓰기 해야함.
+        B div:n번째 타입 // S1, S3 모두 선택함
+        C div:n번째 자식 // S1, S3 모두 선택함
+        D .sqaure .odd {} // S1, S3 모두 선택함
+    -->
+</body>
+</html>
