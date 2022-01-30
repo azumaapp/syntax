@@ -1,5 +1,5 @@
 한번씩 사용해보면 좋을 npm 라이브러리들을 설치해서 사용해보자.
-    라이브러리 : lodash, debug, commander, moment, mysql
+    라이브러리 : lodash, debug, commander, moment, mysql, gojs
     프레임워크 : express, react, vue, electron
 
 설치방법
