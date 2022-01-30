@@ -3,7 +3,7 @@ const fs = require('fs')
 // readFileSync : 순서대로 1, File, 2... 순의 처리를 할 것이다. File을 처리하는 중간에 타임공백이 생긴다.
 console.log('<동기처리>')
 console.log('1 처리')
-let result = fs.readFileSync('7 sample.txt')
+let result = fs.readFileSync('3 sample.txt')
 console.log(`${result}`)
 console.log('2 처리')
 console.log('3 처리')

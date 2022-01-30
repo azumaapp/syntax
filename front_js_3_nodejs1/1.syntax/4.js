@@ -2,6 +2,8 @@
 let a = function() {
     console.log('콜백으로 부를 처리')
 }
+// a는 이렇게 실행할 수 있다.
+// a()
 
 // 2. 콜백(callback)을 사용해서 매우 긴 시간이 걸리는 함수를 나중에 처리한다.
 function slowfunc(callback) {
