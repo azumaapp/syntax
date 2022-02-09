@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭이름</title>
+    <!-- css 도입 -->
+    <link rel="stylesheet" href="3.css">
+    <style>
+        /* A to Z */
+
+        .div1 {
+            color:blue;
+            font-size: 30px;
+            /* font-weight: bolder, light, normal */
+            font-weight: bold;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: italic;
+        }
+
+        .img1 {
+            height: 500px; width: auto;
+            padding-top: 30px;
+        }
+
+        .div2 {
+            padding: 10px; border: 20px; margin: 30px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+
+        /* <br>을 매번 써야하나? 정답은 display: block; ! */
+        /* 
+        1. display란 : css 속성 중 하나로, element가 어떻게 배치되고 표시되어질지를 정한다.
+        display: inline; ---> element가 가로로 줄지어간다.
+            display: block; ---> element가 세로로 줄지어간다. (element 하나당 br이 적용된 것처럼 배치됨)
+            display: inline-block; ---> block과 inline의 중간. 예를 들어, 나열형 아이템은 inline으로가고, 가운데정렬시킨 아이템은 block형이 됨.
+            display: none; ---> 숨김처리
+        1. html 태그별 display 속성의 초기값
+            p, div, ul, h1~h6 등의 태그의 초기값 : block
+            a, span, img 등의 태그의 초기 값 : inline 
+        */
+        .inline {
+            display: inline
+        }
+
+        .block {
+            display: block
+        }
+
+        .inline-block {
+            display: inline-block
+        }
+
+        .none {
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">This is the class named "div1"</div>
+    <img class="img1" src="dog.png"></img>
+    <div class="div2"><b>안녕하세요!</b></div>
+    <!-- display: block, inline, inline-block, none -->
+    <div class="inline">인라인 디스플레이</div>
+    <div class="inline">인라인 디스플레이</div>
+    <div class="inline">인라인 디스플레이</div>
+    <div class="inline">인라인 디스플레이</div>
+    <div class="block">블럭 디스플레이</div>
+    <div class="block">블럭 디스플레이</div>
+    <div class="block">블럭 디스플레이</div>
+    <div class="block">블럭 디스플레이</div>
+    <div class="inline-block">인라인-블럭 디스플레이</div>
+    <div class="inline-block">인라인-블럭 디스플레이</div>
+    <div class="inline-block" style="text-align:center;">인라인-블럭 디스플레이</div>
+    <div class="inline-block" style="text-align:center;">인라인-블럭 디스플레이</div>
+    <div class="none">논 디스플레이</div>
+    <div class="none">논 디스플레이</div>
+    <div class="none">논 디스플레이</div>
+    <div class="none">논 디스플레이</div>
+
+    <!-- 
+        정리
+
+        display 속성에 어떤 것들이 있는지 설명해 주세요.
+        display 속성에는 block, inline, inline-block, none이 있다
+            block : 항상 새로운 라인에 요소가 시작되고 화면 크기의 전체 가로폭을 영역으로 차지한다. width 속성 값을 부여해주면 그 너비만큼 영역을 차지한다.
+            inline : 새로운 라인에서 시작되지 않으며 다른 요소들과 같은 줄에 배치될 수 있고 content 너비만큼의 영역을 차지한다. 그리고 width, height, margin-top, margin-bottom 속성이 적용이 되지 않는다.
+            inline-block: block 레벨 요소와 inline 레벨 요소의 특징을 모두 가지고 있다. 한 줄에서 inline 레벨 요소들과 같이 배치될 수 있으며 width와 height 속성으로 영역의 크기를 지정할 수 있다.
+            none: 선택한 요소들을 화면에 나타나지 않게 한다. visibility: hidden과의 차이점은 영역이 남아있는지 여부가 다르다는 점이다.(display: none은 영역도 없앰)
+    -->
+</body>
+</html>

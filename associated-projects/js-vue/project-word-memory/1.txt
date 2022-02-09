@@ -1,0 +1,3 @@
+템플릿주소: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+콘솔로그에서 스토어정보취득: document.getElementsByTagName('a')[0].__vue__.$store.state
+실행시: npm run serve
