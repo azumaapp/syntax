@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
+
 <body>
-    
+
     <h2>App3 : 이벤트 핸들링(Event Handling)</h2>
     <!-- ★ 공식문서 참조 : https://kr.vuejs.org/v2/guide/events.html 이벤트수식어의 옵션 참조 -->
     <div id="app3">
@@ -17,17 +19,17 @@
         <!-- 그러므로 이벤트 핸들링 .prevent를 통해서 리로드를 꺼보면 콘솔 로그가 사라지지 않고 남게 될거에요. -->
         <form v-on:submit.prevent="submit">
             <input type="text"><br></input>
-            <button type="submit">Submit</button> 
+            <button type="submit">Submit</button>
         </form>
     </div>
-    
+
     <script>
         var app = new Vue({
             el: '#app3',
             data: {
             },
             methods: {
-                submit() {
+                submit () {
                     alert('submitted');
                     // 이번엔 콘솔로그가 보여지겠죠.
                     console.log('hello');
@@ -37,4 +39,5 @@
     </script>
 
 </body>
+
 </html>

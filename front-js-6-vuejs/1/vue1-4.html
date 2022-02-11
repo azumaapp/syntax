@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<!DOCTYPE html>
-<html lang="ko">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vue.js Basic</title>
-        <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Basic</title>
+    <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
     <h2>App4 : 파라미터(parameter)가 있는 메소드(methods)</h2>
     <div id="app4">
-        {{ nextYear('안녕하세요') }} <!-- 여기서 파라미터 부분에 들어가는 실제 값은 인자 혹은 아규먼트(argument)라고 불러요. -->
+        {{ nextYear('안녕하세요') }}
+        <!-- 여기서 파라미터 부분에 들어가는 실제 값은 인자 혹은 아규먼트(argument)라고 불러요. -->
         <br>
-        {{ otherMethod('Hello') }} <!-- 인사말을 제외하고 똑같은 내용이 두개가 나오겠죠? -->
+        {{ otherMethod('Hello') }}
+        <!-- 인사말을 제외하고 똑같은 내용이 두개가 나오겠죠? -->
     </div>
 
     <script>
