@@ -111,7 +111,11 @@
                   <label for="name">Language</label>
                   <!-- <input type="dropdown" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" /> -->
                   <select id="code" name="code" class="form-control">
+<<<<<<< HEAD
                     <option value="Memo">Memo</option>
+=======
+                    <option value="Text">Text</option>
+>>>>>>> 25cb2a2d479a4a2eb75eb7c772e636dc617683c3
                     <option value="Client">Client</option>
                     <option value="Server">Server</option>
                     <option value="Etc">Etc</option>
