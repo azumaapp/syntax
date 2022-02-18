@@ -111,9 +111,9 @@
                   <label for="name">Language</label>
                   <!-- <input type="dropdown" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" /> -->
                   <select id="code" name="code" class="form-control">
-                    <option value="Python">Python</option>
-                    <option value="Java">Java</option>
-                    <option value="Javascript">Javascript</option>
+                    <option value="Memo">Memo</option>
+                    <option value="Client">Client</option>
+                    <option value="Server">Server</option>
                     <option value="Etc">Etc</option>
                   </select>                  
                 </div>

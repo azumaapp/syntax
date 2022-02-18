@@ -3,7 +3,7 @@
     if (isDeleteAll === true) {
         const isDeleteDB = confirm("DB까지 초기화하시겠습니까?");
         if (isDeleteDB === true) {
-            const pw = prompt('비밀번호는?');
+            const pw = prompt('비밀번호는? (a****)');
             if (pw === 'admin') {
                 location.href='_deleteAllDB.php';                
             }
