@@ -1,0 +1,35 @@
+개발자로서 절대적으로 알아야할 지식 (검색하면서 물어보라 하기)
+
+1. OS
+1. Browser
+
+Front-end
+1. Front-End
+1. Client
+1. Host
+1. Hosting
+1. Domain
+1. Markup Language
+1. Navbar, Header, Footer, Grid
+1. 개발자툴(F12)
+1. IDE
+1. Html, CSS, JS
+1. Bootstrap, API
+1. API(Application Programming Interface), API Doc
+1. Deploy
+
+Back-end
+1. Back-End
+1. Query String, Get method, Post method
+1. Server
+1. Java, Python, PHP, Ruby
+1. Database, SQL
+1. Git(clone, fetch, pull, push, commit, merge, pull request)
+1. 변수
+1. 데이터타입 : (이해 필수) 문자, 숫자(정수, 소수) // (당장 이해못하는) 불린, 널, 배열, 객체
+1. 함수
+1. 조건문
+1. 반복문
+1. 클래스
+1. 패키지
+1. 개발공정 : 요건정의 - 설계 - 제조 - 테스트 - 유지보수

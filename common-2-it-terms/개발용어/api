@@ -1,3 +1,5 @@
+[API]
+
 1. API : Application Programming Interface (Interface: 사용자가 입력을 넣는 것)
 
 기상청 서버로 다음과 같이 데이터를 요청하면,
