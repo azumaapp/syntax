@@ -1,2 +1,4 @@
+[Props]
+
 Potato 대신 Food 만들어볼 것이다.
 <Food fav="kimchi" />

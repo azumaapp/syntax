@@ -1,3 +1,5 @@
+[If DB]
+
 지난 시간에 dom에서 직접
     <FavFood fav="ramen" />
     <FavFood fav="pizza" />

@@ -15,7 +15,7 @@ console.log('5 처리')
 // → ★★★ 비동기 함수는 마지막 파라미터에 "error와 response(=result)를 리턴하는 함수"가 인자로 들어간다.
 console.log('\n<비동기처리>')
 console.log('1 처리')
-fs.readFile('3 sample.txt', 'utf8', function(error, response) {
+fs.readFile('3-sample.txt', 'utf8', function (error, response) {
     // ↓ 아래 부분은 아래가 다 처리된 뒤에 "나중에 돌아와서 호출하는 부분"으로 이러한 호출을 "콜백(callback)"이라고 한다.
     console.log(response)
 })

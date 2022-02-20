@@ -1,3 +1,5 @@
+[PropType]
+
 PropType : React에서 변수내에 들어갈 데이터가 잘못 들어가지 않게, Type을 제한하는 라이브러리
 설치방법 : 
     npm i prop-types -> npm i
