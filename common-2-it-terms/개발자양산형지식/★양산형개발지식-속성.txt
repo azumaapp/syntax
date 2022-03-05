@@ -1,10 +1,17 @@
 개발자로서 절대적으로 알아야할 지식 (검색하면서 물어보라 하기)
 
+Basic
 1. OS
 1. Browser
+1. Slack
+1. Google Drive
+1. Dev Process
 
 Front-end
 1. Front-End
+1. Html, CSS, JS
+1. Mark-up Language
+1. 정적웹앱, 동적웹앱
 1. Client
 1. Host
 1. Hosting
@@ -13,7 +20,6 @@ Front-end
 1. Navbar, Header, Footer, Grid
 1. 개발자툴(F12)
 1. IDE
-1. Html, CSS, JS
 1. Bootstrap, API
 1. API(Application Programming Interface), API Doc
 1. Deploy
