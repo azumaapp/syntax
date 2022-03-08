@@ -1,0 +1,59 @@
+개발자로서 절대적으로 알아야할 지식 (검색하면서 물어보라 하기)
+
+Basic
+1. OS
+1. Browser
+1. Slack
+1. Google Drive
+1. HTTP : 컴퓨터끼리 통신하기 위한 규칙(이름 말하고, 무슨프로그램 찾는지 말하고, ...)
+1. HTTPS : 컴퓨터끼리 통신하기 위한 규칙 + 암호표를 서로 가지고 통신(제3자가 못 엿듣게)
+1. Dev Process (Waterfall, Agile) : 요건정의 - 설계 - 제조 - 테스트 - 유지보수
+1. case rule : camel(helloWorld 변수명, 메소드명), pascal(HelloWorld 파일명, 클래스명), kebab(hello-world 폴더명, 패키지명), snake(hello_world 브랜치명)
+
+Front-end
+1. Front-End
+1. Html, CSS, JS
+1. Bootstrap
+1. Mark-up Language
+1. 정적웹앱, 동적웹앱
+1. Client
+1. Host
+1. Hosting
+1. Domain
+1. Markup Language
+1. Navbar, Header, Footer, Grid
+1. 개발자툴(F12)
+1. IDE
+1. JSON : html, css 껍데기를 계속 새로고침하면 무거우니, 껍데기만 갖고 js로 데이터만 바꿔준다. {JSON} 방식. 키 : 밸류.
+1. API : Application Programming Interface. 서버에서 미리 만들어둔 기능. 서버 개발자가 클라이언트 개발자와 미리 한 약속. 주소를 이렇게 갖고 오세요 그럼 정보를 이렇게 만들어 드릴게요. 라고 미리 회의를 해서 약속한 대로 만들어서 준다. API의 쿼리스트링은 보통 http://서버위치/api주소/프로퍼티=데이터?옵션=옵션값 이런 형태로 이뤄진다
+    주소예 https://movie.naver.com/movie/bi/mi/basic.naver?code=10016
+    대화예 서버개발자님, 이거 신규 피쳐인데 api하나 따주세요. = 새로운 기능 창구 하나 만들어주세요.
+    api개발은 끝났고, 클라이언트는 아직이에요. = 서버 창구는 다 만들었는데, 요청하는 쪽이 아직 작업중이에요.
+1. API 명세서 : API를 어떻게 호출해서 사용하는지를 적어둔 것. 
+    명세서예 https://yts.mx/api
+1. API(Application Programming Interface), API Doc
+1. Open API : 누구나 요청할 수 있게 열어둔 API.
+1. Deploy
+
+Back-end
+1. Back-End
+1. Architecture : 클라이언트 - 라우터 - 웹서버 - DB - 상태체크용서버 (페이스북 아키텍쳐 검색해볼 것)
+1. Cloud Service : 아키텍쳐는 매우 복잡해서 다 알 수가 없다. 그래서 요즘은 클라우드 서비스를 빌려서 그 아키텍쳐를 구성한다.
+1. Query String, Get method, Post method
+1. Server : 가운데서 데이터를 저장하고, 주는 것. 컴퓨터가 사람이라면, 서버는 직업(중의 하나).
+1. Java(어렵고 형식이 많고 큰 회사에서 많이 씀), Python(쉽게 입문, 자유로움, 데이터분석에도 씀), Node.JS(백과 프론트언어 JS가 같음. 스타트업에서 많이 씀), PHP, Ruby
+1. Framework : 서버를 만들 때, 직접 코딩해서 만들지 않고 프레임워크에서 필요한 것들을 갖다 써서 제작.
+1. Springboot, Express, Flask나 Django, Laravel, Ruby On Rails
+1. Database, SQL : 데이터저장이 목적이 아니라 잘 찾게 하는 것이 목적
+1. SQL(이미 꽤 성장한 큰 회사. 정형화된 데이터가 관리하기 편하고 문제도 덜 생김. 오라클, Postgre, SQLite, MySQL) vs NoSQL(초기 스타트업. 바뀔게 많을 때. mongoDB. redis)
+1. 풀스캐닝 "사랑이 들어간 책 다 주세요" (천만건 있다면...?) vs 인덱싱 "한국출판사 책 다 주세요"
+1. Git협업방법 : remote(develop) → 1. fetch(새로고침) → 2. develop branch pull(다운로드, 자동/수동 충돌해결) → local → 3. branch 따기 → 4. 소스 변경 → 5. commit(세이브포인트) → 6. push(업로드) → remote(branch) → 7. PR(머지요청) → 8. merge → remote(develop)
+1. Git : clone, fetch, pull, push, add, commit, merge, pull request
+1. 변수
+1. 데이터타입 : (이해 필수) 문자, 숫자(정수, 소수) // (당장 이해못하는) 불린, 널, 배열, 객체
+1. 함수
+1. 조건문
+1. 반복문
+1. 클래스
+1. 패키지
+1. 개발공정 : 요건정의 - 설계 - 제조 - 테스트 - 유지보수
