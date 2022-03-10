@@ -1,29 +1,26 @@
-개발자로서 절대적으로 알아야할 지식 (검색하면서 물어보라 하기)
+개발자로서 절대적으로 알아야할 지식
 
 Basic
 1. OS
 1. Browser
 1. Slack
 1. Google Drive
-1. HTTP : 컴퓨터끼리 통신하기 위한 규칙(이름 말하고, 무슨프로그램 찾는지 말하고, ...)
+1. HTTP : 컴퓨터끼리 통신하기 위한 규칙(이름 말하고, 무슨 프로그램 찾는지 말하고, ... http://서버위치/api주소/프로퍼티=데이터?옵션=옵션값)
 1. HTTPS : 컴퓨터끼리 통신하기 위한 규칙 + 암호표를 서로 가지고 통신(제3자가 못 엿듣게)
-1. Dev Process (Waterfall, Agile) : 요건정의 - 설계 - 제조 - 테스트 - 유지보수
-1. case rule : camel(helloWorld 변수명, 메소드명), pascal(HelloWorld 파일명, 클래스명), kebab(hello-world 폴더명, 패키지명), snake(hello_world 브랜치명)
+1. Dev Process : 요건정의 - 설계 - 제조 - 테스트 - 유지보수
 
 Front-end
 1. Front-End
 1. Html, CSS, JS
 1. Bootstrap
 1. Mark-up Language
-1. 정적웹앱, 동적웹앱
-1. Client
-1. Host
-1. Hosting
+1. 정적웹앱(랜딩페이지), 동적웹앱(게시판)
+1. Client(데이터를 보여주는 것), Server(데이터를 저장하고, Client에 주는 것. 컴퓨터가 사람이라면, 서버는 직업)
+1. Web Hosting
 1. Domain
-1. Markup Language
-1. Navbar, Header, Footer, Grid
+1. Navbar, Header, Footer
 1. 개발자툴(F12)
-1. IDE
+1. IDE(코딩하는 툴)
 1. JSON : html, css 껍데기를 계속 새로고침하면 무거우니, 껍데기만 갖고 js로 데이터만 바꿔준다. {JSON} 방식. 키 : 밸류.
 1. API : Application Programming Interface. 서버에서 미리 만들어둔 기능. 서버 개발자가 클라이언트 개발자와 미리 한 약속. 주소를 이렇게 갖고 오세요 그럼 정보를 이렇게 만들어 드릴게요. 라고 미리 회의를 해서 약속한 대로 만들어서 준다. API의 쿼리스트링은 보통 http://서버위치/api주소/프로퍼티=데이터?옵션=옵션값 이런 형태로 이뤄진다
     주소예 https://movie.naver.com/movie/bi/mi/basic.naver?code=10016
@@ -40,7 +37,6 @@ Back-end
 1. Architecture : 클라이언트 - 라우터 - 웹서버 - DB - 상태체크용서버 (페이스북 아키텍쳐 검색해볼 것)
 1. Cloud Service : 아키텍쳐는 매우 복잡해서 다 알 수가 없다. 그래서 요즘은 클라우드 서비스를 빌려서 그 아키텍쳐를 구성한다.
 1. Query String, Get method, Post method
-1. Server : 가운데서 데이터를 저장하고, 주는 것. 컴퓨터가 사람이라면, 서버는 직업(중의 하나).
 1. Java(어렵고 형식이 많고 큰 회사에서 많이 씀), Python(쉽게 입문, 자유로움, 데이터분석에도 씀), Node.JS(백과 프론트언어 JS가 같음. 스타트업에서 많이 씀), PHP, Ruby
 1. Framework : 서버를 만들 때, 직접 코딩해서 만들지 않고 프레임워크에서 필요한 것들을 갖다 써서 제작.
 1. Springboot, Express, Flask나 Django, Laravel, Ruby On Rails
