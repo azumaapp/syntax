@@ -11,7 +11,7 @@ let url = "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
 let movies = []
 let movieListArr = []
 
-function getMovie(url) {
+function getMovie (url) {
     fetch(url)
         .then(res => {
             // response 처리
@@ -35,7 +35,7 @@ getMovie(url) // 여기서 전역변수 movies의 값을 갱신한다.
 // console.log('결과값:', movies) // 들어오는지 확인 2
 
 // 자료를 토대로 HTML을 만들어낸다.
-function render(movies) {
+function render (movies) {
     console.log('movies:', movies) // 들어오는지 확인 3
     console.log('movies[0].data.movies', movies[0].data.movies) // 들어오는지 확인 4 (더 자세히 보기)
 
@@ -80,11 +80,11 @@ function render(movies) {
  * 생성방법: 12.js의 DOM 객체 생성편 참조
  * @param {Object} movieObj 영화 한개의 객체 정보
  */
-function createMovieList(movieObj) {
+function createMovieList (movieObj) {
     // <타이틀>
     let title = document.createElement("div")
     title.innerHTML = movieObj.title // 교육받을 내용
-    title.setAttribute("class","movieTitle") // 부여받을 정체성, 소속(identity, class등)
+    title.setAttribute("class", "movieTitle") // 부여받을 정체성, 소속(identity, class등)
     // 스타일 꾸미기 : 사실 이 아래 부분은 쓰지말고, css에 해당 내용들을 담아서 사용하는 것이 더 좋다. (14.css 참조)
     // title.style.color="white"
     // title.style.backgroundColor="gray"
@@ -94,7 +94,7 @@ function createMovieList(movieObj) {
     // <이미지>
     let image = document.createElement("img")
     image.src = movieObj.background_image // 교육받을 내용
-    image.setAttribute("class","movieImage") // 부여받을 정체성, 소속(identity, class등)
+    image.setAttribute("class", "movieImage") // 부여받을 정체성, 소속(identity, class등)
     // image.style.width="300px" // 스타일 꾸미기
 
     // 모두 부모 태그에 갖다 붙이기
