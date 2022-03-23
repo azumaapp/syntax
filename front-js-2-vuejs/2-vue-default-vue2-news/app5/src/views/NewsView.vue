@@ -17,7 +17,7 @@
         v-for="item in news"
         :key="item.id"
       >
-        {{item.title}}
+        {{ item.title }}
       </li>
     </ul>
     <div
@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     news () {
-      return this.$store.state.news;
+      return this.$store.state.news
     }
   },
   created () {

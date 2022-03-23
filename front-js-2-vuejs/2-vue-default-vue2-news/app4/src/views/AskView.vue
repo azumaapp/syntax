@@ -8,7 +8,7 @@
         v-for="item in ask"
         :key="item.id"
       >
-        {{ item.id }} {{ item.user }} <button @click="deleteAsk(item.id)">Delete</button>
+        {{ item.id }} {{ item.title }} <button @click="deleteAsk(item.id)">Delete</button>
       </li>
     </ul>
     <div
@@ -22,7 +22,7 @@
 export default {
   computed: {
     ask () {
-      return this.$store.state.ask;
+      return this.$store.state.ask
     }
   },
   methods: {

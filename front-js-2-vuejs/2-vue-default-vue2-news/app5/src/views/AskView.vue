@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import UpdateForm from "../components/UpdateForm.vue";
+import UpdateForm from "../components/UpdateForm.vue"
 
 export default {
   components: {
@@ -30,27 +30,12 @@ export default {
   },
   computed: {
     ask () {
-      return this.$store.state.ask;
+      return this.$store.state.ask
     }
   },
   methods: {
     fetchAsk () {
       this.$store.dispatch('FETCH_ASK')
-    },
-    deleteAsk (id) {
-      console.log('id: ', id);
-      this.$store.commit('DELETE_ASK', id)
-    },
-    onInputView (user) {
-      this.isUpdate = !this.isUpdate
-      this.updateAskValue = user
-    },
-    updateAsk (id) {
-      const datas = {
-        id, // id: id, 처럼 같은 경우 생략 가능
-        user: this.updateAskValue
-      }
-      this.$store.commit('UPDATE_ASK', datas)
     }
   }
 }

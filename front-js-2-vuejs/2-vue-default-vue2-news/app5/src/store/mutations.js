@@ -16,6 +16,6 @@ export default {
     },
     UPDATE_ASK (state, payload) {
         const index = state.ask.findIndex(v => v.id === payload.id)
-        state.ask[index].user = payload.user
+        state.ask[index].title = payload.title
     }
 }

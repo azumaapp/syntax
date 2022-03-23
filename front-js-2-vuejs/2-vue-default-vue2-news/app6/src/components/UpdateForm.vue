@@ -1,10 +1,10 @@
 <template>
   <div>
 
-    {{ item.id }} {{ item.user }} <button @click="deleteAsk(item.id)">Delete</button>
-    <button @click="onInputView(item.user )">수정 Input 표시</button>
+    {{ item.id }} {{ item.title }} <button @click="deleteAsk(item.id)">Delete</button>
+    <button @click="onInputView(item.title )">수정 Input 표시</button>
     <div v-if="isUpdate">
-      user: <input
+      title: <input
         type="text"
         v-model="updateAskValue"
       /><button @click="updateAsk(item.id)">수정</button>
@@ -26,9 +26,9 @@ export default {
   },
 
   methods: {
-    onInputView (user) {
+    onInputView (title) {
       this.isUpdate = !this.isUpdate
-      this.updateAskValue = user
+      this.updateAskValue = title
     },
     deleteAsk (id) {
       console.log('id: ', id)
@@ -38,7 +38,7 @@ export default {
       console.log('id: ', id)
       const datas = {
         id, // id: id, 처럼 같은 경우 생략 가능
-        user: this.updateAskValue
+        title: this.updateAskValue
       }
       this.$store.commit('UPDATE_ASK', datas)
     }

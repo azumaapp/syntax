@@ -4,9 +4,10 @@
     <div v-if="!newsDetailResult">Loading...</div>
     <div v-else>
       번호 {{ newsDetailResult.id }} /
-      평점 {{ newsDetailResult.points }}점<br>
-      <b>{{ newsDetailResult.title }}</b>
-      <span v-html="`${newsDetailResult.content}`" />
+      평점 {{ newsDetailResult.points }}점
+      <hr>
+      <h2>{{ newsDetailResult.title }}</h2>
+      <hr>
       <ul>
         <li
           v-for="item in newsDetailResult.comments"
@@ -22,6 +23,7 @@
 
 <script>
 export default {
+
   computed: {
     newsDetailResult () {
       console.log('this.$store.state.newsDetail: ', this.$store.state.newsDetail)

@@ -1,3 +1,7 @@
+[Vuex - Delete]
+
+### 1. src/views/AskView.vue 수정 ###
+
 <template>
   <div>
     Ask 페이지
@@ -30,7 +34,7 @@ export default {
       this.$store.dispatch('FETCH_ASK')
     },
     deleteAsk (id) {
-      console.log('id: ', id);
+      console.log('id: ', id)
       this.$store.commit('DELETE_ASK', id)
     }
   }
@@ -43,3 +47,21 @@ export default {
   font-size: 50px;
 }
 </style>
+
+
+
+### 1. src/store/mutations.js에 다음 메소드 추가 ###
+
+    DELETE_ASK (state, id) {
+        const index = state.ask.findIndex(v => v.id === id)
+        console.log('Target Index: ', index)
+        state.ask.splice(index, 1) // splice(index, 1) : index로부터 1개를 지운다.
+    }
+
+
+
+1. 테스트
+    npm run serve
+    AskView.vue의 버튼 눌러서 삭제되는 지 확인
+    개발자툴에서 Vue 탭 클릭 후 array 데이터가 잘 삭제되는지 확인
+    
