@@ -1,4 +1,7 @@
-[Vuex - Router]
+[Router - params]
+  * 라우터 파라미터를 통해서 타 뷰로 값을 보내는 방법
+
+
 
 1. API 확인 : https://api.hnpwa.com/v0/item/30329752.json
   상단 주소의 30329752는 news의 id를 의미한다.

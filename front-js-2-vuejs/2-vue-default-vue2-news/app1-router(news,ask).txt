@@ -1,8 +1,10 @@
-[Vue CLI(Command Line Interface)로 Vue2를 Default 설치, npm으로 Router 설치]
-
-* command line interface란? : vue와 관련된 패키지를 설치할 때 명령어로 간단히 설치할 수 있게 하는 도구
-    cmd 혹은 터미널이라고도 한다. 기본 cmd 명령어를 익혀두자. https://library1008.tistory.com/42
-* vue cli 공식문서 확인 : cli.vuejs.org 접속 - get started - installation의 설치 cmd 명령어를 확인
+[Vue CLI - Vue2 앱 설치]
+  * Vue CLI란? : Vue Command Line Interface의 약자이다.
+  * Command Line Interface란? : vue와 관련된 패키지를 설치할 때 명령어로 간단히 설치할 수 있게 하는 도구로,
+    커맨드 라인의 인터페이스를 갖고 있다.
+  * 커맨드란? : cmd의 형태로, 터미널에서 사용하는 커맨드를 말함. 
+    기본 cmd 명령어를 익혀두자. https://library1008.tistory.com/42
+  * vue cli 공식문서 확인 : cli.vuejs.org 접속 - get started - installation의 설치 cmd 명령어를 확인
 
 
 
@@ -62,6 +64,11 @@
   height: 300px;
 }
 </style>
+
+
+
+[NPM - Router 설치]
+  * Router란? : 루터(라우터)는 네트워크와 네트워크 간의 경로(Route)를 설정하고 맞는 길로 트래픽을 설정해주는 장비
 
 
 
