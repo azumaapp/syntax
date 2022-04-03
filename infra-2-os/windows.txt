@@ -1,3 +1,6 @@
+<git 관리>
+Source Tree 탭에서 git을 관리한다.
+
 <CMD>
 win + r : cmd 창 열기
 shutdown -s -t [초] : 예약종료

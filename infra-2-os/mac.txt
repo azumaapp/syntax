@@ -1,1 +1,5 @@
-커맨드
+<git 관리>
+terminal이나 vscode로 git을 관리한다.
+
+<CMD>
+cmd + space 후 terminal : 명령어 창 열기

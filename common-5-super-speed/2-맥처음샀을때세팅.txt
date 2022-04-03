@@ -81,7 +81,7 @@
     vetur
     vue
     ESLint
-1. ESLint 세팅 json에서 다음을 입력한다.
+1. vscode 확장중 ESLint 세팅 json에서 다음을 입력한다.
 {
     // Html, JavaScript, Vue
     "files.associations": {
