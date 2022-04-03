@@ -1,0 +1,7 @@
+1. vscode 현재 파일 위치로 터미널 열기 설정
+    vscode 설정 아이콘을 누른다.
+    terminal.integrated.cwd
+    ${fileDirname}
+    vscode 설정 아이콘을 누른다.
+    설정동기화를 켠다.
+    github로 로그인해둔다.

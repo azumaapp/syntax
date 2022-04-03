@@ -4,24 +4,25 @@
 1. command + space 누르고 terminal
 1. brew install
 1. brew --version
-*** 1. brew install --cask visual-studio-code google-chrome iterm2
+1. iterm2 검색 후 설치
 1. finder - 애플리케이션 - chrome, vscode, iterm2 설치 확인
-*** 1. chrome, vscode, iterm2를 도커에 올려놓는다.
-*** 1. iterm2을 열고, 위쪽 메뉴에서 iterm2을 클릭
-*** 1. preference 탭 - appearance - general - theme - minimal 선택
-*** 1. profiles 탭 - session - 최하단 configure status bar 버튼 클릭
-*** 1. Battery, CPU, RAM, Network, Clock을 아래로 드래그
-*** 1. 최하단 Auto-Rainbow 옆 풀다운 클릭 - Light Colors 선택 - OK 버튼 선택
-*** 1. profiles 탭 - color - 우측 하단 color preference 풀다운 - Dark background 선택
-*** 1. safari나, 기존 터미널은 이제 사용하지 않으므로 끈다. 도커 내 사파리도 삭제.
+1. chrome, vscode, iterm2를 도커에 올려놓는다.
+1. iterm2을 열고, 위쪽 메뉴에서 iterm2을 클릭
+1. preference 탭 - appearance - general - theme - minimal 선택
+1. profiles 탭 - session - 최하단 configure status bar 버튼 클릭
+1. Battery, CPU, RAM, Network, Clock을 아래로 드래그
+1. 최하단 Auto-Rainbow 옆 풀다운 클릭 - Light Colors 선택 - OK 버튼 선택
+1. profiles 탭 - color - 우측 하단 color presets 풀다운 - Dark background 선택
+1. safari나, 기존 터미널은 이제 사용하지 않으므로 끈다. 도커 내 사파리도 삭제.
 1. chrome을 연다.
-*** 1. oh my zsh 검색 (z shell : bash보다 많은 기능과 플러그인으로 개선된 터미널)
-*** 1. 설치 명령어를 복사해서 터미널에 붙여넣기
-*** 1. powerlevel 10k 검색후 깃허브에 들어간다.
-*** 1. 밑으로 내려서 installation 클릭
-*** 1. oh my zsh 클릭
-*** 1. git clone 으로 시작하는 명령어 터미널에 복붙
+1. oh my zsh 검색 (z shell : bash보다 많은 기능과 플러그인으로 개선된 터미널)
+1. 설치 명령어를 복사해서 터미널에 붙여넣기
+1. powerlevel 10k 검색후 깃허브에 들어간다.
+1. 밑으로 내려서 installation 클릭
+1. oh my zsh 클릭
+1. git clone 으로 시작하는 명령어 터미널에 복붙
 *** 1. 터미널에 code ~/.zshrc 입력하고 vscode에서 .zshrc 파일을 연다.
+    code해도 vscode가 안열리는 경우, ...
 *** 1. 해당 파일안에 다음 변수값을 수정 : ZSH_THEME="powerlevel10k/powerlevel10k"
 *** 1. 전부 다 끈 뒤 iterm을 다시 켠다.
 *** 1. y 입력 후 엔터해서 nerd 폰트를 다운받는다.

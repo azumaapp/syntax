@@ -1,4 +1,4 @@
-# wordmemory_vuejs
+# hellowords_vuejs
 
 ## Project setup
 ```
