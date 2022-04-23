@@ -34,6 +34,24 @@
 
 
 
+
+
+
+1. 전체적인 순서
+    <앱 제작 순서>
+    1. src/App.vue 비우기
+    2. 라우터 설치
+        npm i vue-router@3.0.1
+        npm audit fix
+    3. src/routes/index.js : 라우터
+    4. src/main.js : 어떤 라이브러리를 사용하는지를 담아두는 곳
+    5. src/components/ToolBar.vue : 메뉴 부품 (갈림길)
+        * 부품(components) : 헤더, 푸터, 사이드바, 모달 등을 의미
+    6. src/views/NewsView.vue : 뉴스페이지 (목적지)
+    7. src/App.vue : 화면
+
+
+
 ### 1. App.vue ###
     <div id="app"> 사이에 있는 두줄 삭제
     import HelloWorld 한줄 삭제
@@ -41,6 +59,47 @@
     Helloworld 한줄 삭제
     style 전체 삭제
     components/HelloWorld.vue 파일 삭제
+
+
+
+### 1. Router 설치 ###
+  * Router란? : 루터(라우터)는 네트워크와 네트워크 간의 경로(Route)를 설정하고 맞는 길로 트래픽을 설정해주는 장비
+    npm i vue-router@3.0.1
+  * 버전을 잘못 깔았을 경우 : node_modules 폴더를 삭제하고 package.json의 버전정보를 수정한 뒤, 
+    npm i 로 다시 설치한다.
+
+
+
+### 1. src/routes[루트]/index.js 생성 ###
+
+import Vue from "vue"
+import VueRouter from "vue-router"
+
+Vue.use(VueRouter)
+
+export default new VueRouter({
+    mode: 'history', // # 제거
+    routes: [
+        {
+            path: '/news'
+        }
+    ]
+})
+
+
+
+### 1. main.js 수정 ###
+
+import Vue from 'vue'
+import App from './App.vue'
+import router from "./routes/index.js"
+
+Vue.config.productionTip = false
+
+new Vue({
+  router, // 소문자여야만 함
+  render: h => h(App),
+}).$mount('#app')
 
 
 
@@ -64,35 +123,6 @@
   height: 300px;
 }
 </style>
-
-
-
-[NPM - Router 설치]
-  * Router란? : 루터(라우터)는 네트워크와 네트워크 간의 경로(Route)를 설정하고 맞는 길로 트래픽을 설정해주는 장비
-
-
-
-1. Router 설치
-  npm i vue-router@3.0.1
-  * 버전을 잘못 깔았을 경우 : node_modules 폴더를 삭제하고 package.json의 버전정보를 수정한 뒤, 
-    npm i 로 다시 설치한다.
-
-
-
-### 1. src/routes[루트]/index.js 생성 ###
-
-import Vue from "vue"
-import VueRouter from "vue-router"
-
-Vue.use(VueRouter)
-
-export default new VueRouter({
-    routes: [
-        {
-            path: '/news'
-        }
-    ]
-})
 
 
 
@@ -138,40 +168,7 @@ export default new VueRouter({
 
 
 
-### 1. main.js 수정 ###
-
-import Vue from 'vue'
-import App from './App.vue'
-import router from "./routes/index.js"
-
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app')
-
-
-
-
-### 1. App.vue 수정 ### : 아래 코드에 대한 중요한 설명을 추가하자면,
-  components 안의 키, 밸류에 대해서는
-    ToolBar: ToolBar 처럼 이름이 같은 경우에는 
-    ToolBar, 하나로 생략이 가능하다.
-  app.vue 안에 이 ToolBar 컴포넌트를 넣을 때에는 
-    <ToolBar>처럼 원래 이름대로 pascal case로 넣어도 되지만, 
-    <tool-bar>처럼 kebab case로 바꾸어 넣어도 된다.
-  <router-view>에 대해서는
-    src/routes/index.js에 router를 임포트해서 new Vue 안에 넣었기 때문에 사용이 가능하다.
-    사용 가능여부 확인방법은 <router-view>를 클릭한 뒤 연동창이 뜨면 사용할 수 있는 것이다.
-    src/components/...vue 안에서도 <a> 태그 대신 <router-link to="">를 쓸 수 있게 되는 것이다.
-    이를 이용해 <router-view>만을 변경하면서 SPA로 작동하게 된다.
-    반면, <a>를 vue에서 쓰게 되면 SPA로 작동하지 않으므로 주의하자.
-    요약하면,
-      ToolBar에서 components를 <router-link to="">를 통해 호출
-      App.vue 화면에서 components가 <router-view> 태그를 통해 출력됨
-
-
+### 1. App.vue 수정 ###
 
 <template>
   <div id="app">
@@ -189,11 +186,24 @@ export default {
 }
 </script>
 
+*** 위 코드에 대한 중요한 설명을 추가하자면,
+  components 안의 키, 밸류에 대해서는
+    ToolBar: ToolBar 처럼 이름이 같은 경우에는 
+    ToolBar, 하나로 생략이 가능하다.
+  app.vue 안에 이 ToolBar 컴포넌트를 넣을 때에는 
+    <ToolBar>처럼 원래 이름대로 pascal case로 넣어도 되지만, 
+    <tool-bar>처럼 kebab case로 바꾸어 넣어도 된다.
+  <router-view>에 대해서는
+    src/routes/index.js에 router를 임포트해서 new Vue 안에 넣었기 때문에 사용이 가능하다.
+    사용 가능여부 확인방법은 <router-view>를 클릭한 뒤 연동창이 뜨면 사용할 수 있는 것이다.
+    src/components/...vue 안에서도 <a> 태그 대신 <router-link to="">를 쓸 수 있게 되는 것이다.
+    요약하면,
+      ToolBar에서 components를 <router-link to="">를 통해 호출
+      App.vue 화면에서 components가 <router-view> 태그를 통해 출력됨
 
 
-### 1. ToolBar.vue 수정 ### : <a href="/news">News</a>를 쓰면 onepage가 안되므로 ★router-link★를 쓴다. 
-    app.vue에 <router-view />가 넣어져있으면 쓸 수 있다.
-    스타일 지정시엔 a로 지정해도 된다.
+
+### 1. ToolBar.vue 수정 ###
 
 <template>
   <div class="header">
@@ -223,11 +233,9 @@ export default {
 }
 </style>
 
-
-
-### 1. routes/index.js에서 export default 밑에 다음을 추가 ###
-    mode: 'history',
-    추가하면 주소창에 /#/이 없어진다.
+*** <a href="/news">News</a>를 쓰면 onepage가 안되므로 ★router-link★를 쓴다.
+  app.vue에 <router-view />가 넣어져있으면 쓸 수 있다.
+  스타일 지정시엔 a로 지정해도 된다.
 
 
 
