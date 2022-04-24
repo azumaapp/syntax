@@ -7,9 +7,9 @@
 ::- nircmd.exe 열어서 설치
 ::- go.url 만들어서 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp 폴더에 넣어서 윈도우 켤 때 자동실행되도록 하기
 
-echo ":) Start Go to Work Stamp After..."
-timeout 1
-start 2start.bat
+:echo ":) Start Go to Work Stamp After..."
+:timeout 1
+:start 2start.bat
 echo ":) Start Leave Work Stamp After..."
 timeout 30600
 start 3start.bat

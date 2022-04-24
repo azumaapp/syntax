@@ -2,7 +2,7 @@
   <div>
 
     {{ item.id }} {{ item.title }} <button @click="deleteAsk(item.id)">Delete</button>
-    <button @click="onInputView(item.title )">수정 Input 표시</button>
+    <button @click="onInputView(item.title)">수정 Input 표시</button>
     <div v-if="isUpdate">
       title: <input
         type="text"
