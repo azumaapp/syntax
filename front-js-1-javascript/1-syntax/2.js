@@ -1,4 +1,4 @@
-function clicked1() {
+function clicked1 () {
     // 조건문1
     // let a = 2
     // let b = 2
@@ -29,7 +29,7 @@ function clicked1() {
     if (b1) {
         console.log('b1은 ', b1, '입니다.')
     }
-   
+
     // 존재 : 참 1
     // 존재하지 않는다 : 거짓 0
     let b6 = 0 // false
@@ -78,5 +78,11 @@ function clicked1() {
     // let n8 = 10
     // // n < 10 ? alert('a는 10보다 작다') : alert('a는 10보다 크거나 같다') // ***
 
+    // 연습문제1.
+    // banana가 5, apple이 4, people이 3 있다.
+    // banana와 apple이 people보다 많으면 "모두 많다"
+    // banana만 많으면 "banana만 많다"
+    // apple만 많으면 "apple만 많다"
+    // 둘다 people보다 적으면 "모두 적다"를 출력.    
 }
 

@@ -1,86 +1,37 @@
-function clicked1() {
-    // 초기 데이터
-    let array1 = [1, 3, 3, 4, 4, 5]
-    let array2 = [ 
-        { name: 'apple', count: 2 },
-        { name: 'banana', count: 7 },
-        { name: 'orange', count: 3 },
-    ]
+function clicked1 () {
+    // 데이터
+    let arr = [1, 3, 3, 4, 4, 5]
+    let value = 7
 
-    // for : 기존 for문
-    // 입력값을 받아서, 해당 값이 있는 지를 알려준다.
-    let search1 = Number(prompt('어떤 숫자? '))    
-    for(let i = 0; i < array1.length; i++) {
-        if(search1 === array1[i]){
-            console.log(array1[i]+'가 있습니다.')
-        } else { console.log('없습니다.') }
+    // 설명 : 가장 기본적인 반복문으로 index를 찾는 방법이다.
+    // 장점 : 가장 빠르다. 값, 조건에 해당하는 모든 index를 찾을 수 있다.
+    // 단점 : 코드가 길고 가독성이 떨어진다.
+    console.log('<<< for문으로 인덱스 검색 >>>')
+    for (let i = 0; i < arr.length; i++) {
+        if (value === arr[i]) {
+            console.log('arr[i] ===>', i)
+        }
     }
 
-    // '과일 종류' 입력값을 받아서, 해당 과일이 몇개 있는 지를 알려준다.
-    let search2 = prompt('어떤 과일? ')
-    for(let i =0; i < array2.length; i++) {
-        if(search2 === array2[i].name) {
-            console.log(array2[i].name+'이 '+array2[i].count+'개 있습니다.')
-        } else { console.log('없습니다.') }
-    }
+    // 설명 : 파라미터 값에 해당하는 최초의 인덱스를 찾는다. 없을 때는 -1을 꺼낸다.
+    // 장점 : 코드가 짧아 가독성이 좋다. 없을 때의 값인 -1을 활용한 코딩을 할 수 있다. for문 다음으로 빠르다.
+    // 단점 : 값만 참조한다. 최초 인덱스 값 1개만을 찾는다.
+    console.log('\n<<< indexOf문으로 인덱스 검색 >>>')
+    console.log('arr.indexOf(value) ===>', arr.indexOf(value))
 
-    // indexOf : 조건에 해당하는 값이 어디에 있는지를 인덱스로 표시 (없을 때는 -1, 있으면 해당 인덱스.)
-    // JSON 형태에서는 쓸수가 없다.
-    search1 = Number(prompt('어떤 숫자? '))
-    console.log(array1[array1.indexOf(search1)]+'가 있습니다.')
+    // 설명 : 파라미터 조건에 해당하는 최초의 인덱스를 찾는다. 없을 때는 -1을 꺼낸다.
+    // 장점 : 코드가 짧아 가독성이 좋다. 없을 때의 값인 -1을 활용한 코딩을 할 수 있다.
+    // 단점 : 처리가 느리다. 조건만 참조한다. 최초 인덱스 값 1개만을 찾는다.
+    console.log('\n<<< findIndex문으로 인덱스 검색 >>>')
+    const targetValue = (element) => element > 3
+    console.log('arr.findIndex(targetValue) ===>', arr.findIndex(targetValue))
 
-    // filter : 조건에 해당하는 값이 몇개 있는지를 검색해서, 배열에 담아서 표시한다.
-    // JSON 형태에서 특정값 한개만 걸러낼 때 유용하다.
-    search1 = Number(prompt('어떤 숫자? '))
-    let newArray1 = array1.filter(function(item) { return item === search1 }) // newArray1 === [ 3, 3 ]
-    if(newArray1.length > 0) { console.log(newArray1.length+'개 있습니다.') }
-    search2 = prompt('어떤 과일? ')
-    let newArray2 = array2.filter(function(item) { return item.name === search2 }) // newArray2 === [ { name: 'apple', count: 2 } ]
-    console.log(newArray2[0].name+'는 '+newArray2[0].count+'개 있습니다.')
+    // <<< 정리 >>>
+    // 속도 비교 : for > indexOf >>> findIndex
+    // for : 값, 조건에 해당하는 모든 인덱스. 가장 빠름.
+    // indexOf : 값에 해당하는 최초 인덱스. 빠름.
+    // findIndex : 조건에 해당하는 최초 인덱스. 느림.
 
-    // forEach : 밸류값, 인덱스값을 동시에 꺼낸다. return 값을 취할 수 없다.
-    search1 = Number(prompt('어떤 숫자? '))
-    array1.forEach(function(value, index) {
-        if (search1 === value) {
-            console.log(String(index+1)+'번째에 '+value+'가 있습니다.')
-        }
-    })
-    search2 = prompt('어떤 과일? ')
-    array2.forEach(function(value, index) {
-        if (search2 === value.name) {
-            console.log(String(index+1)+'번째에 '+ value.name+'가 '+value.count+'개 있습니다.')
-        }
-    })
-
-    // map : 밸류값, 인덱스값을 동시에 꺼낸다. return 값을 취할 수 있다.
-    search1 = Number(prompt('어떤 숫자? '))
-    array1.map(function(value, index) {
-        if (search1 === value) {
-            console.log(String(index+1)+'번째에 '+value+'가 있습니다.')
-        }
-    })
-    search2 = prompt('어떤 과일? ')
-    array2.map(function(value, index) {
-        if (search2 === value.name) {
-            console.log(String(index+1)+'번째에 '+ value.name+'가 '+value.count+'개 있습니다.')
-        }
-    })
-    // map를 쓰는 경우 : return이 필요한 경우, 인풋값(=array1, array2)과 동일한 배열을 출력한다.
-    let a = array1.map(function(value, index) { if(value === 3) { return value }})
-    let b = array2.map(function(value, index) { if(value.name === 'orange') { return value }})
-    console.log(a)
-    console.log(b)
-
-    // reduce를 쓰는 경우 : 인자를 어떻게 주냐에 따라 용도가 달라진다.(인자가 a, b, c, d라면, a: 이전값, b: 현재값, c: 인덱스, d: 배열)
-    array1.reduce(function(a, b, c, d) { console.log('이전값:', a); console.log('현재값:', b); console.log('인덱스:', c); console.log('배열:', d); })
-    array2.reduce(function(a, b, c, d) { console.log('이전값:', a); console.log('현재값:', b); console.log('인덱스:', c); console.log('배열:', d); })
-
-
-    // forEach를 쓰는 경우 : return이 필요없는 경우    
-    var arr = ['가','나','다','라']; 
-    arr.forEach(function(item,index,arr2){ console.log(item,index,arr2[index+1]); }) 
-    // 첫번쨰 인수는 배열의 각각의 item 
-    // 두번쨰 인수는 배열의 index 
-    // 세번째 인수는 배열 그자체
+    // <<< 연습문제 >>>
 }
 

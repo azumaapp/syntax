@@ -1,6 +1,0 @@
-1. vscode에서 확장을 설치한다.
-    community material theme : darker 테마로 변경
-    material icon theme
-    vetur
-    vue
-    ESLint

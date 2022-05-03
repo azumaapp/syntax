@@ -1,7 +1,0 @@
-깃 콘픽 변경
-git config --global list 
-git config --global user.name ""
-git config --global user.email ""
-
-윈도우 자격증명 수정 (필수)
-https://aroundlena.tistory.com/30

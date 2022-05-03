@@ -1,4 +1,0 @@
-### 1. assets/scss/components/
-### 1. assets/scss/common/
-### 1. assets/scss/application.scss
-### 1. pages/index.vue
