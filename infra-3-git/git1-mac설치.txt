@@ -60,10 +60,11 @@
 1. .gitignore 파일을 열기
 1. 대표적으로 무거워서 넣지 않는 것중에 node_modules 폴더가 있는데 있는지 확인 (기본값)
 
-- 기타 트러블슈팅
-1. 최초의 경우, git 유저 정보 터미널에 입력
-    git config --global user.email "you@example.com"
-    git config --global user.name "Your Name"
+1. 이메일 설정 : 최초의 경우, git 유저 정보 터미널에 입력
+        git config --global list
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+
 1. 반복할 것은 이것 뿐! (vscode에서 3번째 깃 익스플로러 에서 작업 가능!)
     소스를 업데이트한다.
     git add . (스테이징 환경에 모든 소스코드를 올린다.)

@@ -23,33 +23,42 @@ create repository 클릭
 탐색기: 자신이 작업한 워크스페이스(폴더)에 들어가서,
 마우스 우클릭하고 git bash here 클릭
 배쉬창에서 다음을 입력한다
-[이메일 설정]
-git config —global user.email 자기이메일
+
+[이메일 설정] : 최초의 경우, git 유저 정보 터미널에 입력
+    git config --global list
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+
+[윈도우 자격증명 수정] : 최초의 경우, 필수
+    https://aroundlena.tistory.com/30
+
 [깃을 연동]
-git init : 깃을 설치
-git remote add origin “깃주소” : 깃주소와 폴더를 연동
+    git init : 깃을 설치
+    git remote add origin “깃주소” : 깃주소와 폴더를 연동
+    
 [첫 깃을 올린다]
-git status : 변경상태를 확인해요.
-git add . : 해당 폴더의 전체(.)를 트럭에 싣는다.
-git commit -m “변수와 데이터타입” : 트럭에 라벨을 붙여요.
-git push origin master : 마스터(본부)로 납품해요.
+    git status : 변경상태를 확인해요.
+    git add . : 해당 폴더의 전체(.)를 트럭에 싣는다.
+    git commit -m “변수와 데이터타입” : 트럭에 라벨을 붙여요.
+    git push origin master : 마스터(본부)로 납품해요.
 
-추후 다운로드 받는 방법 :
 [깃을 연동]
-git init : 깃을 설치
-git remote add origin “깃주소” : 깃주소와 폴더를 연동
+    추후 다운로드 받는 방법
+        git init : 깃을 설치
+        git remote add origin “깃주소” : 깃주소와 폴더를 연동
+
 [최신 깃을 로드]
-git pull origin master
+    git pull origin master
 
-최근 깃을 다시 올리기 :
-git reset HEAD^
-git add .
-git commit -m “바뀐 커밋명”
-git push -f origin master (-f 잊지마세요!)
+[최근 깃을 다시 올리기]
+    git reset HEAD^
+    git add .
+    git commit -m “바뀐 커밋명”
+    git push -f origin master (-f 잊지마세요!)
 
-로그인을 요구할 경우 :
-제어판에서 웹 자격증명변경 - 윈도우탭 (모르겠으면 구글검색: git 사용자설정 윈도우)
-깃을 지웠다 다시 설치하는 게 제일 빠름
+[로그인을 요구할 경우]
+    제어판에서 웹 자격증명변경 - 윈도우탭 (모르겠으면 구글검색: git 사용자설정 윈도우)
+    깃을 지웠다 다시 설치하는 게 제일 빠름
 
-사용의 참조 : 
-https://github.com/Azumait/springboot1.git
+[사용의 참조]
+    https://github.com/Azumait/springboot1.git
