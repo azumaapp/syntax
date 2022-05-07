@@ -60,7 +60,13 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.zoomLevel": 1,
-}   
-1. gitforwindows.org
-1. zoom, slack, sourcetree
-1. nodejs
+}
+1. 다음 툴들을 설치한다. 
+    git : gitforwindows.org
+    sourcetree
+    zoom
+    slack
+    nodejs
+    xampp
+    pleiades eclipse
+    a5m2
