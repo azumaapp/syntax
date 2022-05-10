@@ -1,72 +1,42 @@
-// DOM 객체는 HTML안의 DOM 트리안에서 위계적인 구조를 띈다.
-// ★ F12 누른 뒤 Element탭으로 넘어가보면 DOM 트리를 볼 수 있다.
+// API란? : https://brunch.co.kr/@operator/65
 
-// 자 여기서는 a, b 변수라는 두 종류의 아들 태그(Child Tag)가 있다. 
-// 그들에게 부모를 지정하여 넣어줘보자.
+// 사용할 API 주소(예제) : 영화 리뷰 사이트의 API를 호출한다.
+// API GET : https://yts.mx/api/v2/list_movies.json
+// API GET SORT BY : https://yts.mx/api/v2/list_movies.json?sort_by=rating
+// API 튜토리얼 : https://yts.mx/api
 
-// 전역변수 a
-let a = document.createElement("div") // "div" 태그 대신 다른 태그로도 가능
-a.innerHTML = "새로 생성됐음"
+// API 호출 명령어 참조 : https://hogni.tistory.com/142
 
-// 바디에 생성(바디 맨 끝)
-function create1() {
-    let body = document.body
-    body.appendChild(a)
+let url = "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
+let movies = []
+
+function getMovie(url) {
+    fetch(url)
+        .then(res => {
+            // response 처리
+            console.log(res)
+            // 응답을 JSON 형태로 파싱
+            return res.json()
+        })
+        .then(data => {
+            // json 출력
+            // console.log(data) // 들어오는지 확인 1
+            movies.push(data)
+            // render(movies) // 확인 2까지 한뒤 주석풀기
+        })
+        .catch(err => {
+            // error 처리
+            console.log('Fetch Error', err);
+        });
 }
 
-// 원하는 태그에 생성
-function create2() {
-    let parent = document.querySelector("#create2")
-    parent.appendChild(a)
+getMovie(url) // 여기서 전역변수 movies의 값을 갱신한다.
+// console.log('결과값:', movies) // 들어오는지 확인 2
+
+
+// 자료를 토대로 HTML을 만들어낸다.
+function render(movies) {
+    console.log('movies:', movies) // 들어오는지 확인 3
 }
 
-// 원하는 태그에 계속 생성
-function create3() {
-    // 지역변수 b : 계속 새로운 Element가 생성될 수 있음
-    let b = document.createElement("div")
-    b.innerHTML = "새로 생성됐음"
-
-    let parent = document.querySelector("#create3")
-    parent.appendChild(b)
-}
-
-// 스타일 추가하여 생성
-function create4() {
-    // 아들 태그 생성
-    let b = document.createElement("div")
-
-    // 아들 키우기(?)
-    b.innerHTML = "축구선수" // 교육받을 내용
-    b.setAttribute("id","son") // 부여받을 정체성, 소속(identity, class등)
-    b.setAttribute("class","tottenham") // 부여받을 정체성, 소속(identity, class등)
-    b.style.backgroundColor="yellow" // 스타일 꾸미기
-
-    // 부모에게 갖다 붙이기
-    let parent = document.querySelector("#create4")
-    parent.appendChild(b)
-}
-
-// 부모에게서 자식 객체 삭제
-function delete1() {
-    // 삭제할 자식 찾기
-    let son = document.querySelector("#son")
-
-    // 부모 객체 알아내기
-    let parent = son.parentElement
-    // 부모로부터 id="son"인 DOM 객체를 "하나씩" 떼어내기
-    parent.removeChild(son)
-
-    // DOM 객체가 DOM 트리에서 제거되면 브라우저 화면이 즉각 갱신되어 
-    // DOM 객체에 의해 출력된 HTML 콘텐츠가 사라진다. 
-    // 떼어낸 DOM 객체는 DOM 트리의 임의의 위치에 다시 부착할수 있다.
-}
-
-// 퀴즈: son 아이디가 없을 때 삭제를 눌러도 에러메시지가 안 나오게 예외 처리를 해보세요.
-
-// 답:
-// if (son && son.parentElement) {
-//     // 부모 객체 알아내기
-//     let parent = son.parentElement
-//     // 부모로부터 id="son"인 DOM 객체를 "하나씩" 떼어내기
-//     parent.removeChild(son)
-// }
+// TODO : movies의 값을 토대로 DOM을 변경해본다.
