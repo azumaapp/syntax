@@ -95,6 +95,16 @@ console.log('obj1.key3:', obj1.key3)
 delete obj1.key3
 console.log('obj1.key3:', obj1.key3) // undefined : 키 자체를 찾을 수가 없다.
 console.log('obj1:', obj1)
+/*
+    콘솔로그의 정체
+    콘솔은 사실, 객체입니다.
+    콘솔로그는 console 객체 안의 key중 log라는 키를 사용하는 것입니다.
+    이렇게, 객체 안에서 담아서 키를 처리하는 방식은 타 언어에서도 종종 사용됩니다.
+    이런 객체를 다른 말로는 클래스라고도 합니다. (class = object)
+    파이썬, 자바, 자바스크립트 등등 클래스 기반의 언어들은 그래서, "객체지향언어"라고 부릅니다.
+    */
+console.log(console)
+console.error("이렇게 쓰면 Error 메시지를 띄웁니다.")
 
 
 

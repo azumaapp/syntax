@@ -11,7 +11,7 @@
 /**
  * 버튼 클릭시 실행하는 메소드
  */
-function clicked2 () {
+function alert2 () {
     // 아래를 1천줄 내외의 복잡한 명령이라고 가정해보자.(실제로 대형프로젝트에서 많이 보게됨)
     // 그러면 왜 JS의 도입을 3번째 방법으로만 쓰는지 명확해질 것이다.
     let title = '경고메시지'
@@ -20,12 +20,6 @@ function clicked2 () {
 }
 
 // 아래와 같이 메소드가 여러개 있다고 하면 파일로 나누는 게 납득가죠?
-function clicked3 () {
+function alert3 () {
     alert('버튼 3 좌클릭 완료')
 }
-
-function rightClicked3 () {
-    alert('버튼 3 우클릭 완료')
-}
-
-

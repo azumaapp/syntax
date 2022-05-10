@@ -5,18 +5,17 @@
 
 // ★ 리턴값(return value) : 함수의 결과값
 // 리턴값이 있으면 함수를 변수처럼 값으로 사용할 수 있다.
-function ab(a, b) {
+function plus1 (a, b) {
     return a + b
 }
-let aa = ab(1, 2)
-console.log('리턴값 담은 변수인 aa:', aa)
+console.log('plus1(1, 2) ===>', plus1(1, 2))
 
 // ★ 변수에 함수를 넣을 때는, 다음과 같이 함수명을 생략하고 사용할 수 있다.
-let bb = function(a, b) { return a + b}
-console.log('리턴값 담은 변수인 bb(1, 2):', bb(1, 2))
+let plus2 = function (a, b) { return a + b }
+console.log('plus2(1, 2) ===>', plus2(1, 2))
 
 // ★ 화살표 함수(arrow function expression) :
 // 함수를 변수처럼 값으로 사용하고 싶을 때 위 보다 더 간편하게 표현하는 방법이다.
 // ( A ) => { B } 방식의 함수는 function(A) { B } 와 의미가 같다.
-let cc = ( a, b ) => { return a + b }
-console.log('화살표함수 cc(1, 2):', cc(1, 2))
+let plus3 = (a, b) => { return a + b }
+console.log('plus3(1, 2) ===>', plus3(1, 2))

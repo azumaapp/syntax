@@ -1,0 +1,14 @@
+.title {
+    font-size: 50px;
+    font-weight: bold;
+    font-style: italic;
+}
+.image {
+    width: 500px;
+    height: auto;
+}
+.rank {
+    font-size: 25px;
+    color: brown;    
+    margin-bottom: 50px;
+}
