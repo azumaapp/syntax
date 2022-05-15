@@ -1,0 +1,13 @@
+[Etc]
+
+1. Architecture : 클라이언트 - 라우터 - 웹서버 - DB - 상태체크용서버 (페이스북 아키텍쳐 검색해볼 것)
+1. Cloud Service : 아키텍쳐는 매우 복잡해서 다 알 수가 없다. 그래서 요즘은 클라우드 서비스를 빌려서 그 아키텍쳐를 구성한다.
+1. Query String, Get method, Post method
+1. Java(어렵고 형식이 많고 큰 회사에서 많이 씀), Python(쉽게 입문, 자유로움, 데이터분석에도 씀), Node.JS(백과 프론트언어 JS가 같음. 스타트업에서 많이 씀), PHP, Ruby
+1. Framework : 서버를 만들 때, 직접 코딩해서 만들지 않고 프레임워크에서 필요한 것들을 갖다 써서 제작.
+1. Springboot, Express, Flask나 Django, Laravel, Ruby On Rails
+1. Database, SQL : 데이터저장이 목적이 아니라 잘 찾게 하는 것이 목적
+1. SQL(이미 꽤 성장한 큰 회사. 정형화된 데이터가 관리하기 편하고 문제도 덜 생김. 오라클, Postgre, SQLite, MySQL) vs NoSQL(초기 스타트업. 바뀔게 많을 때. mongoDB. redis)
+1. 풀스캐닝 "사랑이 들어간 책 다 주세요" (천만건 있다면...?) vs 인덱싱 "한국출판사 책 다 주세요"
+1. Git협업방법 : remote(develop) → 1. fetch(새로고침) → 2. develop branch pull(다운로드, 자동/수동 충돌해결) → local → 3. branch 따기 → 4. 소스 변경 → 5. commit(세이브포인트) → 6. push(업로드) → remote(branch) → 7. PR(머지요청) → 8. merge → remote(develop)
+1. Git : clone, fetch, pull, push, add, commit, merge, pull request
