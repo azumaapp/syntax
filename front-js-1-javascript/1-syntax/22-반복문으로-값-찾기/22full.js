@@ -11,6 +11,10 @@ for (let i = 0; i < arr.length; i++) {
     console.log('arr ===>', arr) // 배열 전체
 }
 
+// 배열고차함수
+// 고차함수(Higher-order Function)는 함수를 리턴하는 함수를 말한다.
+// 배열고차함수에는 forEach, map, find, findIndex, filter, reduce, sort, some, every등이 있다.
+
 // forEach문 용도 : For 쓰기 싫을 때 쓴다. (리턴 없는 경우만 찾아서)
 // 설명 : 파라미터 개수에 따라 「value, index, array자체」 모두를 취할 수 있다.
 // 장점 : 멀티플레이. 가독성.
@@ -33,14 +37,14 @@ for (let i = 0; i < arr.length; i++) {
 // 단점 : 용도가 「배열 필터링」으로 한정되어 있다.
 // arr.filter(function (item) { return item > 3 }) // newArr === [ 4, 4, 5 ]
 
-// reduce문 용도 : 배열값들을 이용해 수학적 계산이 필요한 경우(예 : 각 과목 점수들의 평균을 계산)
+// map문 용도 : 배열값 수정해서 새 배열 만들 때(배열 길이는 유지)
 // 설명 : 「return누적값, value, index, array자체」모두를 취할 수 있다.
 // 장점 : 「return」값을 취할 수 있다. for 이외에 가장 빠르고, 가장 확장성이 높다. 가장 완벽한 반복문.
 // 단점 : 사용하기가 어렵다.
 // arr.reduce(function (acc, item) { return acc + item }) // sum
 // arr.reduce(function (acc, item) { return acc + item / arr.length }) // average
 // *** 펑션, 파라미터, 리턴이 있는 함수는 화살표 함수로 축약이 가능
-// arr.reduce((acc, item) => acc + item / n) // average
+// arr.reduce((acc, item) => acc + item / arr.length) // average
 // arr.reduce(function (accumluate, value, index, array) { console.log('return누적값, value, index, array ===> ', accumluate, value, index, array); return accumluate + value })
 
 // < 정리 >
