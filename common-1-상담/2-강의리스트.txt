@@ -8,6 +8,7 @@
         타입스크립트 입문 - 기초부터 실전까지
         장기효(캡틴판교)
         대상:초급자
+
         실전 프로젝트로 배우는 타입스크립트
         장기효(캡틴판교)
         대상:중급자
@@ -21,7 +22,7 @@
         코지 코더
         대상:초급자
         
-        Vue.js 시작하기 - Age of Vue.js
+        Vue.js 시작하기 - Age oㅍ Vue.js
         장기효(캡틴판교)
         대상:초급자
 
@@ -70,3 +71,8 @@
         노마드코드
         대상:중급자
  
+    1-5.파이어베이스로 캐럿마켓 클론코딩
+        https://www.youtube.com/watch?v=9RkXchEJgKU
+
+    1-6.나의 첫번째 graphQL 서버 만들기 노마드
+        https://www.youtube.com/watch?v=3PZGW5Iwtv4&list=PL5gTKHIL4Kvt-NdYeTtuzC5eNKGWSrL-F
