@@ -13,6 +13,7 @@ vs코드, 구글스프레드시트 등의 툴 확대/축소 : 커맨드 + 쉬프
 윈도우키 : 트랙패드 네손가락으로 오므리기 (단축키 없음)
 Del키 : Fn + Delete
 스프레드시트 매크로용 shift + ctrl + alt + 숫자키 : shift + opt + cmd + 숫자키
+크롬 확대 축소 : cmd shift +, cmd -
 
 <git 관리>
 terminal이나 vscode로 git을 관리한다.
