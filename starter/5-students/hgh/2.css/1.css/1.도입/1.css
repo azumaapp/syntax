@@ -1,0 +1,28 @@
+/* 선택자 위계(hierarchy)
+    tag > class . > id # (css는 보통 class로)
+*/
+span {
+    font-size: 50px;
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+#skyblue {
+    color: skyblue;
+}
+
+
+
+
+div {
+    color: red;
+    display: inline;
+}
+
+img {
+    width: 50px;
+    height: auto;
+}

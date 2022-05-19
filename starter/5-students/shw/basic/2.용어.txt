@@ -1,0 +1,8 @@
+1. frontend = client
+1. backend = server
+
+1. case rule
+    camel case : thisCaseExample
+    pascal case : ThisCaseExample
+    kebob case : this-case-example
+    snake case : this_case_example
