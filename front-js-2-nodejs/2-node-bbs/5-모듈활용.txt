@@ -1,4 +1,0 @@
-모듈을 활용해서 코드를 줄여보겠다.
-
-1. lib/template.js 를 만들어서 템플릿을 나눠준다.
-2. main.js에서 template.js 모듈을 호출한다.

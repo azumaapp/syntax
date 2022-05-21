@@ -1,3 +1,0 @@
-기타 쓸만한 프레임워크 및 라이브러리들
-라이브러리 : gojs, lodash, debug, commander, moment, mysql
-프레임워크 : electron

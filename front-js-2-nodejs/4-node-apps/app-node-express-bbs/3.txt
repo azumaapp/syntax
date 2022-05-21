@@ -1,6 +1,0 @@
-semantic url로 라우팅
-1. queryData.id를 request.params.pageId로 변경
-2. 상단에 sanitizeHtml, path를 require해줌
-3. lib 폴더의 template.js에서 주소체계를 queryString체계에서 semantic url 형식으로 바꿔줌
-4. pm2 start main.js --watch로 실행
-5. 확인 후 pm2 kill
