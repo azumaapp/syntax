@@ -1,93 +1,14 @@
-nodejs를 사용하는 방법: 다시 말하면, npm 명령어를 이용하여 모듈을 설치하는 방법
+[npm 명령어를 이용하여 모듈을 설치하는 방법]
 
-1. 우선 npm으로 라이브러리를 하나 설치해보자.
-> npm i fs
-    라이브러리란 소프트웨어를 개발할 때 필요한 확장팩 개념이라고 보면 됨. 
-    라이브러리를 추가해 내 앱에 손코딩없이 다양한 기능을 간단하게 추가할 수 있음.
-    개발자들은 다양한 라이브러리에 의존하고 이들을 조합하여 앱을 만든다. 이는 대단한 힘이 되는 것이다.
-    마치, 자동차라는 라이브러리에 책상 라이브러리를 조립하면, 책상달린 자동차를 만들 수 있는 것과 같다.
-2. package-lock.json과 node_modules 폴더가 생성된 것을 확인
-설치되는 모듈은 node_modules 폴더에 들어오게 된다.
-또한 설치 당시의 version에 대한 정보가 package-lock.json 파일 안으로 들어오게 된다.
-* package-lock.json에 대한 부가설명
-    1. npm을 사용해서 node_modules 트리나 node_modules/package.json 파일을 수정하게 되면 자동으로 생성되는 파일이다.
-        package.json이란? 디펜던시(dependency)을 선언하는 파일이다.
-            디펜던시란? 어떤 클래스 A가 다른 클래스(또는 인터페이스) B를 이용할 때 A가 B에 의존한다고 한다.
-            이때, A입장에서 의존하게 되는 B, C, D...들을 A의 디펜던시라고 한다. (한국어로 의존성이라 번역하는데 나는 그 번역이 좀 이상하다고 생각함.)
-            예를 들어, A는 B없이 작동할 수 없고 B를 재사용하지 않으면 A또한 재사용 할 수 없다.
-            여기에서 클래스 A는 Dependant라고 하고 클래스 B는 Dependency라고 하는 것이다.
-            Dependant는 자신의 Dependency들에게 의존한다.
-            서로를 이용하는 두 클래스는 각각 coupled라 한다.
-            클래스 사이의 coupling은 느슨할 수 도 타이트 할 수도 있다.            
-            타이트한 커플링은 강한 의존성을 만들고, 느슨한 커플링은 약한 의존성을 만들거나 의존성을 만들지 않을 수도 있다.
-            의존성, 커플링은 방향이 존재한다.
-            - A가 B에게 의존한다고 해서 B 또한 A에게 의존적인 것은 아니다.
-                클래스란? 객체를 정의하는 틀 또는 설계도이며, 필드(Field)와 메소드(Method)로 구성된다.
-                    필드란? 클래스에 포함된 변수(variable)를 의미한다.
-                    메소드란? 개발자가 만든 특정 작업(function)을 수행하기 위한 명령문의 집합을 의미한다.
-                    클래스의 예시는 다음과 같다.
-                    클래스(class)
-                    - 차(Car) : 설계도
-                    필드(field)
-                    - car.modelName = "람보르기니"
-                    - car.modelYear = 2016
-                    - car.color = "주황색"
-                    - car.maxSpeed = 350
-                    메소드(method)
-                    - car.accelerate()
-                    - car.brake()
-                인터페이스란? 극단적으로 동일한 목적 하에 동일한 기능을 수행하게끔 강제하는 것이다.
-                이로 인해서 개발코드 수정을 줄이고 프로그램 유지보수성을 높이기 위해 인터페이스를 사용한다.
-                예를 들어, 리모컨에 있는 버튼들은 전부 TV에 연결하기 위한 인터페이스를 갖추고 있다.
-                그 안에는 어느정도 TV리모컨이라면 강제적으로 필수적인 내용들이 있을 것이다. (채널변경, 음량조절버튼 반드시 있어야하고.. 등등)
-                이를 코딩에 접목시키면, 은행 관련 어플들은 전부 은행에 연결하기 위한 어떤 인터페이스를 갖춘 상태에서 코딩이 이뤄져야할 것이다.
-                예를 들면 인증방법이라던지, 보안 관련해서는 공인인증서를 사용해야하는데 이와 관련한 메소드 등등 말이다.
-                    인터페이스에서 지정하는 것들은 다음과 같다.
-                    // 상수 : 인터페이스에서 값을 정해줄테니 함부로 바꾸지 말고 제공해주는 값만 참조해라. (절대 못바꿈)
-                    // 추상 메소드 : 가이드만 줄테니 추상메소드를 오버라이팅해서 재구현해라. (강제적)
-                    // 디폴트 메소드 : 인터페이스에서 기본적으로 제공해주지만, 맘에 안들면 각자 구현해서 써라. (선택적)
-                    // 정적 메소드 : 인터페이스에서 제공해주는 것으로 무조건 사용 (절대 못바꿈)
-    2. package.json 파일의 의존성 선언에는 version range가 사용된다. 
-    version range란 특정 버전이 아니라 버전의 범위를 의미한다.
-    가장 흔한 예로 npm install fs를 실행하게 되면,
-    package.json 파일에는 버전 범위가 추가된다.
-    저 package.json 파일로 npm install을 실행하면 현재 버전이 설치되지만
-    추후 fs모듈의 새로운 minor, patch가 publish 되면 
-    동일한 package.json 파일로 npm install을 실행해도, 똑같은 업데이트된 버전이 설치된다.
-    물론 대부분의 경우에는 문제가 없지만 간혹 업데이트된 버전이 오류를 발생시키는 경우가 있다.
-
-    시나리오 1: PACKAGE-LOCK.JSON 파일을 소스 저장소에 커밋하지 않은 경우
-    박과장이 npm으로 프로젝트를 만들어서 git에 소스코드를 push 합니다. 이 때 package.json 파일만 커밋한다.
-    김대리는 소스 코드를 pull 하고 npm install을 실행한다.
-    의존성 트리의 일부 버전이 박대리와 다르게 설치된다.
-    프로그램 실행시 오류가 발생한다.
-    
-    package-lock.json 파일은 이를 대비하여 의존성 트리에 대한 정보를 가지고 있으며
-    package-lock.json 파일이 작성된 시점의 의존성 트리가 다시 생성될 수 있도록 보장한다.
-
-    시나리오 2: PACKAGE-LOCK.JSON 파일을 소스 저장소에 커밋한 경우
-    박과장이 npm으로 프로젝트를 만들어서 git에 소스코드를 push 한다. 
-    이 때 node_modules 폴더를 제외하고 package.json 파일과 package-lock.json 파일을 같이 커밋한다.
-    김대리는 소스 코드를 pull 하고 npm install을 실행한다.
-    의존성 트리가 박대리가 셋팅한 환경과 동일하게 설치한다.
-    프로그램이 정상적으로 실행된다.
-
-    package-lock.json 파일은 npm에 의해서 프로젝트의 node_modules나 package.json이 수정되는 경우 생성되거나 업데이트되며 당시 의존성에 대한 정보를 모두 가지고 있다.
-    따라서 생성된 package-lock.json 파일은 소스 저장소에 커밋해 둬야 한다.
-    이해가 됐나요?
-    
-    요약
-    package-lock.json 파일은 의존성 트리에 대한 정보를 모두 가지고 있다.
-    package-lock.json 파일은 저장소에 꼭 같이 커밋해야 한다.
-    package-lock.json 파일은 node_modules 없이 배포하는 경우 반드시 필요하다.
-
-    package-lock.json 관련 TROUBLESHOOTING
-    아래 로그처럼 integrity checksum failed 오류가 나는 경우 npm cache clean --force 실행하면 된다.
-    WARN registry Unexpected warning for https://registry.npmjs.org/: Miscellaneous Warni
-
-
-3. FS (파일시스템) 라이브러리를 사용해보자.
-    txt 파일을 샘플파일로 해서 파일을 읽어보자.
-    지금은 노드안에서는 dom 조작이 기존 vanillaJS 방식으로 document.querySeletor() 명령어를 쓰면 안되므로, 
-    일단 샘플파일의 결과를 html에 싣지 않고, 콘솔에만 찍어본다.
-    실행또한 > node 6.js로 실행해서 확인해보자.
+1. 모듈 설치 방법
+    npm으로 모듈을 설치하는 명령어는 다음과 같다.
+    npm i [모듈이름] // 예) npm i fs
+    package.json과 node_modules 폴더가 생성된 것을 확인
+        package.json이란 해당 패키지의 의존성(dependency)들을 선언하는 파일이다.
+        설치되는 모듈은 node_modules 폴더에 들어오게 된다.
+        또한 설치 당시의 version에 대한 정보가 package-lock.json 파일 안으로 들어오게 된다.
+    package-lock.json가 생성된 것을 확인
+        npm을 사용해서 node_modules 트리나 node_modules/package.json 파일을 수정하게 되면 자동으로 생성되는 파일이다.
+        package-lock.json 파일은 node_modules 없이 배포하는 경우 반드시 필요하다.
+            package-lock.json 파일은 npm에 의해서 프로젝트의 node_modules나 package.json이 수정되는 경우 생성되거나 업데이트되며
+            당시 의존성에 대한 정보를 모두 가지고 있다. 따라서 생성된 package-lock.json 파일은 소스 저장소에 커밋해 둬야 한다.
