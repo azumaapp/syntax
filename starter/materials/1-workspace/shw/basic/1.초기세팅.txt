@@ -1,0 +1,56 @@
+초기 해야할 것
+1. 멀웨어 삭제
+1. workspace 폴더 생성
+1. gitforwindows.org에서 git 설치 : git 버전관리용
+1. vscode 검색후 vscode 설치 (파일, 디렉토리에서 열기 2군데 체크) : javascript, python 등 java외 모든 개발
+1. vscode 필수 확장
+    html css support 설치
+    ESlint 설치 - 확장설정 - json 열기 아이콘(우측상단) - 아래 붙여넣기
+        // [필수] ESlint 설정 setting.json
+        {
+            // Html, JavaScript, Vue
+            "files.associations": {
+                "*.vue": "vue"
+            },
+            // vue에 css의 emmet추가
+            "emmet.syntaxProfiles": {
+                "vue": "css"
+            },
+            // vue에만 추가하고 싶은 설정
+            "[vue]": {
+                "editor.formatOnSave": true,
+            },
+            "eslint.enable": true,
+            // 적용할 파일 타입의 결정
+            "eslint.validate": [
+                "javascript",
+                "javascriptreact",
+                "vue"
+            ],
+            // 프로젝트 eslintrc.js를 읽어들임
+            "eslint.options": {
+                "configFile": ".eslintrc.js"
+            },
+            // 저장시의 자동 포맷
+            // deprecated
+            "eslint.autoFixOnSave": true,
+            // 포맷 변경
+            "vetur.format.defaultFormatter.js": "vscode-typescript",
+            "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+            "vetur.format.defaultFormatter.html": "js-beautify-html",
+            // "editor.suggestSelection": "first",
+            // "workbench.startupEditor": "newUntitledFile",
+            "git.autofetch": true,
+            "git.allowForcePush": true,
+            "editor.codeActionsOnSave": {
+                "source.fixAll.eslint": true
+            },
+            "editor.formatOnPaste": true,
+            "editor.formatOnSave": true,
+            "editor.formatOnType": true,
+            "editor.suggestSelection": "first",
+            "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+            "window.zoomLevel": -1,
+        }
+1. html snippet 확인
+    ! 치고 엔터

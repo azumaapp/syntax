@@ -1,0 +1,34 @@
+.image img {
+    width: 100px;
+
+    /* 간격 벌리기 : padding ---> border ---> margin */
+
+    /* 패딩 : 내부 간격*/
+    padding: 50px;
+
+    /* 보더 : 내부와 외부의 경계선. 픽셀 선종류 선색 순으로 입력. */
+    border: 1px solid gray;
+
+    /* 마진 : 외부 간격*/
+    margin: 50px;
+
+
+    /* 
+        이렇게 사용도 가능하다.
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+
+            padding: 0px 0px 0px 0px; 상 우 하 좌
+            padding: 0px 0px 0px; 상 좌우 하
+            
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px; 
+
+            margin: 0px 0px 0px 0px; 상 우 하 좌
+            margin: 0px 0px 0px; 상 좌우 하
+    */
+}

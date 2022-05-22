@@ -1,0 +1,1 @@
+ctrl + b (command + b) : 사이드바 닫기/열기 토클
