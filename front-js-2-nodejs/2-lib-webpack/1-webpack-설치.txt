@@ -26,12 +26,12 @@
         이후 다 엔터
     npm i webpack --save-dev    
     package.json 열기 → "devDependencies" 키 안의 "webpack" 키를 확인
-    package.json 의 "scripts" 키 안에 "start"를 아래와 같이 추가
+    package.json 의 "scripts" 키 안에 "build"를 아래와 같이 추가
         "scripts": {
             ... ,
-            "start": "webpack"
+            "build": "webpack"
         },
-    "start": "webpack" 추가
+    "build": "webpack" 추가
     webpack.config.js 파일 생성 후 다음과 같이 작성
         let path = require('path')
         module.exports = {
@@ -49,5 +49,5 @@
         <script src="./dist/bundle.js"></script> 추가
     src/index.js 파일 생성
         console.log('Hello Webpack!') 추가
-    npm run start
+    npm run build
     dist/bundle.js 생성 확인
