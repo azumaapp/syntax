@@ -17,6 +17,8 @@
     크롬 새로고침(F5) : cmd r
     시스템 종료(Alt F4) : ctrl 전원키
     백슬래쉬 : (영어키보드에서) opt ¥
+    원화표시 : (한글키보드에서) shift @
+    백틱표시 : (영어키보드에서) shift @ (한글키보드에서) shift opt @
 
 <git 관리>
     terminal이나 vscode로 git을 관리한다. sourcetree는 조회랑 체크아웃만 하는 용도로 사용
