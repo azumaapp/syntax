@@ -1,0 +1,44 @@
+[Redux 폴더 구조]
+
+1. initialState를 수정한다.
+    이렇게 설정된 initialState는 이후 함수들을 폴더와 파일로 분리하는 "기준"이 된다.
+
+    const initialState = {
+        user: {
+            null,
+            isLogIn: true,
+        }
+        post: [],
+        comments: [],
+        favorites: [],
+        history: [],
+        likes: [],
+        followers: [],
+    }
+    
+
+
+1. reducer 분리
+    reducers 폴더를 생성한다.
+    reducers/index.js 파일을 생성한다.
+        const Reducer = ( ... 부분을 모두 잘라서 reducers/index.js 에 넣는다.
+    끝에 다음 코드를 추가해서 모듈로 만들어준다.
+        module.exports = reducer
+    3.js 상단에 다음 코드를 생성한다.
+        const reducer = require('./reducers/index')
+
+
+
+1. action 분리
+    actions 폴더를 생성한다.
+    actions/user.js 파일을 생성한다.
+        const logIn = () => ... 과 const logIn = () => ... 액션을 잘라서 actions/user.js 에 넣는다.
+        끝에 다음 코드를 추가해서 모듈로 만들어준다.
+            module.exports = { logIn, logOut }
+    actions/post.js 파일을 생성한다.
+        const addPost = () => ... 액션을 잘라서 actions/post.js 에 넣는다.
+        끝에 다음 코드를 추가해서 모듈로 만들어준다.
+            module.exports = { addPost }
+    3.js 상단에 다음 코드를 생성한다.
+        const { logIn, logOut } = require('./actions/user')
+        const { post } = require('./actions/post')
