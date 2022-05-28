@@ -1,0 +1,14 @@
+/* 선택자에게 스타일을 입힌다. */
+/* 선택자 위계 : 태그 a 가장 먼저 적용 ---> class ---> id */
+
+#pink {
+    color: pink;
+}
+
+.link {
+    color: red;
+}
+
+a {
+    color: blue;
+}
