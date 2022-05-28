@@ -1,5 +1,0 @@
-[Git]
-
-1. Git은 버전관리 및 협업툴이다. Github이나 Gitlab으로 관리한다.
-1. Git협업방법 : remote(develop) → 1. fetch(새로고침) → 2. develop branch pull(다운로드, 자동/수동 충돌해결) → local → 3. branch 따기 → 4. 소스 변경 → 5. commit(세이브포인트) → 6. push(업로드) → remote(branch) → 7. PR(머지요청) → 8. merge → remote(develop)
-1. Git : clone, fetch, pull, push, add, commit, merge, pull request

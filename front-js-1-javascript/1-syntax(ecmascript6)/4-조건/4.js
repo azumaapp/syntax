@@ -83,6 +83,22 @@
 // let n8 = 10
 // n < 10 ? alert('a는 10보다 작다') : alert('a는 10보다 크거나 같다') // ***
 
+// Switch문 : 조건이 많을 때 사용
+// let data = 1;
+// switch (data) {
+//   case 1:
+//     console.log(1);
+//     break;
+//   case 2:
+//     console.log(2);
+//     break;
+//   case 3:
+//     console.log(3);
+//     break;
+//   default: // else 처리
+//     console.log('Not in [1, 2, 3]');
+// }
+
 // 연습문제1.
 // banana가 5, apple이 4, people이 3 있다.
 // banana와 apple이 people보다 많으면 "모두 많다"
