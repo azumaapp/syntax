@@ -1,4 +1,15 @@
-[확장]
+[설정]
+
+1. 확장: 초기 필수 세팅
+    doiuse: css 설명
+    tabnine: 탭으로 코드 자동작성
+    HTML Snippets: HTML 스니펫 지원
+    JavaScript(ES6) Code Snippets: JS 스니펫 지원
+    IntelliCode: 객체에 . 찍으면 키 리스트 표시
+    ESLint: EcmaScript에서, 소스코드를 분석하여 프로그램 오류, 버그, 스타일 오류 등을 자동으로 고쳐줌
+    Material Icon Theme: HTML, CSS, JS등의 아이콘이나 폴더명을 보다 더 알기 쉽게 변경
+    Vue, Vue.js Extension Pack, VueHelper, Vetur : Vue 개발 도구
+    Prettier: 탭 위계 선으로 표시해줌
 
 1. cwd
     vscode 설정 화면에 들어간다.
@@ -11,7 +22,7 @@
     format on save 검색한다.
     ESLint를 쓰는 경우 체크가 꺼져있어야 한다.
 
-1. ESLint
+1. ESLint 세팅
     ESLint 세팅 json에서 다음을 입력한다.
         {
             // Html, JavaScript, Vue
