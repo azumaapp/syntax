@@ -19,8 +19,17 @@
     백슬래쉬 : (영어키보드에서) opt ¥
     원화표시 : (한글키보드에서) shift @
     백틱표시 : (영어키보드에서) shift @ (한글키보드에서) shift opt @
-    vs코드 한글 씹힐 때 : cmd + shift + p → 표시 언어 구성 → ko 선택 (이미 ko로 되어있더라도, "언어를 변경하는 행위"가 중요함)
-    파인더에서 숨김파일 보기 : cmd + shift + .
+    vs코드 한글 씹힐 때 : cmd shift p → 표시 언어 구성 → ko 선택 (이미 ko로 되어있더라도, "언어를 변경하는 행위"가 중요함)
+    파인더에서 숨김파일 보기 : cmd shift .
+
+<스펙타클(화면스플릿앱)>
+    풀스크린 : cmd opt f
+    센터 : cmd opt c
+    3분의 1 : ctrl opt 방향키
+    반절 이동 : cmd opt 방향키s
+    위 반절 이동 : cmd ctrl 방향키
+    아래 반절 이동 : cmd shift ctrl 방향키
+    확대축소 : ctrl opt shift 방향키
 
 <git 관리>
     terminal이나 vscode로 git을 관리한다. sourcetree는 조회랑 체크아웃만 하는 용도로 사용

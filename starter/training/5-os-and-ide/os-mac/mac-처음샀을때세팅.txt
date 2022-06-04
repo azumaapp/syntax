@@ -132,7 +132,7 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.zoomLevel": 1,
 }
-1. 다음 툴들을 설치한다. 
+1. 다음 툴들을 설치하고, 다운로드 폴더에서 응용프로그램 폴더로 이동시킨다.
     git
     sourcetree
     zoom
@@ -141,4 +141,5 @@
     xampp
     pleiades eclipse
     a5m2
-    
+    spectacle : 열어서 로그인시 실행 체크박스에 체크
+    docker
