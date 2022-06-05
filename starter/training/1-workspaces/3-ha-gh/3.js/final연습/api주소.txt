@@ -1,0 +1,5 @@
+↓ Public Rest API
+
+https://jsonplaceholder.typicode.com/photos
+
+8.js를 참조해서, 위 주소를 참조해서 인스타그램 만들어보기

@@ -1,0 +1,11 @@
+.title {
+    display: block;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.img {
+    display: block;
+    border: 1px solid gray;
+}

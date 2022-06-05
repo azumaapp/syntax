@@ -36,28 +36,34 @@
     function App() {} 밑에 초기화 세터 추가 : setState를 하는 방법이다.
         const [id, setId] = useState('')
         const [pw, setPw] = useState('')
+        
+    <div className="App"> 안의 태그를 다음과 같이 수정
+        {id} {pw} <br />
+        {id} {pw} <br />
+        {id} {pw} <br />
+        {id} {pw} <br />
+        {id} {pw} <br />
+        <form onSubmit={onSubmit}>
+        <input
+            type='text'
+            placeholder='ID를 입력해주세요'
+            value={id}
+            onChange={(event) => setId(event.target.value)}
+        /><br />
+        <input
+            type='password'
+            placeholder='PW를 입력해주세요'
+            value={pw}
+            onChange={(event) => setPw(event.target.value)}
+        /><br />
+        <button type='submit'>Submit</button>
+        </form>
+
+    const onKeyUp = () => {} 이 함수는 전체를 삭제
 
     const onSubmit = () => {} 안의 얼럿을 지우고 다음과 같이 변경
         event.preventDefault() // form submit 고유의 동작을 멈추기 위해 일시적으로 썼음
         console.log(id, pw)
-        
-    <div className="App"> 안의 태그를 다음과 같이 수정
-        <form onSubmit={onSubmit}>
-            <input 
-                type='text' 
-                placeholder='id를 입력해주세요'
-                value={id}
-                onChange={(e) => setId(e.target.value)}
-            /><br/>
-            <input 
-                type='text' 
-                placeholder='pw를 입력해주세요'
-                value={pw}
-                onChange={(e) => setPw(e.target.value)}
-            /><br/>
-            <button type='submit'>Submit</button>
-        </form>
-
 
 
 
