@@ -1,0 +1,11 @@
+[Node 특정버전 설치]
+
+1. 현장에서는 특정 버전을 설치하라고 한다. 다음은 현장에서 요구하는 node와 npm의 특정버전을 설치하는 방법이다.
+    brew update (필수)
+    brew install node@16
+    nvm ls
+    nvm install 16.15.1
+    brew 
+    nvm use 16.15.1
+    node -v (16.15.1 확인)
+    brew unlink node@16 && brew link --force node@16 (nvm use를 안하더라도 다음부터는 터미널 열때의 기본값이 된다.)
