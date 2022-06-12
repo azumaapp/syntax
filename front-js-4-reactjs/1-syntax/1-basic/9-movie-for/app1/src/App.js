@@ -8,6 +8,7 @@ function App() {
     { title: 'movie4', year: 2014 },
     { title: 'movie5', year: 2015 },
   ]
+
   const render = movies.map((movie) => {
     return (
       <div className='movie' key={movie.title}>
@@ -16,6 +17,7 @@ function App() {
       </div>
     )
   })
+  
   return (
     <div className='App'>
       <h1>반복문 렌더링</h1>
@@ -26,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

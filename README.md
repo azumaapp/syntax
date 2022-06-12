@@ -8,8 +8,8 @@
     API: https://yts.mx/api/v2/list_movies.json?sort_by=rating
     DOC: https://yts.mx/api
 뉴스
-    API: https://api.hnpwa.com/v0/news/1.json
-    API: https://api.hnpwa.com/v0/ask
+    API: https://api.hnpwa.com/v0/news.json
+    API: https://api.hnpwa.com/v0/ask.json
 SNS
     API: https://dummyapi.io/data/v1/user?limit=10
     DOC: https://dummyapi.io/explorer

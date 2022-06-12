@@ -9,11 +9,13 @@ function App() {
     { title: 'movie4', year: 2014 },
     { title: 'movie5', year: 2015 },
   ]
+
   const render = movies.map((movie) => {
     return (
       <Movie movie={movie} key={movie.title} />
     )
   })
+  
   return (
     <div className='App'>
       <h1>컴포넌트 + 프롭스 활용 = 무비리스트 컴포넌트화</h1>
@@ -24,4 +26,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

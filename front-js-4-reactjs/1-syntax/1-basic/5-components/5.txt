@@ -30,7 +30,7 @@
 1. src/App.js 내용을 전부 삭제한 뒤 전부 아래 내용으로 수정
 
     import React from 'react'
-    import Counter from '/components/Counter'
+    import Counter from './components/Counter'
 
     function App() {
     return (

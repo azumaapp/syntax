@@ -69,7 +69,7 @@
     상단부의 제일 아래쪽에 추가
         import MovieForm from "./components/MovieForm"
 
-    const addMovie 함수 부분을 다음과 같이 수정
+    const onSubmit의 함수명을 addMovie로 바꾸고, 함수 부분을 다음과 같이 수정
         const addMovie = (movie) => {    
             setMovies([
                 ...movies,

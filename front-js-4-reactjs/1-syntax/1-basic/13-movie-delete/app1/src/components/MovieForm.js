@@ -13,6 +13,7 @@ const MovieForm = ({ addMovie }) => {
     const onSubmit = (event) => {    
       event.preventDefault()
       addMovie({
+          id: Date.now(),
           title: movieTitle,
           year: movieYear,
       })
@@ -35,7 +36,7 @@ const MovieForm = ({ addMovie }) => {
           /><br />
           <button type="submit">영화추가</button>
         </form>
-    );    
+    )
 }
 
 export default MovieForm

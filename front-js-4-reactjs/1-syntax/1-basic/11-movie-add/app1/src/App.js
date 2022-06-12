@@ -11,6 +11,7 @@ function App() {
     { title: 'movie4', year: 2014 },
     { title: 'movie5', year: 2015 },
   ])
+  
   useEffect(() => {
       console.log('render')
   })
@@ -21,7 +22,7 @@ function App() {
     )
   })
 
-  const addMovie = (event) => {    
+  const onSubmit = (event) => {    
     event.preventDefault()
     setMovies([
       ...movies, // 이게 없으면 기존 무비 배열이 삭제됨
@@ -42,7 +43,7 @@ function App() {
   return (
     <div className='App'>
       <h1>무비 리스트 추가 폼</h1>
-      <form onSubmit={addMovie}>
+      <form onSubmit={onSubmit}>
         <input
             type="text"
             value={movieTitle}
@@ -64,4 +65,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

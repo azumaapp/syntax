@@ -10,7 +10,7 @@ function App() { 밑에 추가
 
 <h1>컴포넌트 + 프롭스 활용 = 무비리스트 컴포넌트화</h1>를 삭제하고 그 부분에 추가
     <h1>무비 리스트 추가 폼</h1>
-    <form onSubmit={addMovie}>
+    <form onSubmit={onSubmit}>
         <input
             type="text"
             value={movieTitle}
@@ -27,7 +27,7 @@ function App() { 밑에 추가
     </form>
 
 return ( 위에 추가
-    const addMovie = (event) => {
+    const onSubmit = (event) => {
         event.preventDefault()
         console.log(movieTitle, movieYear)
         movies.push({
@@ -44,6 +44,7 @@ const movies = [ 위에 추가 : movies 더미 데이터를 스테이트화하�
         { title: 'movie4', year: 2014 },
         { title: 'movie5', year: 2015 },
     ])
+    
     useEffect(() => {
         console.log('render')
     })

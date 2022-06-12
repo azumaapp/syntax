@@ -10,6 +10,7 @@ function App() {
     { title: 'movie4', year: 2014 },
     { title: 'movie5', year: 2015 },
   ])
+  
   useEffect(() => {
       console.log('render')
   })
@@ -36,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
