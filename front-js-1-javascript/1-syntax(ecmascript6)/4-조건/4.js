@@ -67,6 +67,8 @@
 //     alert('통과!') // ***
 // } // ***
 
+
+
 // 다중조건문 : &&(And)와 Or(||)의 사용
 // let n5 = 1
 // let n6 = 1
@@ -78,10 +80,25 @@
 //     alert('n5와 n6이 같거나, 또는 n5와 n7가 같거나. 둘중 하나거나 혹은 둘다 거나. (Or 성립)') // ***
 // } // ***
 
+
+
 // 삼항연산자 (= Ternary Operator, Ternary If, Mini If)
 // 문법 : 조건 ? true : false경우
 // let n8 = 10
-// n < 10 ? alert('a는 10보다 작다') : alert('a는 10보다 크거나 같다') // ***
+// n8 < 10 ? console.log('a는 10보다 작다') : console.log('a는 10보다 크거나 같다') // ***
+
+
+
+// // 옵셔널체이닝(?)과 널리쉬코울레싱(??)의 사용법
+// let user1 = {
+//     name: 'yang',
+//     // age: { value: 20 } // age가 주석처리 되었을 때,
+// }
+// // console.log(user1.age.value) // * 이것은 reference error가 난다.
+// console.log(user1.age?.value) // 옵셔널체이닝 (Optional Chaining) : age가 없으면 undefined를 내고 error를 내지 않는다. 단, 에러를 감춰버리기 때문에, 남용하면 안된다.
+// console.log(user1.age ?? '로딩중') // 널리쉬코울레싱 (nullish ) : age가 undefined, null이면 오른쪽을 보여줌.
+
+
 
 // Switch문 : 조건이 많을 때 사용
 // let data = 1;
@@ -98,6 +115,8 @@
 //   default: // else 처리
 //     console.log('Not in [1, 2, 3]');
 // }
+
+
 
 // 연습문제1.
 // banana가 5, apple이 4, people이 3 있다.
