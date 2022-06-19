@@ -32,5 +32,8 @@ NextJS : SCSS
 
 
 
-↓ 최신 깃 위치 : 1. M1MAX맥북(DEV01), 2. INTEL맥북(DEV02), 3. 데스크톱(MS연동), 4. 원믹스4(MS연동)
-2
+↓ 깃 브랜치
+1. M1 MAX 맥 : mac
+2. INTEL 맥 : imac
+3. 데스크톱 : dt
+4. 원믹스4 ; one
