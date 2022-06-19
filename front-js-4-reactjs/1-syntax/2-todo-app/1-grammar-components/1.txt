@@ -1,4 +1,4 @@
-[Install, Component, JSX]
+[Install]
 
 1. 설치
     NodeJS
@@ -25,7 +25,11 @@
 
     export default Hello
 
-1. src/App.js 수정 : 아래를 보고, component, style object, className, JSX 안에 자바스크립트 값 사용하기는 {}로 감싸서, return은 하나의 태그로 감싸기, fragment, 주석, dom, cssom을 이해하자.
+
+
+[Component, JSX]
+
+1. src/App.js 수정 : 아래를 보고, component(dom), style object(cssom), JSX grammar(class대신 className, 값 사용할 때 {}로 감싸기), fragment(return은 하나의 태그로 감싸기)를 익히자.
     import React from 'react'
     import Hello from './Hello'
     const name = 'Yang'
