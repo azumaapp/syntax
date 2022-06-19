@@ -28,13 +28,14 @@ arr.findIndex((item) => {return item > 3})
 
 // [밸류 찾기]
 for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 3) {
-        console.log(arr[i])
+    let item = arr[i]
+    if (item > 3) {
+        console.log(item)
     }
 }
 
-// ForEach문(value, index, arr자체) : 리턴없는 For문 
-// arr.forEach((item) => { if (item > 3) { console.log(item, 'index는...') } })
+// // ForEach문(value, index, arr자체) : 리턴없는 For문 
+// arr.forEach((item) => { if (item > 3) { console.log(item) } })
 
 // // map문(value, index, arr자체) : 일정한 조건으로 배열값을 수정해서, 동일한 길이의 새 배열 만들 때
 // let result = arr.map((item) => { return item  + 1 })

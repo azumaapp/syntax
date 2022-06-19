@@ -6,6 +6,8 @@
 
 
 1. 부모 컴포넌트인 src/App.js 수정
+    상단에 다음을 추가
+        import { useState } from 'react'    
 
     function App() { 밑에 다음을 추가
         const [text, setText] = useState('변경된 또다른 버튼')

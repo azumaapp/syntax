@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     console.log('count: ', count)
-  })
+  }, [count])
 
   const addCount = () => setCount(count + 1)
 

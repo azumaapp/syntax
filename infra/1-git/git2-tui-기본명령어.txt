@@ -1,42 +1,40 @@
 ﻿[실무프로젝트 단위에서 git을 사용하는 방법]
 
 [업데이트 사항]
-* 현재 깃 리스트 : master, develop, branch_name
+* 현재 깃 리스트 : master, develop, feat/1
 * 현재 체크아웃 : master
 
 0. 관련 용어
-    commit
-    pull request
-    fork
-    clone
-    branch
-    checkout
-    merge
-    local branch
-    master branch
-    develop branch
-
-
+    add . : 트럭에 바뀐 택배를 싣는 것 = staging
+    commit -m "" : 택배 송장에 무슨 물건이지 적는 것
+    pull request : develop 브랜치에 merge 해달라고 리뷰자에게 요청
+    clone : 빈 폴더에 해당 develop 브랜치를 복제
+    branch : 나뭇가지, 각 개발자가 해결해야할 이슈마다 다른 브랜치를 갖고 있다
+    checkout : 보고있는 브랜치를 이동
+    merge : 브랜치끼리 병합하는 것
+        develop -> feat/# 해서 중간에 바뀐 최신 develop를 작업중인 자신의 브랜치에 반영해서 PR할 때 충돌 안나도록 하는 거
+    local branch : 내 컴퓨터 안에 있는 브랜치
+    remote branch : 깃허브 안에 있는 브랜치
 
 1. 다수 프로젝트 작업의 흐름
     초기 권한 세팅
         PL : 깃허브에서 세팅 - manage access - collaborator 깃 유저네임으로 추가
-        PG : 메일로 권한 받음 - 깃배쉬에서 user.name 설정 확인
+        PG : 메일로 권한 받음 - git 환경구축 - 클론
 
     fetch : 이슈를 판 뒤, 우선적으로 할 일
-        git fetch origin : 리모트 레포지토리에 있는 git을 전부 fetch한다.
-        * git pull origin : 리모트 레포지토리에 있는 (신규 fetch된) git들로 local을 갱신한다. 
+        git fetch origin develop : 리모트 레포지토리에 있는 git을 전부 fetch한다.
+        * git pull origin develop : 리모트 레포지토리에 있는 (신규 fetch된) git들로 local을 갱신한다. 
             작업 시작하기 전이나 작업중간에 타 브랜치로부터 merge가 완료된 경우 늘 이를 진행한다.
 
     branch : 체크아웃
-        git checkout branch_name : "github등을 통해 만들어져서 local에 이미 존재하는" branch_name이라는 branch에 체크아웃
-        * git checkout -b branch_name : local에 branch_name이라는 branch를 생성하면서 체크아웃
+        git checkout feat/1 : "github등을 통해 만들어져서 local에 이미 존재하는" feat/1이라는 branch에 체크아웃
+        * git checkout -b feat/1 : local에 feat/1이라는 branch를 생성하면서 체크아웃
             이슈를 해결할 브랜치를 github를 통해 만들지 않을 경우 이 방법을 쓴다. 단, 이때는 commit 명에 #이슈번호를 써서 연동해두는 게 좋다.
 
     push : 제조 후엔 add, commit, push. 외워둘 것
         git add 올릴파일명(전부일경우에는 .)
         git commit -m "메시지"
-        git push origin branch_name : remote branch에도 해당 branch를 작성하며 올리기
+        git push origin feat/1 : remote branch에도 해당 branch를 작성하며 올리기
 
     mr : merge request - 병합있을 시 해결 - 리뷰자에 PR 요청 연락 - merged의 흐름
         각자가 브랜치 작업 후 각자 브랜치에 올리기     
@@ -44,34 +42,24 @@
             커밋할 때의 주의사항을 지켰는지 확인한다.
             리뷰자를 지정한다.
             PR을 실시한다.
-        기존 master와 충돌이 일어나서 풀리퀘스트가 안될 경우, 로컬 branch_name에 체크아웃한 상태로 master 최신 브랜치를 선택후 패치 - 머지(충돌 both ok 작업)한 뒤 진행한다.
-            git checkout branch_name
+        기존 master와 충돌이 일어나서 풀리퀘스트가 안될 경우, 로컬 feat/1에 체크아웃한 상태로 master 최신 브랜치를 선택후 패치 - 머지(충돌 both ok 작업)한 뒤 진행한다.
+            git checkout feat/1
             기존소스를 다른 폴더에 백업한다.
-            git merge master : master 소스를 현 branch_name이라는 branch에 머지한다.
+            git merge master : master 소스를 현 feat/1이라는 branch에 머지한다.
             vscode에서 current/incoming/both changes를 통해서 머지를 완료한다.   
         메신져로 리뷰자에게 PR 리뷰를 요청한다고 연락한다.
-        깃허브의 PR창에서 리뷰자가 master 브랜치에 branch_name을 병합해준다. (실습에선 master, 현장에선 develop에 할 것이다)
+        깃허브의 PR창에서 리뷰자가 master 브랜치에 feat/1을 병합해준다. (실습에선 master, 현장에선 develop에 할 것이다)
 
     closing : merged된 후 기존 branch삭제
-        git checkout origin master : 최신 master 깃을 리모트에서 체크아웃하고 master 로컬 branch를 생성한다.
-        git checkout -b master 로컬 깃을 만들면서 checkout해둔다. 
-        git branch -d branch_name : 로컬 branch 삭제. -D는 commit 이력이 남아있어도 강제로 branch를 삭제한다는 옵션임.
-        git push origin --delete branch_name : 원격 remote branch 삭제(1)
+        git checkout master : 최신 master 깃을 리모트에서 체크아웃하고 master 로컬 branch를 생성한다.
+        git branch -d feat/1 : 로컬 branch 삭제. -D는 commit 이력이 남아있어도 강제로 branch를 삭제한다는 옵션임.
+        git push origin --delete feat/1 : 원격 remote branch 삭제(1)
         * 다른 방법으로, 깃허브의 PR창에서 Delete Branch를 눌러서 할 수도 있다.
-        git push origin :branch_name : 원격 remote branch 삭제(2)
-        git checkout -b feature/2 : 새로운 이름(feature/2)의 로컬 branch 생성
         깃허브의 issue를 close한다.
 
-    merge작업 없이 closed 된 후 기존 branch삭제
-        ★기존소스를 다른 폴더에 백업
-        git checkout origin master : ★리모트 master 브랜치를 체크아웃한다.
-        git checkout -b master : ★로컬 master 브랜치를 새 이름으로 만들면서 체크아웃 해둔다.
-        git push origin :branch_name : 기존의 branch_name 리모트 브랜치 삭제
-        git branch -D branch_name : 기존의 branch_name 로컬 브랜치 삭제. 기존 코드도 삭제되니 주의!
-        git checkout -b branch_name2 : 새로운 이름으로 로컬 브랜치를 만들고 기존소스 보면서 다시 작업
-
-
-
+    reopen : 새로운 이슈에 대응
+        git checkout -b feat/2 : 새로운 이름(feature/2)의 로컬 branch 생성
+        
 2. sourcetree
     sourcetree를 사용하면 시각적으로 더 편하게 브랜치 상황을 파악할 수 있음.
     최신 master(=현장에선 develop) 브랜치 merge
@@ -79,7 +67,7 @@
         both changes를 통해서 머지를 완료한다.
 
     branch
-        local에 branch_name이라는 branch를 작성
+        local에 feat/1이라는 branch를 작성
         올릴 파일을 올린뒤 stage에 싣는다. (주의 : 자기 관련된 파일만 올릴 것. 실수로 저장하여 수정된 파일이나, 패키지제이슨, 서버 관련 파일등은 손대더라도 올리지 않는다.)
         커밋명을 입력한 뒤 커밋
         푸쉬버튼을 눌러 remote branch에도 해당 branch를 작성하며 올린다.
@@ -88,22 +76,22 @@
             커밋할 때의 주의사항을 지켰는지 확인한다.
             리뷰자를 지정한다.
             PR을 실시한다.    
-            기존 master와 충돌이 일어나서 풀리퀘스트가 안될 경우, 로컬 branch_name에 체크아웃한 상태로 master 최신 브랜치를 선택후 패치 - 머지(충돌 both ok 작업)한 뒤 진행한다.
-            깃허브의 PR창에서 리뷰자가 master 브랜치에 branch_name을 병합해준다. (실습에선 master, 현장에선 develop에 할 것이다) 
+            기존 master와 충돌이 일어나서 풀리퀘스트가 안될 경우, 로컬 feat/1에 체크아웃한 상태로 master 최신 브랜치를 선택후 패치 - 머지(충돌 both ok 작업)한 뒤 진행한다.
+            깃허브의 PR창에서 리뷰자가 master 브랜치에 feat/1을 병합해준다. (실습에선 master, 현장에선 develop에 할 것이다) 
 
     merge작업 후 기존 branch삭제
         깃허브의 PR창에서 Delete Branch를 누른다.
         최신 master 깃을 리모트에서 체크아웃하고 master 로컬 branch를 생성한다.
         master 로컬 깃을 checkout해둔다. 
-        원격 branch_name remote branch 삭제.
-        로컬 branch_name branch 삭제.
+        원격 feat/1 remote branch 삭제.
+        로컬 feat/1 branch 삭제.
         새로운 이름(feature/2)의 로컬 branch 생성
 
     merge작업 없이 closed 된 후 기존 branch삭제
         ★기존소스를 다른 폴더에 백업후 전체커밋
         ★리모트 디벨로프 브랜치를 체크아웃한다.
         ★로컬 디벨로프 브랜치를 만든다.
-        디벨로프 로컬 branch로 checkout한 뒤 기존의 branch_name 리모트 브랜치, 로컬 브랜치 삭제
+        디벨로프 로컬 branch로 checkout한 뒤 기존의 feat/1 리모트 브랜치, 로컬 브랜치 삭제
         새로운 이름으로 로컬 브랜치를 만들고 기존소스 보면서 다시 작업
 
 
@@ -116,13 +104,10 @@
 
     커밋할 때의 주의사항
         로컬브랜치를 만들때 원칙에 따라 한다. (예: feature/name+?)
-        커밋할 때 : 풀리퀘스트 전가지 가급적 2~4개 정도의 커밋수를 유지하도록 한다. 리뷰자가 빡세니까.
         커밋전에 로그상 버그는 전부 디버깅이 원칙이다.
         커밋전에 콘솔로그 정리
-        커밋전에 주석 일본어 통일 + 남들이 보기 편한 주석으로 해야한다. (모두가 이해할 수 있는 주석)
-        커밋전에 메소드는 앞 주석부분에 @param지정을 해준다.
-        커밋전에 자바스크립트라면 let을 가능한한 const(재할당 불가)로 바꾼다.
-        커밋전에 코드는 긴 코드의 경우 여러줄로 나눠준다.
+        커밋전에 함수는 앞 주석부분에 @param지정을 해준다.
+        커밋전에 자바스크립트라면 let을 가능한한 const(상수변수, 배열, 객체, 함수 주소참조 하는 것들)로 바꾼다.
 
     PR시의 절차
         만일을 대비해 지금까지 한 코드를 어딘가에 잘 백업해두자.
@@ -152,17 +137,4 @@
             상기의 PR(풀 리스퀘스트)시의 절차를 다시 한다.
         [클로즈드 안된 상태에서 수정대응 요청이 올 시]
             기존 디벨로프 커밋과의 충돌시 : 디벨로프 최신화되면서 변한 부분이 있으면, 최신화된 소스를 클릭후 내 브랜치에서 "머지"해서 변화된 곳을 대응한다.
-            기타 변화에 대응 : 하란대로 하기, 이해안되면 정확히 뭘 추가하라고 하는건지 물어보기            
-        [이클립스 로컬호스트 재설정] (현장에서 배울 내용)
-            이클립스 소스 최신 받기
-                이클립스에서 깃 퍼스펙티브를 누름
-                깃 리포지토리에서 indoor-sim 우클릭 후 키리카에
-                데벨로프 깃으로 변경 (충돌 없는지 확인)
-            이클립스에서 기존 indoor-sim과 indoor-sim-ui 기존꺼 파일 삭제 없이 날리기
-                indoor-sim과 indoor-sim-ui을 새걸로 pom.xml 다시 임포트하기
-                indoor-sim-ui의 src/main/resources의 application-develop.properties에서 nasDirectory=\temp\indoor\isdoc(지정한 위치)로 지정
-                위 uri 넣을 때 역슬로 넣어야하는 부분 특히 주의
-                리프레시 : 이클립스 익스플로러 클릭 후 F5
-                클린 : 스프링부트 대쉬보드에서 indoor-sim-ui 우클릭 후 "구성 열기" - 클린 클릭 - 서버 구동 재시작 (클린은 빌드 꼬인 걸 새로 정리)
-                클라이언트에서 dev.env.js에서 localhost:8080으로 도메인 바꾸고 npm start
-                (시뮬레이션, NSA, PDF보존 등) 서버 관련 기능 확인 (F12에서 네트워크 부분 체크 - 로컬 isDoc 폴더에 저장되는지 확인 
+            기타 변화에 대응 : 하란대로 하기, 이해안되면 정확히 뭘 추가하라고 하는건지 물어보기

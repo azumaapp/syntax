@@ -1,0 +1,9 @@
+1. 사전준비
+    node, npm, npx : brew install node
+
+1. react 앱 설치법
+    npx create-react-app app1
+
+1. react 앱 실행
+    cd app1
+    npm start
