@@ -1,4 +1,4 @@
-[설정]
+[VSCode 필수 설정]
 
 1. 공통 필수 확장
     tabnine: 탭으로 코드 자동작성
@@ -7,15 +7,15 @@
     HTML Snippets: HTML 스니펫 지원
     JavaScript(ES6) Code Snippets: JS 스니펫 지원
     Material Icon Theme: HTML, CSS, JS등의 아이콘이나 폴더명을 보다 더 알기 쉽게 변경
+    Txt Syntax: Txt 파일에서 예쁘게 기호별 포인트를 정리해주고 "폴딩, 짝찾기, 주석" 기능도 제공함 "", '', 123, [{()}], *, ..., #
+    Tabnine: AI가 미리 칠 내용을 알려줘 오타도 방지하고, 탭 치면서 하면 더 빠르고 쉽게 코딩 가능
 
 1. 프론트 필수 확장
-    ESLint: EcmaScript에서, 소스코드를 분석하여 프로그램 오류, 버그, 스타일 오류 등을 자동으로 고쳐줌
     Prettier: 탭 위계 선으로 표시해줌
-    Reactjs code snippets: rcc라고 치면 클래스형 컴포넌트, rcs로 치면 함수형 컴포넌트 자동완성(★★rcc, rcs외에도 rcsp, rcsm, rcspm 등 가능))
+    Reactjs code snippets: rcc라고 치면 클래스형 컴포넌트, rcs로 치면 함수형 컴포넌트 자동완성 (★★rcc, rcs외에도 rcsp, rcsm, rcspm 등 가능)
     Auto Import - ES6, TS, JSX, TSX: 빨간 줄에 커서를 대고 자동수정을 누르면, 풀다운이 뜨고 거기서 원 출처를 선택하면 자동으로 import 코드가 생성됨
     Vue, Vue.js Extension Pack, VueHelper, Vetur : Vue 개발 도구
-
-
+    # ESLint: EcmaScript에서, 소스코드를 분석하여 프로그램 오류, 버그, 스타일 오류 등을 자동으로 고쳐줌
 
 1. cwd
     vscode 설정 화면에 들어간다.

@@ -5,7 +5,6 @@
 
 [IDE의 종류]
 1. vscode
-
     - 주로 사용하는 언어
         front : javascript
         back : php, python
@@ -15,19 +14,6 @@
     - 설치 : https://kr.vuejs.org/v2/guide/installation.html
 
     - 참고자료 : https://kr.vuejs.org/v2/guide/index.html
-
-    - 기본 Extension 설치 목록 :
-        vetur : vue 개발용 vscode 패키지
-        html css snippet : html css 자동작성
-        html css support : html문서에 적용된 css 자동추천
-        snippet : python 자동작성
-        language-stylus : css 메타언어 사용
-        VueHelper : vue 코드 자동작성
-        doiuse : css 기술 적용
-        vue.js Extension Pack : vuejs 개발 실행하기 위한 확장팩
-        ESLint : javascript를 위한 정적 검증 도구(공백 등 자동 삭제)
-        material icon theme : 아이콘 가시성 향상
-        Emmet : 태그 닫는 것 자동생성. 요즘은 설치 불필요(기본 설치되어있음)
 
     - 추가 Extenstion 설치 목록 : 
         CSS Peek : html 안의 class="" 를 클릭하면 적용된 CSS로 바로 이동해줌
