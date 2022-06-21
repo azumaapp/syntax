@@ -75,6 +75,6 @@
 
     export default App
 
-1. 중간테스트
+1. 테스트
     cd app1
     npm start

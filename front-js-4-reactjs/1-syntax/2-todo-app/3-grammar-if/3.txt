@@ -1,0 +1,25 @@
+[조건부 렌더링]
+
+1. src/App.js : isSpecial은 isSpecial={true}과 동일한 의미이다.
+    return (
+        <Wrapper>
+            {/* <Hello name="react" color="red" isSpecial={true} /> */}
+            <Hello name="react" color="red" isSpecial />
+            <Hello color="pink" />
+        </Wrapper>
+    )
+
+1. src/Hello.js : { isSpecial && .. }의 경우, 단축 평가 논리 계산법에 의해 isSpecial이 True이면 전체가 True가 되고, False면 전체가 False가 된다.
+    function Hello({ color, name, isSpecial }) {
+        return (
+        <div style={{ color }}>
+            {/* { isSpecial ? <b>★</b> : null } */}
+            { isSpecial && <b>★</b> }
+            안녕하세요 {name}
+        </div>
+        )
+    }
+
+1. 중간테스트
+    cd app1
+    npm start
