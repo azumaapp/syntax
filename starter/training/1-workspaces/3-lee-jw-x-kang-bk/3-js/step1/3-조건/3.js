@@ -30,7 +30,7 @@ if (a > 0 && b < 2 && b >0) {
 
 let orange = 4
 let people = 4
-let apple = 4
+let apple = 3
 
 if (orange >= people) {
     console.log('오렌지로 충분하다')
@@ -39,3 +39,4 @@ if (orange >= people) {
 } else {
     console.log('둘다 불충분하다')
 }
+

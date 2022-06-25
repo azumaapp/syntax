@@ -1,3 +1,0 @@
-todo
-js 중급 문법
-nodejs 등등

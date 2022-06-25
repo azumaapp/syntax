@@ -1,10 +1,6 @@
 ﻿[실무프로젝트 단위에서 git을 사용하는 방법]
 
-[업데이트 사항]
-* 현재 깃 리스트 : master, develop, feat/1
-* 현재 체크아웃 : master
-
-0. 관련 용어
+1. 관련 용어
     add . : 트럭에 바뀐 택배를 싣는 것 = staging
     commit -m "" : 택배 송장에 무슨 물건이지 적는 것
     pull request : develop 브랜치에 merge 해달라고 리뷰자에게 요청
@@ -60,43 +56,7 @@
     reopen : 새로운 이슈에 대응
         git checkout -b feat/2 : 새로운 이름(feature/2)의 로컬 branch 생성
         
-2. sourcetree
-    sourcetree를 사용하면 시각적으로 더 편하게 브랜치 상황을 파악할 수 있음.
-    최신 master(=현장에선 develop) 브랜치 merge
-        기존소스를 다른 폴더에 백업후 master를 머지한다.
-        both changes를 통해서 머지를 완료한다.
-
-    branch
-        local에 feat/1이라는 branch를 작성
-        올릴 파일을 올린뒤 stage에 싣는다. (주의 : 자기 관련된 파일만 올릴 것. 실수로 저장하여 수정된 파일이나, 패키지제이슨, 서버 관련 파일등은 손대더라도 올리지 않는다.)
-        커밋명을 입력한 뒤 커밋
-        푸쉬버튼을 눌러 remote branch에도 해당 branch를 작성하며 올린다.
-        각자가 브랜치 작업 후 각자 브랜치에 올린다.
-        기능이 완료되었으면 기트허브에 들어가 branch에 커밋한 것의 new pull request를 누른다.
-            커밋할 때의 주의사항을 지켰는지 확인한다.
-            리뷰자를 지정한다.
-            PR을 실시한다.    
-            기존 master와 충돌이 일어나서 풀리퀘스트가 안될 경우, 로컬 feat/1에 체크아웃한 상태로 master 최신 브랜치를 선택후 패치 - 머지(충돌 both ok 작업)한 뒤 진행한다.
-            깃허브의 PR창에서 리뷰자가 master 브랜치에 feat/1을 병합해준다. (실습에선 master, 현장에선 develop에 할 것이다) 
-
-    merge작업 후 기존 branch삭제
-        깃허브의 PR창에서 Delete Branch를 누른다.
-        최신 master 깃을 리모트에서 체크아웃하고 master 로컬 branch를 생성한다.
-        master 로컬 깃을 checkout해둔다. 
-        원격 feat/1 remote branch 삭제.
-        로컬 feat/1 branch 삭제.
-        새로운 이름(feature/2)의 로컬 branch 생성
-
-    merge작업 없이 closed 된 후 기존 branch삭제
-        ★기존소스를 다른 폴더에 백업후 전체커밋
-        ★리모트 디벨로프 브랜치를 체크아웃한다.
-        ★로컬 디벨로프 브랜치를 만든다.
-        디벨로프 로컬 branch로 checkout한 뒤 기존의 feat/1 리모트 브랜치, 로컬 브랜치 삭제
-        새로운 이름으로 로컬 브랜치를 만들고 기존소스 보면서 다시 작업
-
-
-
-3. 숙지사항들
+1. 숙지사항들
     핵심내용 : 브랜치, 머지, 풀리퀘스트
         코드는 로컬브랜치로 관리된다. (커밋시 로컬브랜치에 커밋후 리모트 브랜치에 푸시한다)
         머지를 사용한다.

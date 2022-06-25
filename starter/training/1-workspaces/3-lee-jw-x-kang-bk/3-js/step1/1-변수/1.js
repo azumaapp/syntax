@@ -17,8 +17,6 @@ console.log('b: ', b) // 11 ?
 
 
 
-
-
 // 배열(array)타입 : 하나의 변수에 여러개의 값을 넣음, 인덱스를 통해서 구분
 const arr = [1, 2, 5] 
 console.log('arr: ', arr)
