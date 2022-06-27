@@ -55,7 +55,8 @@
 
     export default App
 
-1. logo.svg 삭제
+1. index.js에서 reportWebVitals.js 불러오는 부분 삭제, logo.svg, reportWebVitals.js 삭제
+
 
 1. src/App.css 수정
     .gray-box {
