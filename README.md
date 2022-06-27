@@ -1,6 +1,5 @@
 # 개발 메모
 
-***
 ## Syntax 브랜치 현황  
     M1 맥 : mac  
     인텔 맥 : imac (현 master)  
