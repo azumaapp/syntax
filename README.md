@@ -8,6 +8,7 @@
     원믹스4 : one  
 
 
+
 ## API 리스트  
     유저, 글, 앨범, 사진, 할일 등 종합  
         API: https://jsonplaceholder.typicode.com/users/1  
@@ -26,6 +27,7 @@
         DOC: https://fakestoreapi.com/docs  
 
 
+
 ## Curriculum
     HTML : 태그 A to Z  
     CSS : 도입, 폰트컬러, 폰트사이즈, 폰트 -> 이미지위드, 하이트, 패딩, 마진, 보더, 보더래디어스, 백그라운드컬러 -> 블럭, 인라인, 플렉스 -> 슈도클래스  
@@ -38,7 +40,7 @@
     NextJS : SCSS  
 
 
-***
+
 ## Github Markdown
 ```
 * [ ] 체크박스
