@@ -1,5 +1,4 @@
 [Install]
-
 1. 설치
     NodeJS
         curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
@@ -28,8 +27,7 @@
 
 
 [Component, JSX]
-
-1. src/App.js 수정 : 아래를 보고, component(dom), style object(cssom), ★★JSX grammar(class대신 className, JS 함수나 변수값을 HTML내에 사용할 때 {}로 감싸기, return하는 DOM은 하나의 태그로 감싸기)를 익히자.
+1. src/App.js 수정 : 아래를 보고, component(dom), style object(cssom), ★★JSX grammar(class대신 className, JS 함수나 변수값을 HTML내에 사용할 때 {}로 감싸기, return하는 DOM은 하나의 태그나 fragment로 감싸기)를 익히자.
     import React from 'react'
     import Hello from './Hello'
     const name = 'Yang'

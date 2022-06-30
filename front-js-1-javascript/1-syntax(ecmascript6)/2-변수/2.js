@@ -124,7 +124,7 @@ console.log(clientArray[2].name)
 /* 
     주소참조, 값참조
     let : 값 참조의 경우에는 let이며, 상수일 때만 const
-    const : 주소 참조의 경우에는 항상 const. 배열이나 객체의 경우
+    const : 주소 참조의 경우에는 항상 const. 배열, 객체, 함수의 경우
     현장에서는 변수설정을 const로 가능한 경우에는 모두 const로 해준다.
 */
 const obj = {}

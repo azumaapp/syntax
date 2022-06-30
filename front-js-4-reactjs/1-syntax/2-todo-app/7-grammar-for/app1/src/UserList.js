@@ -1,25 +1,28 @@
 import React, { useEffect } from 'react'
 
 const User = ({ user, onRemove, onToggle }) => {
-  useEffect(() => {
-    console.log(user);
-  })
-  return (
-    <div>
-        <b
-            style={{
-            cursor: 'pointer',
-            color: user.active ? 'green' : 'black'
-            }}
-            onClick={() => onToggle(user.id)}
-        >
-            {user.username}
-        </b>
-        &nbsp;
-        <span>({user.email})</span>
-        <button onClick={() => onRemove(user.id)}>삭제</button>
-    </div>
-  )
+    useEffect(() => {
+        console.log(user);
+    })
+    return (
+        <div>
+            // 배열의 수정 : for if 문 대신 map과 3항연산자 또는 && || 를 사용한다
+            // 여기서는 active 값에 따라 폰트의 색상을 바꿔준다. 
+            // cursor 필드에 마우스를 올렸을때 커서를 손가락 모양으로 바꾼다.
+            <b
+                style={{
+                    cursor: 'pointer',
+                    color: user.active ? 'green' : 'black'
+                }}
+                onClick={() => onToggle(user.id)}
+            >
+                {user.username}
+            </b>
+            &nbsp;
+            <span>({user.email})</span>
+            <button onClick={() => onRemove(user.id)}>삭제</button>
+        </div>
+    )
 }
 
 function UserList({ users, onRemove, onToggle }) {

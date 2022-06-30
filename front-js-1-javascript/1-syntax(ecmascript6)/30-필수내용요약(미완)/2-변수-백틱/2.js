@@ -57,4 +57,26 @@ function act() {
     for (let i = 0; i < userList.length; i++) {
         console.log(userList[i].id)
     }
+
+    // 백틱 명칭
+    console.log('Yang') // Char
+    console.log("Yang") // String
+    console.log(`Yang`) // Backtick
+
+    // 백틱 사용예
+    let name = 'Yang'
+    let job = 'Dev'
+    let age = '30'
+    console.log(`
+        저는 ${name}입니다. 
+        직업은 ${job}입니다. 
+        올해로 ${age}살이 됩니다.
+    `)
+
+    // 백틱에서 삼항연산자 Ternery Operator 문법
+    // `${조건 ? `${true일때의 변수}` : false일때의 변수}`
+    let num1 = 5
+    console.log(
+        `${num1 < 10 ? `0${num1}` : num1}`
+    )
 }
