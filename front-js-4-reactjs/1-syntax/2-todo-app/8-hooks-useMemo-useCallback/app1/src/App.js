@@ -19,20 +19,20 @@ function App() {
     const [users, setUsers] = useState([
         {
             id: 1,
-            username: 'velopert',
-            email: 'public.velopert@gmail.com',
+            username: 'admin',
+            email: 'admin@test.com',
             active: true
         },
         {
             id: 2,
             username: 'tester',
-            email: 'tester@example.com',
+            email: 'test@test.com',
             active: false
         },
         {
             id: 3,
-            username: 'liz',
-            email: 'liz@example.com',
+            username: 'yang',
+            email: 'yang@test.com',
             active: false
         }
     ])
